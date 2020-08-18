@@ -72,7 +72,7 @@ class Cache:
 	def __init__(self, app_name: str):
 		self.app_name: str = str(app_name)
 		self.cache_dir = PathPlus(user_cache_dir(f"{self.app_name}_cache"))
-		self.cache_dir.maybe_make()
+		self.cache_dir.maybe_make(parents=True)
 
 		# Mapping of function names to their caches
 		self.caches: Dict[str, Dict[str, Any]] = {}

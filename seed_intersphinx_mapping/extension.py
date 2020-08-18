@@ -53,9 +53,8 @@ def sphinx_seed_intersphinx_mapping(app: Sphinx, config: Config) -> None:
 	:param config:
 	"""
 
-	config.repository_root = repo_root = os.path.abspath(
-			pathlib.Path(app.srcdir) / config.repository_root
-			)  # type: ignore
+	repo_root = os.path.abspath(pathlib.Path(app.srcdir) / config.repository_root)
+	config.repository_root = repo_root  # type: ignore
 
 	if config.pkg_requirements_source == "requirements":
 		for name, (uri, inv) in seed_intersphinx_mapping(repo_root).items():
