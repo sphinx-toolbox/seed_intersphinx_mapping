@@ -1,0 +1,8 @@
+coverage>=5.1
+coverage_pyver_pragma>=0.0.5
+html5lib
+pytest>=6.0.0
+pytest-cov>=2.8.1
+pytest-datafiles
+pytest-randomly>=3.3.1
+pytest-rerunfailures>=9.0

@@ -1,0 +1,7 @@
+appdirs>=1.4.4
+domdf_python_tools>=0.4.8
+importlib_resources
+packaging>=20.4
+requests>=2.24.0
+slumber>=0.7.1
+sphinx>=3.0.3
