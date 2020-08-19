@@ -50,6 +50,7 @@ extensions = [
 	'sphinx_copybutton',
 	'sphinxcontrib.default_values',
 	'sphinxcontrib.toctree_plus',
+	'seed_intersphinx_mapping',
 	'sphinx_autodoc_typehints',
 	]
 
@@ -67,18 +68,11 @@ suppress_warnings = ['image.nonlocal_uri']
 pygments_style = 'default'
 
 intersphinx_mapping = {
-		'rtd': ('https://docs.readthedocs.io/en/latest/', None),
-		'sphinx': ('https://www.sphinx-doc.org/en/stable/', None),
 		'python': ('https://docs.python.org/3/', None),
-		"NumPy": ('https://numpy.org/doc/stable/', None),
-		"SciPy": ('https://docs.scipy.org/doc/scipy/reference', None),
-		"Pandas": ('https://pandas.pydata.org/docs/', None),
-		"matplotlib": ('https://matplotlib.org', None),
+		'sphinx': ('https://www.sphinx-doc.org/en/stable/', None),
+		'rtd': ('https://docs.readthedocs.io/en/latest/', None),
 		"h5py": ('https://docs.h5py.org/en/latest/', None),
-		"Sphinx": ('https://www.sphinx-doc.org/en/master/', None),
-		"Django": ('https://docs.djangoproject.com/en/dev/', 'https://docs.djangoproject.com/en/dev/_objects/'),
 		"sarge": ('https://sarge.readthedocs.io/en/latest/', None),
-		"attrs": ('https://www.attrs.org/en/stable/', None),
 		}
 
 html_theme = 'domdf_sphinx_theme'
