@@ -93,7 +93,7 @@ def get_sphinx_doc_url(pypi_name: str) -> str:
 		if docs_dict:
 
 			# Follow redirects to get actual URL
-			r = requests.get(list(docs_dict.values())[0])
+			r = requests.head(list(docs_dict.values())[0], allow_redirects=True)
 			if r.status_code != 200:  # pragma: no cover
 				raise ValueError("Documentation URl not found.")
 
@@ -104,7 +104,7 @@ def get_sphinx_doc_url(pypi_name: str) -> str:
 			else:  # pragma: no cover
 				objects_inv_url = f"{docs_url}/objects.inv"
 
-			r = requests.get(objects_inv_url)
+			r = requests.head(objects_inv_url)
 			if r.status_code != 200:
 				raise ValueError("objects.inv not found at url.")
 
