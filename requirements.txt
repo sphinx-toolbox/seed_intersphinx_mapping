@@ -1,5 +1,5 @@
 appdirs>=1.4.4
-domdf_python_tools>=0.4.8
+domdf_python_tools>=0.4.10
 importlib_resources
 packaging>=20.4
 requests>=2.24.0

@@ -51,6 +51,7 @@ extensions = [
 	'sphinxcontrib.default_values',
 	'sphinxcontrib.toctree_plus',
 	'seed_intersphinx_mapping',
+	'autodoc_augment_defaults',
 	'sphinx_autodoc_typehints',
 	]
 
@@ -96,6 +97,7 @@ latex_documents = [('index', f'{slug}.tex', project, author, 'manual')]
 man_pages = [('index', slug, project, [author], 1)]
 texinfo_documents = [('index', slug, project, author, slug, project, 'Miscellaneous')]
 
+toctree_plus_types = {"class", "function", "method", "data"}
 
 autodoc_default_options = {
 		'members': None,  # Include all members (methods).
@@ -103,6 +105,7 @@ autodoc_default_options = {
 		"autosummary": None,
 		'exclude-members': ','.join([   # Exclude "standard" methods.
 				"__dict__",
+				"__class__",
 				"__dir__",
 				"__weakref__",
 				"__module__",
@@ -117,7 +120,7 @@ autodoc_default_options = {
 				"__getnewargs__",
 				"__abstractmethods__",
 				"__hash__",
-				])
+				]),
 		}
 
 
