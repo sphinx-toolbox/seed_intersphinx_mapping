@@ -119,6 +119,19 @@ Installation
 
 .. end installation
 
+
+Enable ``seed_intersphinx_mapping`` by adding "seed_intersphinx_mapping" to the ``extensions`` variable in ``conf.py``:
+
+.. code-block:: python
+
+    extensions = [
+		...
+		"seed_intersphinx_mapping",
+		]
+
+For more information see https://www.sphinx-doc.org/en/master/usage/extensions/index.html#third-party-extensions .
+
+
 .. toctree::
 	:hidden:
 
