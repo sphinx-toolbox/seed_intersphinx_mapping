@@ -2,28 +2,7 @@
 import pytest
 
 # this package
-from seed_intersphinx_mapping.cache import Cache, posargs2kwargs
-
-
-def demo_function(arg1, arg2, arg3):
-	pass
-
-
-@pytest.mark.parametrize(
-		"args, posarg_names, kwargs, expects",
-		[
-				((1, 2, 3), ("arg1", "arg2", "arg3"), {}, {"arg1": 1, "arg2": 2, "arg3": 3}),
-				((1, 2, 3), ("arg1", "arg2", "arg3"), None, {"arg1": 1, "arg2": 2, "arg3": 3}),
-				((1, 2, 3), ("arg1", "arg2", "arg3"), {"arg4": 4}, {"arg1": 1, "arg2": 2, "arg3": 3, "arg4": 4}),
-				((1, 2, 3), demo_function, None, {
-						"arg1": 1,
-						"arg2": 2,
-						"arg3": 3,
-						}),
-				]
-		)
-def test_posargs2kwargs(args, posarg_names, kwargs, expects):
-	assert posargs2kwargs(args, posarg_names, kwargs) == expects
+from seed_intersphinx_mapping.cache import Cache
 
 
 @pytest.fixture(scope="session")

@@ -36,6 +36,8 @@ from domdf_python_tools.paths import PathPlus
 from domdf_python_tools.typing import PathLike
 from packaging.requirements import InvalidRequirement, Requirement
 
+__all__ = ["parse_requirements_txt"]
+
 
 def parse_requirements_txt(base_dir: PathLike) -> List[str]:
 	"""

@@ -40,6 +40,8 @@ from sphinx.environment import BuildEnvironment
 from seed_intersphinx_mapping.cache import cache
 from seed_intersphinx_mapping.core import get_sphinx_doc_url, seed_intersphinx_mapping
 
+__all__ = ["sphinx_seed_intersphinx_mapping", "sphinx_purge_cache", "setup"]
+
 
 def sphinx_seed_intersphinx_mapping(app: Sphinx, config: Config) -> None:
 	"""
@@ -94,7 +96,7 @@ def setup(app: Sphinx) -> Dict[str, Any]:
 	app.add_config_value("pkg_requirements_source", "requirements", "html")
 
 	# Location of repository directory relative to documentation source directory
-	app.add_config_value("repository_root", "..", "html")
+	app.add_config_value("repository_root", "..", "html", types=[str, pathlib.Path, os.PathLike])
 
 	app.connect('config-inited', sphinx_seed_intersphinx_mapping, priority=850)
 

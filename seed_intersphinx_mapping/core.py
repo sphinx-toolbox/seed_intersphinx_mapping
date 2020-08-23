@@ -42,6 +42,8 @@ from domdf_python_tools.typing import PathLike
 from seed_intersphinx_mapping.cache import cache
 from seed_intersphinx_mapping.requirements_parsers import parse_requirements_txt
 
+__all__ = ["search_dict", "get_sphinx_doc_url", "fallback_mapping", "seed_intersphinx_mapping"]
+
 pypi_simple = slumber.API("https://pypi.org/pypi/")
 
 

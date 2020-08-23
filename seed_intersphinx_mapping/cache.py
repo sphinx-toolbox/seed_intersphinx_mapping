@@ -32,39 +32,14 @@ import json
 import shutil
 import warnings
 from functools import wraps
-from typing import Any, Callable, Dict, Iterable, Optional, Union
+from typing import Any, Callable, Dict, Iterable, Optional
 
 # 3rd party
 from appdirs import user_cache_dir
 from domdf_python_tools.paths import PathPlus
+from domdf_python_tools.utils import posargs2kwargs
 
-
-def posargs2kwargs(
-		args: Iterable[Any],
-		posarg_names: Union[Iterable[str], Callable],
-		kwargs: Optional[Dict[str, Any]] = None,
-		) -> Dict[str, Any]:
-	"""
-	Convert the positional args in ``args`` to kwargs, based on the relative order of ``args`` and ``posarg_names``.
-
-	:param args: List of positional arguments provided to a function.
-	:param posarg_names: Either a list of positional argument names for the function, or the function object.
-	:param kwargs: Optional mapping of keyword argument names to values.
-		The arguments will be added to this dictionary if provided.
-	:default kwargs: ``{}``
-
-	:return:
-	"""
-
-	if kwargs is None:
-		kwargs = {}
-
-	if callable(posarg_names):
-		posarg_names = inspect.getfullargspec(posarg_names).args
-
-	kwargs.update(zip(posarg_names, args))
-
-	return kwargs
+__all__ = ["Cache"]
 
 
 class Cache:
