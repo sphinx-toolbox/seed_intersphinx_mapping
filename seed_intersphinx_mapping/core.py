@@ -44,7 +44,7 @@ from seed_intersphinx_mapping.requirements_parsers import parse_requirements_txt
 
 __all__ = ["search_dict", "get_sphinx_doc_url", "fallback_mapping", "seed_intersphinx_mapping", "pypi_api"]
 
-#: :class:`apeye.url.SlumberURL` for the PyPI REST API endpoint.
+#: Instance of :class:`apeye.url.SlumberURL` for the PyPI REST API endpoint.
 pypi_api = SlumberURL("https://pypi.org/pypi/")
 
 
