@@ -1,5 +1,5 @@
 extensions = [
-		'sphinx.ext.intersphinx',
+		"sphinx.ext.intersphinx",
 		"seed_intersphinx_mapping",
 		]
 

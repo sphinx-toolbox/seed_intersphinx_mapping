@@ -98,7 +98,7 @@ def setup(app: Sphinx) -> Dict[str, Any]:
 	# Location of repository directory relative to documentation source directory
 	app.add_config_value("repository_root", "..", "html", types=[str, pathlib.Path, os.PathLike])
 
-	app.connect('config-inited', sphinx_seed_intersphinx_mapping, priority=850)
+	app.connect("config-inited", sphinx_seed_intersphinx_mapping, priority=850)
 
 	# Clear Cache
 	app.connect("env-purge-doc", sphinx_purge_cache)

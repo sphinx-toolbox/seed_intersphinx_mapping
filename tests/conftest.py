@@ -5,10 +5,10 @@ import pathlib
 import pytest
 from sphinx.testing.path import path
 
-pytest_plugins = 'sphinx.testing.fixtures'
+pytest_plugins = "sphinx.testing.fixtures"
 
 
-@pytest.fixture(scope='session')
+@pytest.fixture(scope="session")
 def rootdir():
 	rdir = pathlib.Path(__file__).parent.absolute() / "doc-test"
 	if not (rdir / "test-root").is_dir():

@@ -34,6 +34,6 @@ def test_setup():
 			("repository_root", "..", "html"),
 			]
 	assert app.connections == [
-			('config-inited', sphinx_seed_intersphinx_mapping),
+			("config-inited", sphinx_seed_intersphinx_mapping),
 			("env-purge-doc", sphinx_purge_cache),
 			]

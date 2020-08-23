@@ -56,4 +56,4 @@ def test_cache(testing_cache, capsys, run_number):
 
 	captured = capsys.readouterr()
 	# if the cache wasn't working this would be "Running 2nd function\n"
-	assert captured.out == ""
+	assert captured.out == ''

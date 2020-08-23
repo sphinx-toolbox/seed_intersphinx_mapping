@@ -8,13 +8,13 @@ from tests.test_requirements_parsers import bad_example_requirements, example_re
 
 expected_mapping_a = {
 		"domdf_python_tools": ("https://domdf-python-tools.readthedocs.io/en/latest/", None),
-		'packaging': ('https://packaging.pypa.io/en/latest/', None),
+		"packaging": ("https://packaging.pypa.io/en/latest/", None),
 		"requests": ("https://requests.readthedocs.io/en/master/", None),
-		'slumber': ('https://slumber.readthedocs.io/en/v0.6.0/', None),
+		"slumber": ("https://slumber.readthedocs.io/en/v0.6.0/", None),
 		}
 bad_expected_mapping = {
 		"domdf_python_tools": ("https://domdf-python-tools.readthedocs.io/en/latest/", None),
-		'packaging': ('https://packaging.pypa.io/en/latest/', None),
+		"packaging": ("https://packaging.pypa.io/en/latest/", None),
 		}
 
 

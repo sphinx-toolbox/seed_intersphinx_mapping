@@ -22,7 +22,7 @@ def test_integration(requirements, the_app):
 	assert the_app.env.config.intersphinx_mapping == {
 			"domdf_python_tools":
 					("domdf_python_tools", ("https://domdf-python-tools.readthedocs.io/en/latest/", (None, ))),
-			'packaging': ('packaging', ('https://packaging.pypa.io/en/latest/', (None, ))),
+			"packaging": ("packaging", ("https://packaging.pypa.io/en/latest/", (None, ))),
 			"requests": ("requests", ("https://requests.readthedocs.io/en/master/", (None, ))),
 			"pandas": ("pandas", ("https://pandas.pydata.org/pandas-docs/stable/", (None, ))),
 			}
