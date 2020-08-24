@@ -30,6 +30,7 @@ Core functionality.
 import functools
 import json
 import re
+import warnings
 from typing import Any, Dict, Optional, Pattern, Tuple, Union
 
 # 3rd party
@@ -141,12 +142,12 @@ def seed_intersphinx_mapping(base_dir: PathLike) -> Dict[str, Tuple[str, Optiona
 		try:
 			doc_url = get_sphinx_doc_url(project_name)
 			intersphinx_mapping[project_name] = (doc_url, None)
-		except ValueError:
+		except (ValueError, requests.exceptions.ConnectionError):
 			# Couldn't get it from PyPI, trying fallback mapping
 			if project_name in fallback_mapping():
 				doc_url = fallback_mapping()[project_name]
 				intersphinx_mapping[project_name] = (doc_url, None)
-			# TODO: perhaps emit warning?
-			# TODO: handle user being offline
+			else:
+				warnings.warn(f"Unable to determine documentation url for project {project_name}")
 
 	return intersphinx_mapping

@@ -26,4 +26,7 @@ bad_expected_mapping = {
 		)
 def test_seed_intersphinx_mapping(tmpdir, contents, expects):
 	(PathPlus(tmpdir) / "requirements.txt").write_text(contents)
-	assert seed_intersphinx_mapping(tmpdir) == expects
+
+	with pytest.warns(UserWarning) as w:
+		assert seed_intersphinx_mapping(tmpdir) == expects
+	assert len(w) == 1
