@@ -97,6 +97,9 @@ def test_get_sphinx_doc_url():
 	assert cache.clear(get_sphinx_doc_url)
 	assert not (cache.cache_dir / "get_sphinx_doc_url.json").is_file()
 
+	with pytest.raises(ValueError, match="Documentation URl not found in data from PyPI."):
+		get_sphinx_doc_url("sphinx-prompt")
+
 
 def test_get_sphinx_doc_url_wrapping():
 	assert get_sphinx_doc_url.__name__ == "get_sphinx_doc_url"

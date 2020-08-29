@@ -90,7 +90,7 @@ def get_sphinx_doc_url(pypi_name: str) -> str:
 
 	pypi_data = (pypi_api / pypi_name / "json").get()
 
-	if "project_urls" in pypi_data["info"]:
+	if "project_urls" in pypi_data["info"] and pypi_data["info"]["project_urls"]:
 		docs_dict = search_dict(pypi_data["info"]["project_urls"], r"^[dD]oc(s|umentation)")
 		if docs_dict:
 
