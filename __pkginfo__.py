@@ -39,7 +39,7 @@ __copyright__ = """
 2020 Dominic Davis-Foster <dominic@davis-foster.co.uk>
 """
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 modname = "seed_intersphinx_mapping"
 pypi_name = "seed_intersphinx_mapping"
 import_name = "seed_intersphinx_mapping"
