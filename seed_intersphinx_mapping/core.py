@@ -43,10 +43,10 @@ from domdf_python_tools.typing import PathLike
 from seed_intersphinx_mapping.cache import cache
 from seed_intersphinx_mapping.requirements_parsers import parse_requirements_txt
 
-__all__ = ["search_dict", "get_sphinx_doc_url", "fallback_mapping", "seed_intersphinx_mapping", "pypi_api"]
+__all__ = ["search_dict", "get_sphinx_doc_url", "fallback_mapping", "seed_intersphinx_mapping", "PYPI_API"]
 
 #: Instance of :class:`apeye.url.SlumberURL` for the PyPI REST API endpoint.
-pypi_api = SlumberURL("https://pypi.org/pypi/")
+PYPI_API = SlumberURL("https://pypi.org/pypi/")
 
 
 def search_dict(dictionary: Dict[str, Any], regex: Union[str, Pattern]) -> Dict[str, Any]:
@@ -88,7 +88,7 @@ def get_sphinx_doc_url(pypi_name: str) -> str:
 		| :exc:`slumber.exceptions.HttpNotFoundError` if the project could not be found on PyPI.
 	"""
 
-	pypi_data = (pypi_api / pypi_name / "json").get()
+	pypi_data = (PYPI_API / pypi_name / "json").get()
 
 	if "project_urls" in pypi_data["info"] and pypi_data["info"]["project_urls"]:
 		docs_dict = search_dict(pypi_data["info"]["project_urls"], r"^[dD]oc(s|umentation)")
