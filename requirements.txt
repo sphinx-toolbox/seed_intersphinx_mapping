@@ -1,4 +1,4 @@
-apeye
+apeye>=0.1.0
 appdirs>=1.4.4
 domdf_python_tools>=0.4.10
 importlib_resources
