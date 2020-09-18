@@ -25,74 +25,75 @@ seed_intersphinx_mapping
 	* - Other
 	  - |license| |language| |requires| |pre_commit|
 
-.. |docs| image:: https://img.shields.io/readthedocs/seed_intersphinx_mapping/latest?logo=read-the-docs
-	:target: https://seed_intersphinx_mapping.readthedocs.io/en/latest/?badge=latest
-	:alt: Documentation Status
+.. |docs| rtfd-shield::
+	:project: seed_intersphinx_mapping
+	:alt: Documentation Build Status
 
-.. |docs_check| image:: https://github.com/domdfcoding/seed_intersphinx_mapping/workflows/Docs%20Check/badge.svg
-	:target: https://github.com/domdfcoding/seed_intersphinx_mapping/actions?query=workflow%3A%22Docs+Check%22
+.. |docs_check| actions-shield::
+	:workflow: Docs Check
 	:alt: Docs Check Status
 
-.. |travis| image:: https://img.shields.io/travis/com/domdfcoding/seed_intersphinx_mapping/master?logo=travis
-	:target: https://travis-ci.com/domdfcoding/seed_intersphinx_mapping
+.. |travis| travis-shield::
+	:travis-site: com
 	:alt: Travis Build Status
 
-.. |actions_windows| image:: https://github.com/domdfcoding/seed_intersphinx_mapping/workflows/Windows%20Tests/badge.svg
-	:target: https://github.com/domdfcoding/seed_intersphinx_mapping/actions?query=workflow%3A%22Windows+Tests%22
+.. |actions_windows| actions-shield::
+	:workflow: Windows Tests
 	:alt: Windows Tests Status
 
-.. |actions_macos| image:: https://github.com/domdfcoding/seed_intersphinx_mapping/workflows/macOS%20Tests/badge.svg
-	:target: https://github.com/domdfcoding/seed_intersphinx_mapping/actions?query=workflow%3A%22macOS+Tests%22
+.. |actions_macos| actions-shield::
+	:workflow: macOS Tests
 	:alt: macOS Tests Status
 
-.. |requires| image:: https://requires.io/github/domdfcoding/seed_intersphinx_mapping/requirements.svg?branch=master
-	:target: https://requires.io/github/domdfcoding/seed_intersphinx_mapping/requirements/?branch=master
+.. |requires| requires-io-shield::
 	:alt: Requirements Status
 
-.. |coveralls| image:: https://img.shields.io/coveralls/github/domdfcoding/seed_intersphinx_mapping/master?logo=coveralls
-	:target: https://coveralls.io/github/domdfcoding/seed_intersphinx_mapping?branch=master
+.. |coveralls| coveralls-shield::
 	:alt: Coverage
 
-.. |codefactor| image:: https://img.shields.io/codefactor/grade/github/domdfcoding/seed_intersphinx_mapping?logo=codefactor
-	:target: https://www.codefactor.io/repository/github/domdfcoding/seed_intersphinx_mapping
+.. |codefactor| codefactor-shield::
 	:alt: CodeFactor Grade
 
-.. |pypi-version| image:: https://img.shields.io/pypi/v/seed_intersphinx_mapping
-	:target: https://pypi.org/project/seed_intersphinx_mapping/
+.. |pypi-version| pypi-shield::
+	:project: seed_intersphinx_mapping
+	:version:
 	:alt: PyPI - Package Version
 
-.. |supported-versions| image:: https://img.shields.io/pypi/pyversions/seed_intersphinx_mapping?logo=python&logoColor=white
-	:target: https://pypi.org/project/seed_intersphinx_mapping/
+.. |supported-versions| pypi-shield::
+	:project: seed_intersphinx_mapping
+	:py-versions:
 	:alt: PyPI - Supported Python Versions
 
-.. |supported-implementations| image:: https://img.shields.io/pypi/implementation/seed_intersphinx_mapping
-	:target: https://pypi.org/project/seed_intersphinx_mapping/
+.. |supported-implementations| pypi-shield::
+	:project: seed_intersphinx_mapping
+	:implementations:
 	:alt: PyPI - Supported Implementations
 
-.. |wheel| image:: https://img.shields.io/pypi/wheel/seed_intersphinx_mapping
-	:target: https://pypi.org/project/seed_intersphinx_mapping/
+.. |wheel| pypi-shield::
+	:project: seed_intersphinx_mapping
+	:wheel:
 	:alt: PyPI - Wheel
 
-.. |license| image:: https://img.shields.io/github/license/domdfcoding/seed_intersphinx_mapping
-	:target: https://github.com/domdfcoding/seed_intersphinx_mapping/blob/master/LICENSE
+.. |license| github-shield::
+	:license:
 	:alt: License
 
-.. |language| image:: https://img.shields.io/github/languages/top/domdfcoding/seed_intersphinx_mapping
+.. |language| github-shield::
+	:top-language:
 	:alt: GitHub top language
 
-.. |commits-since| image:: https://img.shields.io/github/commits-since/domdfcoding/seed_intersphinx_mapping/v0.1.1
-	:target: https://github.com/domdfcoding/seed_intersphinx_mapping/pulse
+.. |commits-since| github-shield::
+	:commits-since: v0.1.1
 	:alt: GitHub commits since tagged version
 
-.. |commits-latest| image:: https://img.shields.io/github/last-commit/domdfcoding/seed_intersphinx_mapping
-	:target: https://github.com/domdfcoding/seed_intersphinx_mapping/commit/master
+.. |commits-latest| github-shield::
+	:last-commit:
 	:alt: GitHub last commit
 
-.. |maintained| image:: https://img.shields.io/maintenance/yes/2020
+.. |maintained| maintained-shield:: 2020
 	:alt: Maintenance
 
-.. |pre_commit| image:: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white
-	:target: https://github.com/pre-commit/pre-commit
+.. |pre_commit| pre-commit-shield::
 	:alt: pre-commit
 
 .. end shields
@@ -102,34 +103,14 @@ Installation
 
 .. start installation
 
-.. tabs::
-
-	.. tab:: from PyPI
-
-		.. prompt:: bash
-
-			python3 -m pip install seed_intersphinx_mapping --user
-
-
-	.. tab:: from GitHub
-
-		.. prompt:: bash
-
-			python3 -m pip install git+https://github.com/domdfcoding/seed_intersphinx_mapping@master --user
+.. installation:: seed_intersphinx_mapping
+	:pypi:
+	:github:
 
 .. end installation
 
 
-Enable ``seed_intersphinx_mapping`` by adding "seed_intersphinx_mapping" to the ``extensions`` variable in ``conf.py``:
-
-.. code-block:: python
-
-    extensions = [
-		...
-		"seed_intersphinx_mapping",
-		]
-
-For more information see https://www.sphinx-doc.org/en/master/usage/extensions/index.html#third-party-extensions .
+.. extensions:: seed_intersphinx_mapping
 
 
 .. toctree::
@@ -146,7 +127,7 @@ For more information see https://www.sphinx-doc.org/en/master/usage/extensions/i
 
 .. toctree::
 	:maxdepth: 3
-	:caption: Documentation
+	:caption: Contributing
 
 	contributing
 	Source

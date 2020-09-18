@@ -28,7 +28,7 @@ seed_intersphinx_mapping
 
 .. |docs| image:: https://img.shields.io/readthedocs/seed_intersphinx_mapping/latest?logo=read-the-docs
 	:target: https://seed_intersphinx_mapping.readthedocs.io/en/latest/?badge=latest
-	:alt: Documentation Status
+	:alt: Documentation Build Status
 
 .. |docs_check| image:: https://github.com/domdfcoding/seed_intersphinx_mapping/workflows/Docs%20Check/badge.svg
 	:target: https://github.com/domdfcoding/seed_intersphinx_mapping/actions?query=workflow%3A%22Docs+Check%22
