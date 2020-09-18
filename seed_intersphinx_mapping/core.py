@@ -46,7 +46,7 @@ from seed_intersphinx_mapping.requirements_parsers import parse_requirements_txt
 __all__ = ["search_dict", "get_sphinx_doc_url", "fallback_mapping", "seed_intersphinx_mapping", "PYPI_API"]
 
 #: Instance of :class:`apeye.url.SlumberURL` for the PyPI REST API endpoint.
-PYPI_API = SlumberURL("https://pypi.org/pypi/")
+PYPI_API: SlumberURL = SlumberURL("https://pypi.org/pypi/", timeout=10)
 
 
 def search_dict(dictionary: Dict[str, Any], regex: Union[str, Pattern]) -> Dict[str, Any]:
@@ -96,7 +96,7 @@ def get_sphinx_doc_url(pypi_name: str) -> str:
 		if docs_dict:
 
 			# Follow redirects to get actual URL
-			r = requests.head(list(docs_dict.values())[0], allow_redirects=True)
+			r = requests.head(list(docs_dict.values())[0], allow_redirects=True, timeout=10)
 			if r.status_code != 200:  # pragma: no cover
 				raise ValueError("Documentation URl not found.")
 
