@@ -88,7 +88,8 @@ def get_sphinx_doc_url(pypi_name: str) -> str:
 		| :exc:`slumber.exceptions.HttpNotFoundError` if the project could not be found on PyPI.
 	"""
 
-	pypi_data = (PYPI_API / pypi_name / "json").get()
+	pypi_url: SlumberURL = PYPI_API / pypi_name / "json"
+	pypi_data = pypi_url.get()
 
 	if "project_urls" in pypi_data["info"] and pypi_data["info"]["project_urls"]:
 		docs_dict = search_dict(pypi_data["info"]["project_urls"], r"^[dD]oc(s|umentation)")

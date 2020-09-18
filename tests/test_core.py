@@ -3,7 +3,7 @@ import re
 
 # 3rd party
 import pytest
-import slumber
+import slumber  # type: ignore
 
 # this package
 from seed_intersphinx_mapping import cache
