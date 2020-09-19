@@ -143,7 +143,7 @@ def seed_intersphinx_mapping(base_dir: PathLike) -> Dict[str, Tuple[str, Optiona
 		try:
 			doc_url = get_sphinx_doc_url(project_name)
 			intersphinx_mapping[project_name] = (doc_url, None)
-		except (ValueError, requests.exceptions.ConnectionError):
+		except (ValueError, requests.exceptions.ConnectionError, requests.exceptions.Timeout):
 			# Couldn't get it from PyPI, trying fallback mapping
 			if project_name in fallback_mapping():
 				doc_url = fallback_mapping()[project_name]
