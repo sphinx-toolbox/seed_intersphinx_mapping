@@ -11,6 +11,7 @@ packaging>=20.4
 requests>=2.24.0
 slumber>=0.7.1
 sphinx>=3.0.3
+sphinxcontrib-domaintools==0.3
 """
 
 expected_requirements_a = [
@@ -19,6 +20,7 @@ expected_requirements_a = [
 		"requests",
 		"slumber",
 		"sphinx",
+		"sphinxcontrib-domaintools",
 		]
 
 bad_example_requirements = """\
@@ -27,12 +29,14 @@ packaging>=20.4
 ?==requests>=2.24.0
 slumber$$$$0.7.1
 sphinx>=3.0.3
+sphinxcontrib-domaintools==0.3
 """
 
 bad_expected_requirements = [
 		"domdf_python_tools",
 		"packaging",
 		"sphinx",
+		"sphinxcontrib-domaintools",
 		]
 
 

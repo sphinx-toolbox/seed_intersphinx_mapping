@@ -11,10 +11,12 @@ expected_mapping_a = {
 		"packaging": ("https://packaging.pypa.io/en/latest/", None),
 		"requests": ("https://requests.readthedocs.io/en/master/", None),
 		"slumber": ("https://slumber.readthedocs.io/en/v0.6.0/", None),
+		'sphinx': ('https://www.sphinx-doc.org/en/3.x/', None),
 		}
 bad_expected_mapping = {
 		"domdf_python_tools": ("https://domdf-python-tools.readthedocs.io/en/latest/", None),
 		"packaging": ("https://packaging.pypa.io/en/latest/", None),
+		'sphinx': ('https://www.sphinx-doc.org/en/3.x/', None),
 		}
 
 
@@ -24,9 +26,9 @@ bad_expected_mapping = {
 				(bad_example_requirements, bad_expected_mapping),
 				]
 		)
-def test_seed_intersphinx_mapping(tmpdir, contents, expects):
+def test_seed_intersphinx_mapping(tmpdir, contents, expects, capsys):
 	(PathPlus(tmpdir) / "requirements.txt").write_text(contents)
 
-	with pytest.warns(UserWarning) as w:
-		assert seed_intersphinx_mapping(tmpdir) == expects
-	assert len(w) == 1
+	assert seed_intersphinx_mapping(tmpdir) == expects
+	assert capsys.readouterr(
+	).err == "WARNING: Unable to determine documentation url for project sphinxcontrib-domaintools\n"

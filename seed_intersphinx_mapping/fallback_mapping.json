@@ -1,4 +1,7 @@
 {
   "slumber": "https://slumber.readthedocs.io/en/v0.6.0/",
-  "packaging": "https://packaging.pypa.io/en/latest/"
+  "packaging": "https://packaging.pypa.io/en/latest/",
+  "importlib_resources": "https://importlib-resources.readthedocs.io/en/latest/",
+  "sphinx": "https://www.sphinx-doc.org/en/3.x/",
+  "typing_extensions": "https://docs.python.org/3/"
 }
