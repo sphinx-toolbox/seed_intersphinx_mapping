@@ -30,7 +30,6 @@ Core functionality.
 import functools
 import json
 import re
-import warnings
 from typing import Any, Dict, Optional, Pattern, Tuple, Union
 
 # 3rd party
@@ -38,6 +37,7 @@ import importlib_resources
 import requests
 from apeye.url import SlumberURL
 from domdf_python_tools.typing import PathLike
+from domdf_python_tools.utils import stderr_writer
 
 # this package
 from seed_intersphinx_mapping.cache import cache
@@ -149,6 +149,6 @@ def seed_intersphinx_mapping(base_dir: PathLike) -> Dict[str, Tuple[str, Optiona
 				doc_url = fallback_mapping()[project_name]
 				intersphinx_mapping[project_name] = (doc_url, None)
 			else:
-				warnings.warn(f"Unable to determine documentation url for project {project_name}")
+				stderr_writer(f"WARNING: Unable to determine documentation url for project {project_name}")
 
 	return intersphinx_mapping
