@@ -37,6 +37,7 @@ extensions = [
 	'sphinx_toolbox',
 	'sphinx_toolbox.more_autodoc',
 	'sphinx_toolbox.more_autosummary',
+	'sphinx_toolbox.tweaks.param_dash',
 	'sphinx.ext.intersphinx',
 	'sphinx.ext.mathjax',
 	'sphinxcontrib.httpdomain',
@@ -48,7 +49,6 @@ extensions = [
 	'sphinxcontrib.default_values',
 	'sphinxcontrib.toctree_plus',
 	'seed_intersphinx_mapping',
-	'sphinx.ext.autosectionlabel',
 	]
 
 sphinxemoji_style = 'twemoji'
