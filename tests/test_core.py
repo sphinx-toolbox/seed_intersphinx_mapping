@@ -2,8 +2,8 @@
 import re
 
 # 3rd party
+import apeye.slumber_url
 import pytest
-import slumber  # type: ignore
 
 # this package
 from seed_intersphinx_mapping import cache
@@ -83,7 +83,7 @@ def test_get_sphinx_doc_url():
 	assert get_sphinx_doc_url("domdf-python-tools") == "https://domdf-python-tools.readthedocs.io/en/latest/"
 
 	with pytest.raises(
-			slumber.exceptions.HttpNotFoundError,
+			apeye.slumber_url.HttpNotFoundError,
 			match="Client Error 404: https://pypi.org/pypi/domdf_python_toolsz/json/"
 			):
 		get_sphinx_doc_url("domdf_python_toolsz")
