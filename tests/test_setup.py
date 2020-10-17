@@ -1,6 +1,6 @@
 # this package
 import seed_intersphinx_mapping
-from seed_intersphinx_mapping.extension import sphinx_purge_cache, sphinx_seed_intersphinx_mapping
+from seed_intersphinx_mapping.extension import sphinx_seed_intersphinx_mapping
 
 
 class MockApp:
@@ -33,7 +33,4 @@ def test_setup():
 			("pkg_requirements_source", "requirements", "html"),
 			("repository_root", "..", "html"),
 			]
-	assert app.connections == [
-			("config-inited", sphinx_seed_intersphinx_mapping),
-			("env-purge-doc", sphinx_purge_cache),
-			]
+	assert app.connections == [("config-inited", sphinx_seed_intersphinx_mapping)]
