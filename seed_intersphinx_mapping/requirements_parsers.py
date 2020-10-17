@@ -7,7 +7,7 @@ Contains functions for parsing requirements.
 .. TODO:: Other formats, e.g. setup.cfg, flit, poetry
 """
 #
-#  Copyright (c) 2020 Dominic Davis-Foster <dominic@davis-foster.co.uk>
+#  Copyright © 2020 Dominic Davis-Foster <dominic@davis-foster.co.uk>
 #
 #  Permission is hereby granted, free of charge, to any person obtaining a copy
 #  of this software and associated documentation files (the "Software"), to deal

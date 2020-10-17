@@ -112,6 +112,58 @@ Installation
 
 .. extensions:: seed_intersphinx_mapping
 
+Configuration
+-----------------
+
+.. confval:: pkg_requirements_source
+
+	The requirements source.
+
+	* If this is a list, it is taken to be a list of directories
+	  in which to search for ``requirements.txt`` files.
+	  Any files found will be used to compile the list of requirements.
+
+	* If this is the string ``requirements``,
+	  the list of requirements will be determined from the ``requirements.txt`` file
+	  in the  directory given by the :confval:`pkg_requirements_source` option.
+
+	Currently, no other sources are supported.
+
+
+.. confval:: repository_root
+
+	The path to the repository root, relative to the Sphinx source directory.
+
+	E.g., for this repository structure:
+
+	::
+
+		.
+		├── LICENSE
+		├── README.rst
+		├── doc-source  # <- this is the Sphinx source directory
+		|   ├── index.rst
+		|   └── conf.py
+		├── requirements.txt  # <- this is the file containing the requirements
+		├── seed_intersphinx_mapping
+		├── setup.py
+		├── tests
+		└── tox.ini
+
+	the value would be ``..``, which is the default.
+
+
+Caching
+--------
+
+``seed_intersphinx_mapping`` caches the documentation URLs for PyPI packages.
+The cache can be cleared as follows:
+
+.. prompt:: bash
+
+	python3 -m seed_intersphinx_mapping
+
+.. TODO:: automatic cache clearing
 
 .. toctree::
 	:hidden:

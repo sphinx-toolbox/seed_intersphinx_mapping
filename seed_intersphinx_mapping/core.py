@@ -5,7 +5,7 @@
 Core functionality.
 """
 #
-#  Copyright (c) 2020 Dominic Davis-Foster <dominic@davis-foster.co.uk>
+#  Copyright © 2020 Dominic Davis-Foster <dominic@davis-foster.co.uk>
 #
 #  Permission is hereby granted, free of charge, to any person obtaining a copy
 #  of this software and associated documentation files (the "Software"), to deal
@@ -84,7 +84,7 @@ def get_sphinx_doc_url(pypi_name: str) -> str:
 	:return: The URl of the project's Sphinx documentation.
 
 	:raises: | :exc:`ValueError` if the url could not be determined.
-		| :exc:`slumber.exceptions.HttpNotFoundError` if the project could not be found on PyPI.
+		| :exc:`apeye.slumber_url.HttpNotFoundError` if the project could not be found on PyPI.
 	"""
 
 	pypi_url: SlumberURL = PYPI_API / pypi_name / "json"
