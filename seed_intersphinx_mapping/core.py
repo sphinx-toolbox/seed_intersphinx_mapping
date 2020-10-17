@@ -71,14 +71,13 @@ def get_sphinx_doc_url(pypi_name: str) -> str:
 	Not all projects include this URl in their distributions and therefore it may not be possible to determine it from PyPI.
 
 	Responses are cached to prevent overloading the PyPI server.
-	If using the Sphinx extension the cache is cleared whenever a document is rebuilt.
-	It can also be cleared manually as follows:
+	The cache can be cleared as follows:
 
-	.. code-block:: python
+	.. prompt:: bash
 
-		>>> from seed_intersphinx_mapping import cache, get_sphinx_doc_url
-		>>> cache.clear(get_sphinx_doc_url)
-		True
+		python3 -m seed_intersphinx_mapping
+
+	.. TODO:: automatic cache clearing
 
 	:param pypi_name: The name of the project on PyPI
 

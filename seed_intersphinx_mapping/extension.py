@@ -69,17 +69,6 @@ def sphinx_seed_intersphinx_mapping(app: Sphinx, config: Config) -> None:
 	# input(">")
 
 
-def sphinx_purge_cache(app: Sphinx, env: BuildEnvironment, docname):
-	"""
-	Clear any cached URLs.
-
-	:param app: The sphinx application.
-	:param env: The sphinx build environment.
-	"""
-
-	cache.clear(get_sphinx_doc_url)
-
-
 def setup(app: Sphinx) -> Dict[str, Any]:
 	"""
 	Setup Sphinx Extension.
@@ -99,9 +88,6 @@ def setup(app: Sphinx) -> Dict[str, Any]:
 	app.add_config_value("repository_root", "..", "html", types=[str, pathlib.Path, os.PathLike])
 
 	app.connect("config-inited", sphinx_seed_intersphinx_mapping, priority=850)
-
-	# Clear Cache
-	app.connect("env-purge-doc", sphinx_purge_cache)
 
 	return {
 			"version": __version__,
