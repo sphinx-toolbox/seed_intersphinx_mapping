@@ -26,13 +26,13 @@ CLI entry point for seed_intersphinx_mapping.
 #  OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
-__all__ = ["clear_cache"]
-
 # stdlib
 import sys
 
 # this package
 from seed_intersphinx_mapping import cache, get_sphinx_doc_url
+
+__all__ = ["clear_cache"]
 
 
 def clear_cache():
