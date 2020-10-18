@@ -81,7 +81,7 @@ seed_intersphinx_mapping
 .. |language| image:: https://img.shields.io/github/languages/top/domdfcoding/seed_intersphinx_mapping
 	:alt: GitHub top language
 
-.. |commits-since| image:: https://img.shields.io/github/commits-since/domdfcoding/seed_intersphinx_mapping/v0.2.0
+.. |commits-since| image:: https://img.shields.io/github/commits-since/domdfcoding/seed_intersphinx_mapping/v0.3.0
 	:target: https://github.com/domdfcoding/seed_intersphinx_mapping/pulse
 	:alt: GitHub commits since tagged version
 
