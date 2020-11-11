@@ -33,6 +33,7 @@ stages:
 jobs:
   allow_failures:
     - arch: arm64
+    - python: ['3.9-dev']
 
   exclude:
     - python: '3.7'
