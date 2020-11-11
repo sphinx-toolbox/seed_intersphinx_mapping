@@ -101,7 +101,7 @@ def get_sphinx_doc_url(pypi_name: str) -> str:
 
 			docs_url = r.url
 
-			if docs_url.endswith("/"):
+			if docs_url.endswith('/'):
 				objects_inv_url = f"{docs_url}objects.inv"
 			else:  # pragma: no cover
 				objects_inv_url = f"{docs_url}/objects.inv"

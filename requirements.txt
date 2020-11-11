@@ -1,7 +1,6 @@
 apeye>=0.1.0
-appdirs>=1.4.4
-domdf_python_tools>=0.4.10
-importlib_resources>=3.0.0
+domdf-python-tools>=0.4.10
+importlib-resources>=3.0.0
 packaging>=20.4
 requests>=2.24.0
 sphinx>=3.0.3

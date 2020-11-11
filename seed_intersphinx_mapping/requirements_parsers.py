@@ -48,8 +48,8 @@ def parse_requirements_txt(base_dir: PathLike) -> List[str]:
 
 	requirements = []
 
-	for line in (PathPlus(base_dir) / "requirements.txt").read_text().split("\n"):
-		if not line.startswith("#"):
+	for line in (PathPlus(base_dir) / "requirements.txt").read_text().split('\n'):
+		if not line.startswith('#'):
 			try:
 				requirements.append(Requirement(line).name)
 			except InvalidRequirement:
