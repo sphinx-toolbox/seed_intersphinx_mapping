@@ -8,7 +8,7 @@ import re
 import sys
 
 sys.path.append(os.path.abspath('.'))
-sys.path.append(os.path.abspath('..'))
+sys.path.append(os.path.abspath(".."))
 
 # this package
 from __pkginfo__ import __version__
@@ -27,65 +27,62 @@ project = "seed_intersphinx_mapping"
 slug = re.sub(r'\W+', '-', project.lower())
 release = version = __version__
 copyright = "2020 Dominic Davis-Foster"  # pylint: disable=redefined-builtin
-language = 'en'
+language = "en"
 package_root = "seed_intersphinx_mapping"
 
 extensions = [
-		'sphinx_toolbox',
-		'sphinx_toolbox.more_autodoc',
-		'sphinx_toolbox.more_autosummary',
-		'sphinx_toolbox.tweaks.param_dash',
-		'sphinx.ext.intersphinx',
-		'sphinx.ext.mathjax',
-		'sphinxcontrib.httpdomain',
-		'sphinxcontrib.extras_require',
-		'sphinx.ext.todo',
-		'sphinxemoji.sphinxemoji',
-		'notfound.extension',
-		'sphinx_copybutton',
-		'sphinxcontrib.default_values',
-		'sphinxcontrib.toctree_plus',
-		'seed_intersphinx_mapping',
+		"sphinx_toolbox",
+		"sphinx_toolbox.more_autodoc",
+		"sphinx_toolbox.more_autosummary",
+		"sphinx_toolbox.tweaks.param_dash",
+		"sphinx.ext.intersphinx",
+		"sphinx.ext.mathjax",
+		"sphinxcontrib.httpdomain",
+		"sphinxcontrib.extras_require",
+		"sphinx.ext.todo",
+		"sphinxemoji.sphinxemoji",
+		"notfound.extension",
+		"sphinx_copybutton",
+		"sphinxcontrib.default_values",
+		"sphinxcontrib.toctree_plus",
+		"seed_intersphinx_mapping",
 		]
 
-sphinxemoji_style = 'twemoji'
+sphinxemoji_style = "twemoji"
 todo_include_todos = bool(os.environ.get("SHOW_TODOS", 0))
 gitstamp_fmt = "%d %b %Y"
 
-templates_path = ['_templates']
-html_static_path = ['_static']
-source_suffix = '.rst'
+templates_path = ["_templates"]
+html_static_path = ["_static"]
+source_suffix = ".rst"
 exclude_patterns = []
 
-master_doc = 'index'
-suppress_warnings = ['image.nonlocal_uri']
-pygments_style = 'default'
+master_doc = "index"
+suppress_warnings = ["image.nonlocal_uri"]
+pygments_style = "default"
 
 intersphinx_mapping = {
-		'python': ('https://docs.python.org/3/', None),
-		'sphinx': ('https://www.sphinx-doc.org/en/stable/', None),
+		"python": ("https://docs.python.org/3/", None),
+		"sphinx": ("https://www.sphinx-doc.org/en/stable/", None),
 		}
 
-html_theme = 'domdf_sphinx_theme'
-html_theme_options = {
-		'logo_only': False,
-		}
+html_theme = "domdf_sphinx_theme"
+html_theme_options = {"logo_only": False}
 html_theme_path = ["../.."]
 html_show_sourcelink = True  # True will show link to source
 
 html_context = {
-		'display_github': True,
-		'github_user': 'domdfcoding',
-		'github_repo': 'seed_intersphinx_mapping',
-		'github_version': 'master',
-		'conf_py_path': '/doc-source/',
+		"display_github": True,
+		"github_user": "domdfcoding",
+		"github_repo": "seed_intersphinx_mapping",
+		"github_version": "master",
+		"conf_py_path": "/doc-source/",
 		}
-
 htmlhelp_basename = slug
 
-latex_documents = [('index', f'{slug}.tex', project, author, 'manual')]
-man_pages = [('index', slug, project, [author], 1)]
-texinfo_documents = [('index', slug, project, author, slug, project, 'Miscellaneous')]
+latex_documents = [("index", f'{slug}.tex', project, author, "manual")]
+man_pages = [("index", slug, project, [author], 1)]
+texinfo_documents = [("index", slug, project, author, slug, project, "Miscellaneous")]
 
 toctree_plus_types = {
 		"class",
@@ -129,9 +126,9 @@ autodoc_exclude_members = [   # Exclude "standard" methods.
 		"__hash__",
 		]
 autodoc_default_options = {
-		'members': None,  # Include all members (methods).
-		'special-members': None,
+		"members": None,  # Include all members (methods).
+		"special-members": None,
 		"autosummary": None,
 		"show-inheritance": None,
-		'exclude-members': ','.join(autodoc_exclude_members),
+		"exclude-members": ','.join(autodoc_exclude_members),
 		}
