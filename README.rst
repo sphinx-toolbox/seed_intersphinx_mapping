@@ -35,7 +35,7 @@ seed_intersphinx_mapping
 	:alt: Docs Check Status
 
 .. |travis| image:: https://github.com/domdfcoding/seed_intersphinx_mapping/workflows/Linux%20Tests/badge.svg
-	:target: https://github.com/domdfcoding/seed_intersphinx_mapping/actions?query=workflow%3A%Linux+Tests%22
+	:target: https://github.com/domdfcoding/seed_intersphinx_mapping/actions?query=workflow%3A%22Linux+Tests%22
 	:alt: Linux Test Status
 
 .. |actions_windows| image:: https://github.com/domdfcoding/seed_intersphinx_mapping/workflows/Windows%20Tests/badge.svg
