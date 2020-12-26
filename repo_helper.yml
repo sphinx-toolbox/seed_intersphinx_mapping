@@ -35,3 +35,5 @@ classifiers:
  - 'Topic :: Documentation'
  - 'Topic :: Documentation :: Sphinx'
  - 'Topic :: Software Development :: Documentation'
+
+sphinx_html_theme: furo

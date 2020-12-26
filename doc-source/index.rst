@@ -180,6 +180,10 @@ The cache can be cleared as follows:
 
 .. TODO:: automatic cache clearing
 
+
+Contents
+--------
+
 .. toctree::
 	:hidden:
 
