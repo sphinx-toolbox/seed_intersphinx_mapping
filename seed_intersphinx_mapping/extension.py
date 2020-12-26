@@ -43,7 +43,7 @@ __all__ = ["sphinx_seed_intersphinx_mapping", "setup"]
 
 def sphinx_seed_intersphinx_mapping(app: Sphinx, config: Config) -> None:
 	"""
-	Updates the ``intersphinx_mapping`` dictionary in the sphinx configuration
+	Updates the ``intersphinx_mapping`` dictionary in the sphinx configuration.
 	to include the documentation for the project's requirements.
 
 	If :confval:`pkg_requirements_source` is a list, it is taken to be a list of directories
