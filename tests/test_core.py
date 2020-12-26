@@ -1,5 +1,7 @@
 # stdlib
 import re
+import sys
+from typing import get_type_hints
 
 # 3rd party
 import apeye.slumber_url
@@ -103,7 +105,14 @@ def test_get_sphinx_doc_url():
 
 def test_get_sphinx_doc_url_wrapping():
 	assert get_sphinx_doc_url.__name__ == "get_sphinx_doc_url"
-	assert get_sphinx_doc_url.__annotations__ == {"pypi_name": str, "return": str}
+
+	if sys.version_info >= (3, 10):
+		assert get_sphinx_doc_url.__annotations__ == {"pypi_name": "str", "return": "str"}
+	else:
+		assert get_sphinx_doc_url.__annotations__ == {"pypi_name": str, "return": str}
+
+	assert get_type_hints(get_sphinx_doc_url) == {"pypi_name": str, "return": str}
+
 	assert get_sphinx_doc_url.__defaults__ is None
 	assert get_sphinx_doc_url.__doc__.startswith("\n	Returns the URl to the given project's Sphinx documentation.")
 	assert get_sphinx_doc_url.__wrapped__

@@ -14,10 +14,11 @@ short_desc: "Populate the Sphinx 'intersphinx_mapping' dictionary from the proje
 enable_conda: False
 
 python_versions:
-  - "3.6"
-  - "3.7"
-  - "3.8"
-  - "3.9-dev"
+  - 3.6
+  - 3.7
+  - 3.8
+  - 3.9
+  - 3.10-dev
 
 manifest_additional:
   - "include seed_intersphinx_mapping/fallback_mapping.json"
