@@ -29,12 +29,13 @@ Contains functions for parsing requirements.
 #
 
 # stdlib
+from operator import attrgetter
 from typing import List
 
 # 3rd party
 from domdf_python_tools.paths import PathPlus
 from domdf_python_tools.typing import PathLike
-from packaging.requirements import InvalidRequirement, Requirement
+from shippinglabel.requirements import read_requirements
 
 __all__ = ["parse_requirements_txt"]
 
@@ -46,13 +47,8 @@ def parse_requirements_txt(base_dir: PathLike) -> List[str]:
 	:param base_dir: The directory in which to find the ``requirements.txt`` file.
 	"""
 
-	requirements = []
-
-	for line in (PathPlus(base_dir) / "requirements.txt").read_text().split('\n'):
-		if not line.startswith('#'):
-			try:
-				requirements.append(Requirement(line).name)
-			except InvalidRequirement:
-				pass
-
-	return requirements
+	requirements, comments, invalid = read_requirements(
+		req_file=PathPlus(base_dir) / "requirements.txt",
+		include_invalid=True,
+		)
+	return sorted(map(attrgetter("name"), requirements))

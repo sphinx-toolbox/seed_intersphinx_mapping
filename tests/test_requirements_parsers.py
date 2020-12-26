@@ -15,7 +15,7 @@ sphinxcontrib-domaintools==0.3
 """
 
 expected_requirements_a = [
-		"domdf_python_tools",
+		"domdf-python-tools",
 		"packaging",
 		"requests",
 		"slumber",
@@ -33,7 +33,7 @@ sphinxcontrib-domaintools==0.3
 """
 
 bad_expected_requirements = [
-		"domdf_python_tools",
+		"domdf-python-tools",
 		"packaging",
 		"sphinx",
 		"sphinxcontrib-domaintools",
@@ -46,7 +46,7 @@ bad_expected_requirements = [
 				(bad_example_requirements, bad_expected_requirements),
 				]
 		)
-def test_parse_requirements_txt(tmpdir, contents, expects):
-	(PathPlus(tmpdir) / "requirements.txt").write_text(contents)
+def test_parse_requirements_txt(tmp_pathplus, contents, expects):
+	(tmp_pathplus / "requirements.txt").write_text(contents)
 
-	assert parse_requirements_txt(tmpdir) == expects
+	assert parse_requirements_txt(tmp_pathplus) == expects
