@@ -19,9 +19,11 @@ appdirs
 def test_integration(requirements, the_app):
 	# app is a Sphinx application object for default sphinx project (`tests/doc-test/test-root`).
 	the_app.build()
+
+	domdf_python_tools_url = "https://domdf-python-tools.readthedocs.io/en/latest/"
+
 	assert the_app.env.config.intersphinx_mapping == {
-			"domdf_python_tools":
-					("domdf_python_tools", ("https://domdf-python-tools.readthedocs.io/en/latest/", (None, ))),
+			"domdf_python_tools": ("domdf_python_tools", (domdf_python_tools_url, (None, ))),
 			"packaging": ("packaging", ("https://packaging.pypa.io/en/latest/", (None, ))),
 			"requests": ("requests", ("https://requests.readthedocs.io/en/master/", (None, ))),
 			"pandas": ("pandas", ("https://pandas.pydata.org/pandas-docs/stable/", (None, ))),
