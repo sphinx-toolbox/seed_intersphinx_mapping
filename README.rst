@@ -18,44 +18,54 @@ seed_intersphinx_mapping
 	* - Docs
 	  - |docs| |docs_check|
 	* - Tests
-	  - |travis| |actions_windows| |actions_macos| |coveralls| |codefactor| |pre_commit_ci|
+	  - |actions_linux| |actions_windows| |actions_macos| |coveralls|
 	* - PyPI
 	  - |pypi-version| |supported-versions| |supported-implementations| |wheel|
 	* - Activity
-	  - |commits-latest| |commits-since| |maintained|
+	  - |commits-latest| |commits-since| |maintained| |pypi-downloads|
+	* - QA
+	  - |codefactor| |actions_flake8| |actions_mypy| |pre_commit_ci|
 	* - Other
-	  - |license| |language| |requires| |pre_commit|
+	  - |license| |language| |requires|
 
 .. |docs| image:: https://img.shields.io/readthedocs/seed_intersphinx_mapping/latest?logo=read-the-docs
-	:target: https://seed_intersphinx_mapping.readthedocs.io/en/latest/?badge=latest
+	:target: https://seed_intersphinx_mapping.readthedocs.io/en/latest
 	:alt: Documentation Build Status
 
-.. |docs_check| image:: https://github.com/domdfcoding/seed_intersphinx_mapping/workflows/Docs%20Check/badge.svg
-	:target: https://github.com/domdfcoding/seed_intersphinx_mapping/actions?query=workflow%3A%22Docs+Check%22
+.. |docs_check| image:: https://github.com/sphinx-toolbox/seed_intersphinx_mapping/workflows/Docs%20Check/badge.svg
+	:target: https://github.com/sphinx-toolbox/seed_intersphinx_mapping/actions?query=workflow%3A%22Docs+Check%22
 	:alt: Docs Check Status
 
-.. |travis| image:: https://github.com/domdfcoding/seed_intersphinx_mapping/workflows/Linux%20Tests/badge.svg
-	:target: https://github.com/domdfcoding/seed_intersphinx_mapping/actions?query=workflow%3A%22Linux+Tests%22
+.. |actions_linux| image:: https://github.com/sphinx-toolbox/seed_intersphinx_mapping/workflows/Linux/badge.svg
+	:target: https://github.com/sphinx-toolbox/seed_intersphinx_mapping/actions?query=workflow%3A%22Linux%22
 	:alt: Linux Test Status
 
-.. |actions_windows| image:: https://github.com/domdfcoding/seed_intersphinx_mapping/workflows/Windows%20Tests/badge.svg
-	:target: https://github.com/domdfcoding/seed_intersphinx_mapping/actions?query=workflow%3A%22Windows+Tests%22
+.. |actions_windows| image:: https://github.com/sphinx-toolbox/seed_intersphinx_mapping/workflows/Windows/badge.svg
+	:target: https://github.com/sphinx-toolbox/seed_intersphinx_mapping/actions?query=workflow%3A%22Windows%22
 	:alt: Windows Test Status
 
-.. |actions_macos| image:: https://github.com/domdfcoding/seed_intersphinx_mapping/workflows/macOS%20Tests/badge.svg
-	:target: https://github.com/domdfcoding/seed_intersphinx_mapping/actions?query=workflow%3A%22macOS+Tests%22
+.. |actions_macos| image:: https://github.com/sphinx-toolbox/seed_intersphinx_mapping/workflows/macOS/badge.svg
+	:target: https://github.com/sphinx-toolbox/seed_intersphinx_mapping/actions?query=workflow%3A%22macOS%22
 	:alt: macOS Test Status
 
-.. |requires| image:: https://requires.io/github/domdfcoding/seed_intersphinx_mapping/requirements.svg?branch=master
-	:target: https://requires.io/github/domdfcoding/seed_intersphinx_mapping/requirements/?branch=master
+.. |actions_flake8| image:: https://github.com/sphinx-toolbox/seed_intersphinx_mapping/workflows/Flake8/badge.svg
+	:target: https://github.com/sphinx-toolbox/seed_intersphinx_mapping/actions?query=workflow%3A%22Flake8%22
+	:alt: Flake8 Status
+
+.. |actions_mypy| image:: https://github.com/sphinx-toolbox/seed_intersphinx_mapping/workflows/mypy/badge.svg
+	:target: https://github.com/sphinx-toolbox/seed_intersphinx_mapping/actions?query=workflow%3A%22mypy%22
+	:alt: mypy status
+
+.. |requires| image:: https://requires.io/github/sphinx-toolbox/seed_intersphinx_mapping/requirements.svg?branch=master
+	:target: https://requires.io/github/sphinx-toolbox/seed_intersphinx_mapping/requirements/?branch=master
 	:alt: Requirements Status
 
-.. |coveralls| image:: https://img.shields.io/coveralls/github/domdfcoding/seed_intersphinx_mapping/master?logo=coveralls
-	:target: https://coveralls.io/github/domdfcoding/seed_intersphinx_mapping?branch=master
+.. |coveralls| image:: https://img.shields.io/coveralls/github/sphinx-toolbox/seed_intersphinx_mapping/master?logo=coveralls
+	:target: https://coveralls.io/github/sphinx-toolbox/seed_intersphinx_mapping?branch=master
 	:alt: Coverage
 
-.. |codefactor| image:: https://img.shields.io/codefactor/grade/github/domdfcoding/seed_intersphinx_mapping?logo=codefactor
-	:target: https://www.codefactor.io/repository/github/domdfcoding/seed_intersphinx_mapping
+.. |codefactor| image:: https://img.shields.io/codefactor/grade/github/sphinx-toolbox/seed_intersphinx_mapping?logo=codefactor
+	:target: https://www.codefactor.io/repository/github/sphinx-toolbox/seed_intersphinx_mapping
 	:alt: CodeFactor Grade
 
 .. |pypi-version| image:: https://img.shields.io/pypi/v/seed_intersphinx_mapping
@@ -74,30 +84,30 @@ seed_intersphinx_mapping
 	:target: https://pypi.org/project/seed_intersphinx_mapping/
 	:alt: PyPI - Wheel
 
-.. |license| image:: https://img.shields.io/github/license/domdfcoding/seed_intersphinx_mapping
-	:target: https://github.com/domdfcoding/seed_intersphinx_mapping/blob/master/LICENSE
+.. |license| image:: https://img.shields.io/github/license/sphinx-toolbox/seed_intersphinx_mapping
+	:target: https://github.com/sphinx-toolbox/seed_intersphinx_mapping/blob/master/LICENSE
 	:alt: License
 
-.. |language| image:: https://img.shields.io/github/languages/top/domdfcoding/seed_intersphinx_mapping
+.. |language| image:: https://img.shields.io/github/languages/top/sphinx-toolbox/seed_intersphinx_mapping
 	:alt: GitHub top language
 
-.. |commits-since| image:: https://img.shields.io/github/commits-since/domdfcoding/seed_intersphinx_mapping/v0.3.0
-	:target: https://github.com/domdfcoding/seed_intersphinx_mapping/pulse
+.. |commits-since| image:: https://img.shields.io/github/commits-since/sphinx-toolbox/seed_intersphinx_mapping/v0.3.0
+	:target: https://github.com/sphinx-toolbox/seed_intersphinx_mapping/pulse
 	:alt: GitHub commits since tagged version
 
-.. |commits-latest| image:: https://img.shields.io/github/last-commit/domdfcoding/seed_intersphinx_mapping
-	:target: https://github.com/domdfcoding/seed_intersphinx_mapping/commit/master
+.. |commits-latest| image:: https://img.shields.io/github/last-commit/sphinx-toolbox/seed_intersphinx_mapping
+	:target: https://github.com/sphinx-toolbox/seed_intersphinx_mapping/commit/master
 	:alt: GitHub last commit
 
 .. |maintained| image:: https://img.shields.io/maintenance/yes/2020
 	:alt: Maintenance
 
-.. |pre_commit| image:: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white
-	:target: https://github.com/pre-commit/pre-commit
-	:alt: pre-commit
+.. |pypi-downloads| image:: https://img.shields.io/pypi/dm/seed_intersphinx_mapping
+	:target: https://pypi.org/project/seed_intersphinx_mapping/
+	:alt: PyPI - Downloads
 
-.. |pre_commit_ci| image:: https://results.pre-commit.ci/badge/github/domdfcoding/seed_intersphinx_mapping/master.svg
-	:target: https://results.pre-commit.ci/latest/github/domdfcoding/seed_intersphinx_mapping/master
+.. |pre_commit_ci| image:: https://results.pre-commit.ci/badge/github/sphinx-toolbox/seed_intersphinx_mapping/master.svg
+	:target: https://results.pre-commit.ci/latest/github/sphinx-toolbox/seed_intersphinx_mapping/master
 	:alt: pre-commit.ci status
 
 .. end shields

@@ -13,7 +13,7 @@ sys.path.append(os.path.abspath(".."))
 # this package
 from __pkginfo__ import __version__
 
-github_username = "domdfcoding"
+github_username = "sphinx-toolbox"
 github_repository = "seed_intersphinx_mapping"
 github_url = f"https://github.com/{github_username}/{github_repository}"
 
@@ -55,8 +55,6 @@ gitstamp_fmt = "%d %b %Y"
 templates_path = ["_templates"]
 html_static_path = ["_static"]
 source_suffix = ".rst"
-exclude_patterns = []
-
 master_doc = "index"
 suppress_warnings = ["image.nonlocal_uri"]
 pygments_style = "default"
@@ -73,7 +71,7 @@ html_show_sourcelink = True  # True will show link to source
 
 html_context = {
 		"display_github": True,
-		"github_user": "domdfcoding",
+		"github_user": "sphinx-toolbox",
 		"github_repo": "seed_intersphinx_mapping",
 		"github_version": "master",
 		"conf_py_path": "/doc-source/",

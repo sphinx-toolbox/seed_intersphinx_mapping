@@ -3,13 +3,13 @@ Downloading source code
 =========================
 
 The ``seed_intersphinx_mapping`` source code is available on GitHub,
-and can be accessed from the following URL: https://github.com/domdfcoding/seed_intersphinx_mapping
+and can be accessed from the following URL: https://github.com/sphinx-toolbox/seed_intersphinx_mapping
 
 If you have ``git`` installed, you can clone the repository with the following command:
 
 .. code-block:: bash
 
-    $ git clone https://github.com/domdfcoding/seed_intersphinx_mapping"
+    $ git clone https://github.com/sphinx-toolbox/seed_intersphinx_mapping"
     > Cloning into 'seed_intersphinx_mapping'...
     > remote: Enumerating objects: 47, done.
     > remote: Counting objects: 100% (47/47), done.
