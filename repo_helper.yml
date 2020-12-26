@@ -21,3 +21,16 @@ python_versions:
 
 manifest_additional:
   - "include seed_intersphinx_mapping/fallback_mapping.json"
+
+keywords:
+  - sphinx
+  - intersphinx
+  - documentation
+
+classifiers:
+ - 'Development Status :: 4 - Beta'
+ - 'Framework :: Sphinx :: Extension'
+ - 'Intended Audience :: Developers'
+ - 'Topic :: Documentation'
+ - 'Topic :: Documentation :: Sphinx'
+ - 'Topic :: Software Development :: Documentation'
