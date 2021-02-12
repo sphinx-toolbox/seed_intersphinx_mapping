@@ -5,7 +5,7 @@
 Core functionality.
 """
 #
-#  Copyright © 2020 Dominic Davis-Foster <dominic@davis-foster.co.uk>
+#  Copyright © 2020-2021 Dominic Davis-Foster <dominic@davis-foster.co.uk>
 #
 #  Permission is hereby granted, free of charge, to any person obtaining a copy
 #  of this software and associated documentation files (the "Software"), to deal
@@ -122,11 +122,8 @@ def fallback_mapping() -> Dict[str, str]:
 
 	The mapping is loaded from JSON data on demand, and consists of ``project_name: url`` pairs.
 	"""
-	# this package
-	import seed_intersphinx_mapping
-	with importlib_resources.path(seed_intersphinx_mapping, "fallback_mapping.json") as path:
-		with open(path, encoding="UTF-8") as fp:
-			return json.load(fp)
+
+	return json.loads(importlib_resources.read_text("seed_intersphinx_mapping", "fallback_mapping.json"))
 
 
 def seed_intersphinx_mapping(base_dir: PathLike) -> Dict[str, Tuple[str, Optional[str]]]:

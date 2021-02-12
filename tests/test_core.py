@@ -56,14 +56,18 @@ class TestSearchDict:
 					([12.34, "abc", 1234], AttributeError, ".* object has no attribute 'items'"),
 					((12.34, "abc", 1234), AttributeError, ".* object has no attribute 'items'"),
 					({12.34, "abc", 1234}, AttributeError, ".* object has no attribute 'items'"),
-					pytest.param({12.34: "abc"},
-									TypeError,
-									"expected string or bytes-like object",
-									marks=not_pypy("Error message differs on PyPy")),
-					pytest.param({12.34: "abc"},
-									TypeError,
-									"can't use a string pattern on a bytes-like object",
-									marks=only_pypy("Error message differs on PyPy")),
+					pytest.param(
+							{12.34: "abc"},
+							TypeError,
+							"expected string or bytes-like object",
+							marks=not_pypy("Error message differs on PyPy"),
+							),
+					pytest.param(
+							{12.34: "abc"},
+							TypeError,
+							"can't use a string pattern on a bytes-like object",
+							marks=only_pypy("Error message differs on PyPy"),
+							),
 					]
 			)
 	def test_errors_dict(self, dictionary, expects, match):
