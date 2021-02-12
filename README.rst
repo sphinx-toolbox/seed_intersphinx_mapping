@@ -21,6 +21,8 @@ seed_intersphinx_mapping
 	  - |actions_linux| |actions_windows| |actions_macos| |coveralls|
 	* - PyPI
 	  - |pypi-version| |supported-versions| |supported-implementations| |wheel|
+	* - Anaconda
+	  - |conda-version| |conda-platform|
 	* - Activity
 	  - |commits-latest| |commits-since| |maintained| |pypi-downloads|
 	* - QA
@@ -84,6 +86,14 @@ seed_intersphinx_mapping
 	:target: https://pypi.org/project/seed_intersphinx_mapping/
 	:alt: PyPI - Wheel
 
+.. |conda-version| image:: https://img.shields.io/conda/v/domdfcoding/seed_intersphinx_mapping?logo=anaconda
+	:target: https://anaconda.org/domdfcoding/seed_intersphinx_mapping
+	:alt: Conda - Package Version
+
+.. |conda-platform| image:: https://img.shields.io/conda/pn/domdfcoding/seed_intersphinx_mapping?label=conda%7Cplatform
+	:target: https://anaconda.org/domdfcoding/seed_intersphinx_mapping
+	:alt: Conda - Platform
+
 .. |license| image:: https://img.shields.io/github/license/sphinx-toolbox/seed_intersphinx_mapping
 	:target: https://github.com/sphinx-toolbox/seed_intersphinx_mapping/blob/master/LICENSE
 	:alt: License
@@ -119,13 +129,27 @@ Installation
 
 .. start installation
 
-``seed_intersphinx_mapping`` can be installed from PyPI.
+``seed_intersphinx_mapping`` can be installed from PyPI or Anaconda.
 
 To install with ``pip``:
 
 .. code-block:: bash
 
 	$ python -m pip install seed_intersphinx_mapping
+
+To install with ``conda``:
+
+	* First add the required channels
+
+	.. code-block:: bash
+
+		$ conda config --add channels http://conda.anaconda.org/domdfcoding
+
+	* Then install
+
+	.. code-block:: bash
+
+		$ conda install seed_intersphinx_mapping
 
 .. end installation
 

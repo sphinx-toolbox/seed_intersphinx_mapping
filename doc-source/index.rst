@@ -20,6 +20,8 @@ seed_intersphinx_mapping
 	  - |actions_linux| |actions_windows| |actions_macos| |coveralls|
 	* - PyPI
 	  - |pypi-version| |supported-versions| |supported-implementations| |wheel|
+	* - Anaconda
+	  - |conda-version| |conda-platform|
 	* - Activity
 	  - |commits-latest| |commits-since| |maintained| |pypi-downloads|
 	* - QA
@@ -84,6 +86,14 @@ seed_intersphinx_mapping
 	:wheel:
 	:alt: PyPI - Wheel
 
+.. |conda-version| image:: https://img.shields.io/conda/v/domdfcoding/seed_intersphinx_mapping?logo=anaconda
+	:target: https://anaconda.org/domdfcoding/seed_intersphinx_mapping
+	:alt: Conda - Package Version
+
+.. |conda-platform| image:: https://img.shields.io/conda/pn/domdfcoding/seed_intersphinx_mapping?label=conda%7Cplatform
+	:target: https://anaconda.org/domdfcoding/seed_intersphinx_mapping
+	:alt: Conda - Platform
+
 .. |license| github-shield::
 	:license:
 	:alt: License
@@ -121,6 +131,8 @@ Installation
 .. installation:: seed_intersphinx_mapping
 	:pypi:
 	:github:
+	:anaconda:
+	:conda-channels: domdfcoding
 
 .. end installation
 
