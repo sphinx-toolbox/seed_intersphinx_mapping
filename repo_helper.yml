@@ -1,4 +1,4 @@
-# Configuration for 'repo_helper' (https://github.com/domdfcoding/repo_helper
+# Configuration for 'repo_helper' (https://github.com/domdfcoding/repo_helper)
 ---
 modname: 'seed_intersphinx_mapping'
 copyright_years: 2020-2021
@@ -20,12 +20,12 @@ python_versions:
  - pypy3
 
 manifest_additional:
-  - "include seed_intersphinx_mapping/fallback_mapping.json"
+ - "include seed_intersphinx_mapping/fallback_mapping.json"
 
 keywords:
-  - sphinx
-  - intersphinx
-  - documentation
+ - sphinx
+ - intersphinx
+ - documentation
 
 classifiers:
  - 'Development Status :: 4 - Beta'
@@ -36,3 +36,4 @@ classifiers:
  - 'Topic :: Software Development :: Documentation'
 
 sphinx_html_theme: furo
+docs_fail_on_warning: true
