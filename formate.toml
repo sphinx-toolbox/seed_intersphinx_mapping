@@ -56,4 +56,3 @@ known_third_party = [
     "sphinx",
 ]
 known_first_party = "seed_intersphinx_mapping"
-line_length = 115
