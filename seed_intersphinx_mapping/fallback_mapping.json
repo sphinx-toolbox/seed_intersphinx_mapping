@@ -2,6 +2,13 @@
   "slumber": "https://slumber.readthedocs.io/en/v0.6.0/",
   "packaging": "https://packaging.pypa.io/en/latest/",
   "importlib_resources": "https://importlib-resources.readthedocs.io/en/latest/",
+  "importlib-resources": "https://importlib-resources.readthedocs.io/en/latest/",
   "sphinx": "https://www.sphinx-doc.org/en/3.x/",
-  "typing_extensions": "https://docs.python.org/3/"
+  "typing_extensions": "https://docs.python.org/3/",
+  "typing-extensions": "https://docs.python.org/3/",
+  "pandas": "https://pandas.pydata.org/docs/",
+  "pytest": "https://docs.pytest.org/en/stable",
+  "natsort": "https://natsort.readthedocs.io/en/master/",
+  "pydash": "https://pydash.readthedocs.io/en/latest/",
+  "pytest-regressions": "https://pytest-regressions.readthedocs.io/en/latest/"
 }
