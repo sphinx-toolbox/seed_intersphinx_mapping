@@ -11,6 +11,9 @@ version: '0.3.1'
 license: 'MIT'
 short_desc: "Populate the Sphinx 'intersphinx_mapping' dictionary from the project's requirements."
 
+conda_channels:
+ - conda-forge
+
 python_versions:
  - '3.6'
  - '3.7'

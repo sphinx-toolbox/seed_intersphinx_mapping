@@ -31,6 +31,7 @@ jobs:
           $CONDA/bin/conda update -q conda
           $CONDA/bin/conda install conda-build=3.21.0
 
+          $CONDA/bin/conda config --add channels conda-forge
           $CONDA/bin/conda config --add channels domdfcoding
 
       - name: "Build and install package"

@@ -143,6 +143,7 @@ To install with ``conda``:
 
 	.. code-block:: bash
 
+		$ conda config --add channels http://conda.anaconda.org/conda-forge
 		$ conda config --add channels http://conda.anaconda.org/domdfcoding
 
 	* Then install
