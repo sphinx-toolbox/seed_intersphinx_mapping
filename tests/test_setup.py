@@ -1,3 +1,7 @@
+# 3rd party
+from sphinx.events import EventListener
+from sphinx_toolbox.testing import run_setup
+
 # this package
 import seed_intersphinx_mapping
 from seed_intersphinx_mapping.extension import sphinx_seed_intersphinx_mapping
@@ -21,16 +25,16 @@ class MockApp:
 
 
 def test_setup():
-	app = MockApp()
+	result = run_setup(seed_intersphinx_mapping.setup)
 
-	assert seed_intersphinx_mapping.setup(app=app) == {  # type: ignore
-		"version": seed_intersphinx_mapping.__version__,
-		"parallel_read_safe": True,
-		"parallel_write_safe": True,
-		}
+	assert result.setup_ret == {
+			"version": seed_intersphinx_mapping.__version__,
+			"parallel_read_safe": True,
+			"parallel_write_safe": True,
+			}
 
-	assert app.config_values == [
-			("pkg_requirements_source", "requirements", "html"),
-			("repository_root", "..", "html"),
-			]
-	assert app.connections == [("config-inited", sphinx_seed_intersphinx_mapping)]
+	assert result.app.config["pkg_requirements_source"] == "requirements"
+	assert result.app.config["repository_root"] == ".."
+	assert result.app.events.listeners == {
+			"config-inited": [EventListener(0, sphinx_seed_intersphinx_mapping, priority=850)],
+			}

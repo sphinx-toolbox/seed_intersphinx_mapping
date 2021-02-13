@@ -33,20 +33,17 @@ import re
 from typing import Any, Dict, Optional, Pattern, Tuple, Union
 
 # 3rd party
-import importlib_resources
 import requests
 from apeye.url import SlumberURL
-from domdf_python_tools.typing import PathLike
+from domdf_python_tools.compat import importlib_resources
 from domdf_python_tools.utils import stderr_writer
+from packaging.requirements import Requirement
+from shippinglabel.pypi import PYPI_API
 
 # this package
 from seed_intersphinx_mapping.cache import cache
-from seed_intersphinx_mapping.requirements_parsers import parse_requirements_txt
 
 __all__ = ["search_dict", "get_sphinx_doc_url", "fallback_mapping", "seed_intersphinx_mapping", "PYPI_API"]
-
-#: Instance of :class:`apeye.url.SlumberURL` for the PyPI REST API endpoint.
-PYPI_API: SlumberURL = SlumberURL("https://pypi.org/pypi/", timeout=10)
 
 
 def search_dict(dictionary: Dict[str, Any], regex: Union[str, Pattern]) -> Dict[str, Any]:
@@ -126,16 +123,26 @@ def fallback_mapping() -> Dict[str, str]:
 	return json.loads(importlib_resources.read_text("seed_intersphinx_mapping", "fallback_mapping.json"))
 
 
-def seed_intersphinx_mapping(base_dir: PathLike) -> Dict[str, Tuple[str, Optional[str]]]:
-	"""
-	Returns an intersphinx mapping dictionary for the projects listed in the ``requirements.txt`` file.
+def seed_intersphinx_mapping(*requirements: Union[Requirement, str]) -> Dict[str, Tuple[str, Optional[str]]]:
+	r"""
+	Returns an intersphinx mapping dictionary for the project's requirements.
 
-	:param base_dir: The directory in which to find the ``requirements.txt`` file.
+	:param \*requirements: The requirements to find the documentation for.
+
+	.. versionchanged:: 0.4.0
+
+		Now takes the requirements as arguments rather than
+		a directory to read the ``requirements.txt`` file from.
 	"""
 
 	intersphinx_mapping: Dict[str, Tuple[str, Optional[str]]] = {}
 
-	for project_name in parse_requirements_txt(base_dir):
+	for requirement in requirements:
+		if isinstance(requirement, Requirement):
+			project_name = requirement.name
+		else:
+			project_name = str(requirement)
+
 		try:
 			doc_url = get_sphinx_doc_url(project_name)
 			intersphinx_mapping[project_name] = (doc_url, None)

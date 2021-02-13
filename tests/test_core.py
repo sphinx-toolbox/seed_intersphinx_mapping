@@ -6,7 +6,7 @@ from typing import get_type_hints
 # 3rd party
 import apeye.slumber_url
 import pytest
-from domdf_python_tools.testing import not_pypy, only_pypy
+from coincidence import not_pypy, only_pypy
 
 # this package
 from seed_intersphinx_mapping import cache

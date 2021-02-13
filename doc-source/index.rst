@@ -144,17 +144,25 @@ Configuration
 
 .. confval:: pkg_requirements_source
 
-	The requirements source.
+	The requirements source. This may be one of:
 
-	* If this is a list, it is taken to be a list of directories
+	* A list of directories (relative to :confval:`repository_root`)
 	  in which to search for ``requirements.txt`` files.
 	  Any files found will be used to compile the list of requirements.
 
-	* If this is the string ``requirements``,
-	  the list of requirements will be determined from the ``requirements.txt`` file
-	  in the  directory given by the :confval:`pkg_requirements_source` option.
+	* The string ``'requirements'``.
+	  The list of requirements will be determined from the ``requirements.txt`` file
+	  in the directory given by the :confval:`repository_root` option.
 
-	Currently, no other sources are supported.
+	* The string ``'pyproject'`` (or ``'pyproject.toml'``).
+	  The list  will be parsed from the ``[project.dependencies]`` table of the
+	  ``pyproject.toml`` file in the :confval:`repository_root`.
+
+	  .. seealso:: :pep:`621` -- Storing project metadata in pyproject.toml
+
+	* The string ``'flit'``.
+	  The list  will be parsed from the ``[tool.flit.metadata.requires]`` table of the
+	  ``pyproject.toml`` file in the :confval:`repository_root`.
 
 
 .. confval:: repository_root
@@ -169,10 +177,11 @@ Configuration
 		├── LICENSE
 		├── README.rst
 		├── doc-source  # <- this is the Sphinx source directory
-		|   ├── index.rst
-		|   └── conf.py
+		│   ├── index.rst
+		│   └── conf.py
 		├── requirements.txt  # <- this is the file containing the requirements
 		├── seed_intersphinx_mapping
+		│   └── __init__.py
 		├── setup.py
 		├── tests
 		└── tox.ini

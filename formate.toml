@@ -54,6 +54,7 @@ known_third_party = [
     "shippinglabel",
     "slumber",
     "sphinx",
+    "sphinx_toolbox",
 ]
 known_first_party = "seed_intersphinx_mapping"
 line_length = 115

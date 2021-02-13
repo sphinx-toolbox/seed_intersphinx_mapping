@@ -1,0 +1,12 @@
+domdf-python-tools:
+- domdf-python-tools
+- - https://domdf-python-tools.readthedocs.io/en/latest/
+  - - null
+packaging:
+- packaging
+- - https://packaging.pypa.io/en/latest/
+  - - null
+sphinx:
+- sphinx
+- - https://www.sphinx-doc.org/en/3.x/
+  - - null

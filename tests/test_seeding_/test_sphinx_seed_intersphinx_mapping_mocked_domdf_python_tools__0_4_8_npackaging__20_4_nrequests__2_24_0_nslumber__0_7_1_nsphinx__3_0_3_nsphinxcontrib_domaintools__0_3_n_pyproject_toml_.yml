@@ -1,0 +1,20 @@
+domdf-python-tools:
+- domdf-python-tools
+- - https://domdf-python-tools.readthedocs.io/en/latest/
+  - - null
+packaging:
+- packaging
+- - https://packaging.pypa.io/en/latest/
+  - - null
+requests:
+- requests
+- - https://requests.readthedocs.io/en/master/
+  - - null
+slumber:
+- slumber
+- - https://slumber.readthedocs.io/en/v0.6.0/
+  - - null
+sphinx:
+- sphinx
+- - https://www.sphinx-doc.org/en/3.x/
+  - - null

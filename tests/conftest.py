@@ -5,7 +5,7 @@ import pathlib
 import pytest
 from sphinx.testing.path import path
 
-pytest_plugins = ("sphinx.testing.fixtures", "domdf_python_tools.testing")
+pytest_plugins = ("sphinx.testing.fixtures", "coincidence")
 
 
 @pytest.fixture(scope="session")

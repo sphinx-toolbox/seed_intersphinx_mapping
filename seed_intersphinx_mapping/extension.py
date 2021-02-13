@@ -5,7 +5,7 @@
 Sphinx-specific functionality.
 """
 #
-#  Copyright © 2020 Dominic Davis-Foster <dominic@davis-foster.co.uk>
+#  Copyright © 2020-2021 Dominic Davis-Foster <dominic@davis-foster.co.uk>
 #
 #  Permission is hereby granted, free of charge, to any person obtaining a copy
 #  of this software and associated documentation files (the "Software"), to deal
@@ -37,6 +37,11 @@ from sphinx.config import Config
 
 # this package
 from seed_intersphinx_mapping.core import seed_intersphinx_mapping
+from seed_intersphinx_mapping.requirements_parsers import (
+		parse_flit_requirements,
+		parse_pyproject_toml,
+		parse_requirements_txt
+		)
 
 __all__ = ["sphinx_seed_intersphinx_mapping", "setup"]
 
@@ -46,13 +51,25 @@ def sphinx_seed_intersphinx_mapping(app: Sphinx, config: Config) -> None:
 	Updates the ``intersphinx_mapping`` dictionary in the sphinx configuration.
 	to include the documentation for the project's requirements.
 
-	If :confval:`pkg_requirements_source` is a list, it is taken to be a list of directories
-	in which to search for ``requirements.txt`` files. Any files found will be used to compile
-	the list of requirements.
+	:confval:`pkg_requirements_source` may be one of:
 
-	Otherwise, if :confval:`pkg_requirements_source` is the string ``requirements``,
-	the list of requirements will be determined from the ``requirements.txt`` file
-	in the  directory given by the :confval:`repository_root` option.
+	* A list of directories (relative to :confval:`repository_root`)
+	  in which to search for ``requirements.txt`` files.
+	  Any files found will be used to compile the list of requirements.
+
+	* The string ``'requirements'``.
+	  The list of requirements will be determined from the ``requirements.txt`` file
+	  in the directory given by the :confval:`repository_root` option.
+
+	* The string ``'pyproject'`` (or ``'pyproject.toml'``).
+	  The list  will be parsed from the ``[project.dependencies]`` table of the
+	  ``pyproject.toml`` file in the :confval:`repository_root`.
+
+	  .. seealso:: :pep:`621` -- Storing project metadata in pyproject.toml
+
+	* The string ``'flit'``.
+	  The list  will be parsed from the ``[tool.flit.metadata.requires]`` table of the
+	  ``pyproject.toml`` file in the :confval:`repository_root`.
 
 	:param app:
 	:param config:
@@ -61,17 +78,28 @@ def sphinx_seed_intersphinx_mapping(app: Sphinx, config: Config) -> None:
 	repo_root = os.path.abspath(pathlib.Path(app.srcdir) / config.repository_root)
 	config.repository_root = repo_root  # type: ignore
 
-	if config.pkg_requirements_source == "requirements":
-		for name, (uri, inv) in seed_intersphinx_mapping(repo_root).items():
-			config.intersphinx_mapping[name] = (name, (uri, (inv, )))
+	if isinstance(config.pkg_requirements_source, list):
+		requirements = []
 
-	elif isinstance(config.pkg_requirements_source, list):
 		for directory in config.pkg_requirements_source:
-			for name, (uri, inv) in seed_intersphinx_mapping(repo_root / directory).items():
-				config.intersphinx_mapping[name] = (name, (uri, (inv, )))
+			requirements.extend(parse_requirements_txt(os.path.join(repo_root, directory)))
+
+		requirements = sorted(set(requirements))
+
+	elif config.pkg_requirements_source == "requirements":
+		requirements = parse_requirements_txt(repo_root)
+
+	elif config.pkg_requirements_source == "flit":
+		requirements = parse_flit_requirements(repo_root)
+
+	elif config.pkg_requirements_source.startswith("pyproject"):
+		requirements = parse_pyproject_toml(repo_root)
 
 	else:  # pragma: no cover
 		raise NotImplementedError(f"Unsupported requirements source '{config.pkg_requirements_source}'")
+
+	for name, (uri, inv) in seed_intersphinx_mapping(*requirements).items():
+		config.intersphinx_mapping[name] = (name, (uri, (inv, )))
 
 	# from pprint import pprint
 	# pprint(config.intersphinx_mapping)
@@ -80,17 +108,19 @@ def sphinx_seed_intersphinx_mapping(app: Sphinx, config: Config) -> None:
 
 def setup(app: Sphinx) -> Dict[str, Any]:
 	"""
-	Setup Sphinx Extension.
+	Setup :mod:`seed_intersphinx_mapping` Sphinx Extension.
 
 	:param app:
-
-	:return:
 	"""
 
 	# this package
 	from seed_intersphinx_mapping import __version__
 
-	# Currently, only "requirements" or a list of directories containing requirements.txt files relative to the repository root,
+	# Either:
+	# - "requirements"
+	# - a list of directories containing requirements.txt files relative to the repository root
+	# - "pyproject" / "pyproject.toml"
+	# - "flit"
 	app.add_config_value("pkg_requirements_source", "requirements", "html")
 
 	# Location of repository directory relative to documentation source directory
