@@ -75,10 +75,13 @@ def test_seed_intersphinx_mapping_flit(tmp_pathplus, contents, expects, capsys):
 
 
 @pytest.mark.parametrize("pkg_requirements_source", ["requirements", "flit", "pyproject", "pyproject.toml"])
-@pytest.mark.parametrize("contents", [
-		example_requirements_a,
-		bad_example_requirements,
-		])
+@pytest.mark.parametrize(
+		"contents",
+		[
+				pytest.param(example_requirements_a, id="example_requirements_a"),
+				pytest.param(bad_example_requirements, id="bad_example_requirements"),
+				]
+		)
 def test_sphinx_seed_intersphinx_mapping_mocked(
 		tmp_pathplus,
 		capsys,
