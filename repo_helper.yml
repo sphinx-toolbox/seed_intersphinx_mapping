@@ -20,7 +20,8 @@ python_versions:
  - '3.8'
  - '3.9'
  - 3.10-dev
- - pypy3
+ - pypy36
+ - pypy37
 
 manifest_additional:
  - "include seed_intersphinx_mapping/fallback_mapping.json"
