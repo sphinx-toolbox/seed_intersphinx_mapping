@@ -10,5 +10,25 @@
   "pytest": "https://docs.pytest.org/en/stable",
   "natsort": "https://natsort.readthedocs.io/en/master/",
   "pydash": "https://pydash.readthedocs.io/en/latest/",
-  "pytest-regressions": "https://pytest-regressions.readthedocs.io/en/latest/"
+  "pytest-regressions": "https://pytest-regressions.readthedocs.io/en/latest/",
+  "boto3": "https://boto3.amazonaws.com/v1/documentation/api/latest/",
+  "chardet": "https://chardet.readthedocs.io/en/latest",
+  "six": "https://six.readthedocs.io/",
+  "cffi": "https://cffi.readthedocs.io/en/latest/",
+  "cryptography": "https://cryptography.io/en/latest/",
+  "python-dateutil": "https://dateutil.readthedocs.io/en/stable/",
+  "pyparsing": "https://pyparsing-docs.readthedocs.io/en/latest/",
+  "requests-oauthlib": "https://requests-oauthlib.readthedocs.io/en/latest/",
+  "oauthlib": "https://oauthlib.readthedocs.io/en/latest/",
+  "pyopenssl": "https://www.pyopenssl.org/en/latest/",
+  "importlib-metadata": "https://importlib-metadata.readthedocs.io/en/latest/"
+  "importlib_metadata": "https://importlib-metadata.readthedocs.io/en/latest/",
+  "psutil": "https://psutil.readthedocs.io/en/latest/",
+  "zipp": "https://zipp.readthedocs.io/en/latest/",
+  "yarl": "https://yarl.readthedocs.io/en/latest/",
+  "cachetools": "https://cachetools.readthedocs.io/en/latest/",
+  "pyjwt": "https://pyjwt.readthedocs.io/en/latest/",
+  "dnspython": "https://dnspython.readthedocs.io/en/latest/",
+  "babel": "https://babel.readthedocs.io/en/latest/",
+  "pyrsistent": "https://pyrsistent.readthedocs.io/en/latest/"
 }
