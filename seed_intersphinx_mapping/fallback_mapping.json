@@ -21,7 +21,7 @@
   "requests-oauthlib": "https://requests-oauthlib.readthedocs.io/en/latest/",
   "oauthlib": "https://oauthlib.readthedocs.io/en/latest/",
   "pyopenssl": "https://www.pyopenssl.org/en/latest/",
-  "importlib-metadata": "https://importlib-metadata.readthedocs.io/en/latest/"
+  "importlib-metadata": "https://importlib-metadata.readthedocs.io/en/latest/",
   "importlib_metadata": "https://importlib-metadata.readthedocs.io/en/latest/",
   "psutil": "https://psutil.readthedocs.io/en/latest/",
   "zipp": "https://zipp.readthedocs.io/en/latest/",

@@ -82,7 +82,12 @@ def get_sphinx_doc_url(pypi_name: str) -> str:
 	:return: The URL of the project's Sphinx documentation.
 
 	:raises: | :exc:`ValueError` if the url could not be determined.
-		| :exc:`apeye.slumber_url.HttpNotFoundError` if the project could not be found on PyPI.
+		| :exc:`packaging.requirements.InvalidRequirement` if the project could not be found on PyPI.
+
+	.. versionchanged:: 0.4.0
+
+		Now raises a :exc:`packaging.requirements.InvalidRequirement` rather than a
+		:exc:`apeye.slumber_url.HttpNotFoundError` if the project could not be found on PyPI.
 	"""
 
 	pypi_data = get_metadata(pypi_name)
