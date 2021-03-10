@@ -35,6 +35,7 @@ known_third_party = [
     "apeye",
     "appdirs",
     "beautifulsoup4",
+    "cawdrey",
     "coincidence",
     "coverage",
     "coverage_pyver_pragma",
