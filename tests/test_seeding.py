@@ -5,6 +5,7 @@ from types import SimpleNamespace
 import pytest
 import toml
 from coincidence import AdvancedDataRegressionFixture
+from shippinglabel.requirements import read_requirements
 
 # this package
 from seed_intersphinx_mapping import seed_intersphinx_mapping
@@ -40,6 +41,11 @@ def test_seed_intersphinx_mapping(tmp_pathplus, contents, expects, capsys):
 	(tmp_pathplus / "requirements.txt").write_text(contents)
 
 	assert seed_intersphinx_mapping(*parse_requirements_txt(tmp_pathplus)) == expects
+	err = capsys.readouterr().err
+	assert err == "WARNING: Unable to determine documentation url for project sphinxcontrib-domaintools\n"
+
+	requirements, comments, invalid = read_requirements(tmp_pathplus / "requirements.txt", include_invalid=True)
+	assert seed_intersphinx_mapping(*requirements) == expects
 	err = capsys.readouterr().err
 	assert err == "WARNING: Unable to determine documentation url for project sphinxcontrib-domaintools\n"
 

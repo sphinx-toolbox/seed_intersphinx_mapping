@@ -1,6 +1,6 @@
 apeye>=0.1.0
-domdf-python-tools>=0.4.10
+domdf-python-tools>=2.7.0
 packaging>=20.9
 requests>=2.24.0
-shippinglabel>=0.10.0
+shippinglabel>=0.11.0
 sphinx>=3.0.3

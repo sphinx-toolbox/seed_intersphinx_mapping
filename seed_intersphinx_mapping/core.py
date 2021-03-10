@@ -3,6 +3,8 @@
 #  core.py
 """
 Core functionality.
+
+.. TODO:: Speed up searching by using importlib.metadata for installed packages
 """
 #
 #  Copyright © 2020-2021 Dominic Davis-Foster <dominic@davis-foster.co.uk>
@@ -34,11 +36,10 @@ from typing import Any, Dict, Optional, Pattern, Tuple, Union
 
 # 3rd party
 import requests
-from apeye.url import SlumberURL
 from domdf_python_tools.compat import importlib_resources
 from domdf_python_tools.utils import stderr_writer
 from packaging.requirements import Requirement
-from shippinglabel.pypi import PYPI_API
+from shippinglabel.pypi import PYPI_API, get_metadata
 
 # this package
 from seed_intersphinx_mapping.cache import cache
@@ -63,9 +64,9 @@ def search_dict(dictionary: Dict[str, Any], regex: Union[str, Pattern]) -> Dict[
 @cache
 def get_sphinx_doc_url(pypi_name: str) -> str:
 	"""
-	Returns the URl to the given project's Sphinx documentation.
+	Returns the URL to the given project's Sphinx documentation.
 
-	Not all projects include this URl in their distributions and therefore it may not be possible to determine it from PyPI.
+	Not all projects include this URL in their distributions and therefore it may not be possible to determine it from PyPI.
 
 	Responses are cached to prevent overloading the PyPI server.
 	The cache can be cleared as follows:
@@ -78,14 +79,13 @@ def get_sphinx_doc_url(pypi_name: str) -> str:
 
 	:param pypi_name: The name of the project on PyPI
 
-	:return: The URl of the project's Sphinx documentation.
+	:return: The URL of the project's Sphinx documentation.
 
 	:raises: | :exc:`ValueError` if the url could not be determined.
 		| :exc:`apeye.slumber_url.HttpNotFoundError` if the project could not be found on PyPI.
 	"""
 
-	pypi_url: SlumberURL = PYPI_API / pypi_name / "json"
-	pypi_data = pypi_url.get()
+	pypi_data = get_metadata(pypi_name)
 
 	if "project_urls" in pypi_data["info"] and pypi_data["info"]["project_urls"]:
 		docs_dict = search_dict(pypi_data["info"]["project_urls"], r"^[dD]oc(s|umentation)")
@@ -94,7 +94,7 @@ def get_sphinx_doc_url(pypi_name: str) -> str:
 			# Follow redirects to get actual URL
 			r = requests.head(list(docs_dict.values())[0], allow_redirects=True, timeout=10)
 			if r.status_code != 200:  # pragma: no cover
-				raise ValueError("Documentation URl not found.")
+				raise ValueError("Documentation URL not found.")
 
 			docs_url = r.url
 
@@ -109,7 +109,7 @@ def get_sphinx_doc_url(pypi_name: str) -> str:
 
 			return docs_url
 
-	raise ValueError("Documentation URl not found in data from PyPI.")
+	raise ValueError("Documentation URL not found in data from PyPI.")
 
 
 @functools.lru_cache()
