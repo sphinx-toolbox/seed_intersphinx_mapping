@@ -3,8 +3,6 @@
 #  core.py
 """
 Core functionality.
-
-.. TODO:: Speed up searching by using importlib.metadata for installed packages
 """
 #
 #  Copyright © 2020-2021 Dominic Davis-Foster <dominic@davis-foster.co.uk>
@@ -31,34 +29,21 @@ Core functionality.
 # stdlib
 import functools
 import json
-import re
-from typing import Any, Dict, Optional, Pattern, Tuple, Union
+from typing import Dict, Optional, Tuple, Union
 
 # 3rd party
 import requests
+from cawdrey.utils import search_dict
 from domdf_python_tools.compat import importlib_resources
 from domdf_python_tools.utils import stderr_writer
 from packaging.requirements import Requirement
-from shippinglabel.pypi import PYPI_API, get_metadata
+from shippinglabel import get_project_links
+from shippinglabel.pypi import PYPI_API
 
 # this package
 from seed_intersphinx_mapping.cache import cache
 
 __all__ = ["search_dict", "get_sphinx_doc_url", "fallback_mapping", "seed_intersphinx_mapping", "PYPI_API"]
-
-
-def search_dict(dictionary: Dict[str, Any], regex: Union[str, Pattern]) -> Dict[str, Any]:
-	"""
-	Return the subset of the dictionary whose keys match the regex.
-
-	:param dictionary:
-	:param regex:
-	"""
-
-	if not isinstance(regex, Pattern):
-		regex = re.compile(regex)
-
-	return {key: value for key, value in dictionary.items() if regex.match(key)}
 
 
 @cache
@@ -90,29 +75,27 @@ def get_sphinx_doc_url(pypi_name: str) -> str:
 		:exc:`apeye.slumber_url.HttpNotFoundError` if the project could not be found on PyPI.
 	"""
 
-	pypi_data = get_metadata(pypi_name)
+	docs_dict = search_dict(get_project_links(pypi_name), r"^[dD]oc(s|umentation)")
 
-	if "project_urls" in pypi_data["info"] and pypi_data["info"]["project_urls"]:
-		docs_dict = search_dict(pypi_data["info"]["project_urls"], r"^[dD]oc(s|umentation)")
-		if docs_dict:
+	if docs_dict:
 
-			# Follow redirects to get actual URL
-			r = requests.head(list(docs_dict.values())[0], allow_redirects=True, timeout=10)
-			if r.status_code != 200:  # pragma: no cover
-				raise ValueError("Documentation URL not found.")
+		# Follow redirects to get actual URL
+		r = requests.head(list(docs_dict.values())[0], allow_redirects=True, timeout=10)
+		if r.status_code != 200:  # pragma: no cover
+			raise ValueError("Documentation URL not found.")
 
-			docs_url = r.url
+		docs_url = r.url
 
-			if docs_url.endswith('/'):
-				objects_inv_url = f"{docs_url}objects.inv"
-			else:  # pragma: no cover
-				objects_inv_url = f"{docs_url}/objects.inv"
+		if docs_url.endswith('/'):
+			objects_inv_url = f"{docs_url}objects.inv"
+		else:  # pragma: no cover
+			objects_inv_url = f"{docs_url}/objects.inv"
 
-			r = requests.head(objects_inv_url)
-			if r.status_code != 200:
-				raise ValueError("objects.inv not found at url.")
+		r = requests.head(objects_inv_url)
+		if r.status_code != 200:
+			raise ValueError("objects.inv not found at url.")
 
-			return docs_url
+		return docs_url
 
 	raise ValueError("Documentation URL not found in data from PyPI.")
 
