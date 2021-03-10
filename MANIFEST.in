@@ -1,7 +1,0 @@
-include __pkginfo__.py
-include LICENSE
-include requirements.txt
-prune **/__pycache__
-include seed_intersphinx_mapping/fallback_mapping.json
-recursive-include seed_intersphinx_mapping *.pyi
-include seed_intersphinx_mapping/py.typed

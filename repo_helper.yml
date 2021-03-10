@@ -11,6 +11,10 @@ version: '0.3.1'
 license: 'MIT'
 short_desc: "Populate the Sphinx 'intersphinx_mapping' dictionary from the project's requirements."
 
+sphinx_html_theme: furo
+docs_fail_on_warning: true
+use_whey: true
+
 conda_channels:
  - conda-forge
 
@@ -38,6 +42,3 @@ classifiers:
  - 'Topic :: Documentation'
  - 'Topic :: Documentation :: Sphinx'
  - 'Topic :: Software Development :: Documentation'
-
-sphinx_html_theme: furo
-docs_fail_on_warning: true

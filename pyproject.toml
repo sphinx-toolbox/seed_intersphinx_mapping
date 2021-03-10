@@ -1,6 +1,6 @@
 [build-system]
-requires = [ "setuptools>=40.6.0", "wheel>=0.34.2",]
-build-backend = "setuptools.build_meta"
+requires = [ "whey",]
+build-backend = "whey"
 
 [project]
 name = "seed_intersphinx_mapping"
@@ -21,3 +21,19 @@ Homepage = "https://github.com/sphinx-toolbox/seed_intersphinx_mapping"
 "Issue Tracker" = "https://github.com/sphinx-toolbox/seed_intersphinx_mapping/issues"
 "Source Code" = "https://github.com/sphinx-toolbox/seed_intersphinx_mapping"
 Documentation = "https://seed_intersphinx_mapping.readthedocs.io/en/latest"
+
+[tool.whey]
+base-classifiers = [
+    "Development Status :: 4 - Beta",
+    "Framework :: Sphinx :: Extension",
+    "Intended Audience :: Developers",
+    "Topic :: Documentation",
+    "Topic :: Documentation :: Sphinx",
+    "Topic :: Software Development :: Documentation",
+    "Typing :: Typed",
+]
+python-versions = [ "3.6", "3.7", "3.8", "3.9",]
+python-implementations = [ "CPython", "PyPy",]
+platforms = [ "Windows", "macOS", "Linux",]
+license-key = "MIT"
+additional-files = [ "include seed_intersphinx_mapping/fallback_mapping.json",]
