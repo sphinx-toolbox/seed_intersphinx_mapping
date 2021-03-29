@@ -23,7 +23,7 @@ rst_prolog = f""".. |pkgname| replace:: seed_intersphinx_mapping
 """
 
 author = "Dominic Davis-Foster"
-project = "seed_intersphinx_mapping"
+project = "seed_intersphinx_mapping".replace('_', '-')
 slug = re.sub(r'\W+', '-', project.lower())
 release = version = __version__
 copyright = "2020-2021 Dominic Davis-Foster"  # pylint: disable=redefined-builtin
@@ -34,7 +34,9 @@ extensions = [
 		"sphinx_toolbox",
 		"sphinx_toolbox.more_autodoc",
 		"sphinx_toolbox.more_autosummary",
+		"sphinx_toolbox.documentation_summary",
 		"sphinx_toolbox.tweaks.param_dash",
+		"sphinx_toolbox.tweaks.latex_toc",
 		"sphinx.ext.intersphinx",
 		"sphinx.ext.mathjax",
 		"sphinxcontrib.httpdomain",
@@ -109,7 +111,7 @@ add_module_names = False
 hide_none_rtype = True
 all_typevars = True
 overloads_location = "bottom"
-
+documentation_summary = "Populate the Sphinx 'intersphinx_mapping' dictionary from the project's requirements."
 
 autodoc_exclude_members = [   # Exclude "standard" methods.
 		"__dict__",
