@@ -8,7 +8,7 @@ packaging:
   - - null
 requests:
 - requests
-- - https://requests.readthedocs.io/en/master/
+- - https://docs.python-requests.org/en/master/
   - - null
 slumber:
 - slumber
