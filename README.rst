@@ -26,7 +26,7 @@ seed_intersphinx_mapping
 	* - Activity
 	  - |commits-latest| |commits-since| |maintained| |pypi-downloads|
 	* - QA
-	  - |codefactor| |actions_flake8| |actions_mypy| |pre_commit_ci|
+	  - |codefactor| |actions_flake8| |actions_mypy|
 	* - Other
 	  - |license| |language| |requires|
 
@@ -115,10 +115,6 @@ seed_intersphinx_mapping
 .. |pypi-downloads| image:: https://img.shields.io/pypi/dm/seed_intersphinx_mapping
 	:target: https://pypi.org/project/seed_intersphinx_mapping/
 	:alt: PyPI - Downloads
-
-.. |pre_commit_ci| image:: https://results.pre-commit.ci/badge/github/sphinx-toolbox/seed_intersphinx_mapping/master.svg
-	:target: https://results.pre-commit.ci/latest/github/sphinx-toolbox/seed_intersphinx_mapping/master
-	:alt: pre-commit.ci status
 
 .. end shields
 
