@@ -118,6 +118,8 @@ def setup(app: Sphinx) -> Dict[str, Any]:
 	# this package
 	from seed_intersphinx_mapping import __version__
 
+	app.setup_extension("sphinx.ext.intersphinx")
+
 	# Either:
 	# - "requirements"
 	# - a list of directories containing requirements.txt files relative to the repository root
