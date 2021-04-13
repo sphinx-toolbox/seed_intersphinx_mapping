@@ -149,8 +149,6 @@ This avoids having to manually compile (and keep updated) a mapping like:
 
 	In the meantime you will still need to manually include an entry for that project in your ``intersphinx_mapping``.
 
-.. seealso:: The Sphinx documentation for `sphinx.ext.intersphinx <https://www.sphinx-doc.org/en/3.x/usage/extensions/intersphinx.html>`_
-
 .. _Project-URL: https://packaging.python.org/specifications/core-metadata/#project-url-multiple-use
 .. _core metadata: https://packaging.python.org/specifications/core-metadata
 .. _pull request: https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests
