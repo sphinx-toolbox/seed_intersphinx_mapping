@@ -42,6 +42,7 @@ known_third_party = [
     "domdf_python_tools",
     "github",
     "html5lib",
+    "importlib_metadata",
     "importlib_resources",
     "packaging",
     "pytest",
