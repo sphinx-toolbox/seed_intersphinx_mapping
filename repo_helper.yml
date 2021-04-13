@@ -14,6 +14,7 @@ short_desc: "Populate the Sphinx 'intersphinx_mapping' dictionary from the proje
 sphinx_html_theme: furo
 docs_fail_on_warning: true
 use_whey: true
+standalone_contrib_guide: true
 
 conda_channels:
  - conda-forge

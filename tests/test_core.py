@@ -7,8 +7,7 @@ import packaging.requirements
 import pytest
 
 # this package
-from seed_intersphinx_mapping import cache
-from seed_intersphinx_mapping.core import get_sphinx_doc_url, search_dict
+from seed_intersphinx_mapping import cache, get_sphinx_doc_url
 
 
 def test_get_sphinx_doc_url():

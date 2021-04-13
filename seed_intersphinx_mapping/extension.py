@@ -36,7 +36,6 @@ from sphinx.application import Sphinx
 from sphinx.config import Config
 
 # this package
-from seed_intersphinx_mapping.core import seed_intersphinx_mapping
 from seed_intersphinx_mapping.requirements_parsers import (
 		parse_flit_requirements,
 		parse_pyproject_toml,
@@ -75,6 +74,9 @@ def sphinx_seed_intersphinx_mapping(app: Sphinx, config: Config) -> None:
 	:param config:
 	"""
 
+	# this package
+	from seed_intersphinx_mapping import seed_intersphinx_mapping
+
 	repo_root = os.path.abspath(pathlib.Path(app.srcdir) / config.repository_root)
 	config.repository_root = repo_root  # type: ignore
 
@@ -108,7 +110,7 @@ def sphinx_seed_intersphinx_mapping(app: Sphinx, config: Config) -> None:
 
 def setup(app: Sphinx) -> Dict[str, Any]:
 	"""
-	Setup :mod:`seed_intersphinx_mapping` Sphinx Extension.
+	Setup :mod:`seed_intersphinx_mapping`.
 
 	:param app:
 	"""

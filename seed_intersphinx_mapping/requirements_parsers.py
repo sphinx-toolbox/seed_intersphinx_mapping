@@ -3,8 +3,6 @@
 #  requirements_parsers.py
 """
 Contains functions for parsing requirements.
-
-.. TODO:: Other formats, e.g. setup.cfg, poetry
 """
 #
 #  Copyright © 2020-2021 Dominic Davis-Foster <dominic@davis-foster.co.uk>

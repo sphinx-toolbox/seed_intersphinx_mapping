@@ -1,6 +1,6 @@
 =======================================
-:mod:`~seed_intersphinx_mapping.core`
+:mod:`seed_intersphinx_mapping`
 =======================================
 
-.. automodule:: seed_intersphinx_mapping.core
+.. automodule:: seed_intersphinx_mapping
 	:undoc-members:
