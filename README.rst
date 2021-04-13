@@ -136,23 +136,16 @@ This avoids having to manually compile (and keep updated) a mapping like:
 	}
 	# Source: https://gist.github.com/bskinn/0e164963428d4b51017cebdb6cda5209
 
-.. note::
 
-	Not all projects include a link to their documentation in the Project-URL_ field of Python's `core metadata`_. Why not submit a `pull request`_ to them to include it?
+See `the documentation`_ for more information.
 
-	For `setuptools' <https://setuptools.readthedocs.io/en/latest/>`_ ``setup.cfg``, this would look like:
-
-	.. code-block:: ini
-
-		project_urls =
-		    Documentation = <documentation_url, e.g. https://domdf-python-tools.readthedocs.io/en/latest>
-
-	In the meantime you will still need to manually include an entry for that project in your ``intersphinx_mapping``.
+**Note:** Not all projects include a link to their documentation in the Project-URL_ field of Python's `core metadata`_.
+Why not submit a `pull request`_ to them to include it?
 
 .. _Project-URL: https://packaging.python.org/specifications/core-metadata/#project-url-multiple-use
 .. _core metadata: https://packaging.python.org/specifications/core-metadata
 .. _pull request: https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests
-
+.. _the documentation: https://seed-intersphinx-mapping.readthedocs.io/en/latest/
 
 Installation
 --------------

@@ -141,7 +141,8 @@ This avoids having to manually compile (and keep updated) a mapping like:
 
 .. note::
 
-	Not all projects include a link to their documentation in the Project-URL_ field of Python's `core metadata`_. Why not submit a `pull request`_ to them to include it?
+	Not all projects include a link to their documentation in the Project-URL_ field of Python's `core metadata`_.
+	Why not submit a `pull request`_ to them to include it?
 
 	For `setuptools' <https://setuptools.readthedocs.io/en/latest/>`_ ``setup.cfg``, this would look like:
 
