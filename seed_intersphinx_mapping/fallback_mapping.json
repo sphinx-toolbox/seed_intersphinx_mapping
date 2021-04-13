@@ -30,5 +30,6 @@
   "pyjwt": "https://pyjwt.readthedocs.io/en/latest/",
   "dnspython": "https://dnspython.readthedocs.io/en/latest/",
   "babel": "https://babel.readthedocs.io/en/latest/",
-  "pyrsistent": "https://pyrsistent.readthedocs.io/en/latest/"
+  "pyrsistent": "https://pyrsistent.readthedocs.io/en/latest/",
+  "scikit-learn": "https://scikit-learn.org/stable/"
 }
