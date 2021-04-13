@@ -122,6 +122,42 @@ seed_intersphinx_mapping
 
 .. end shields
 
+This avoids having to manually compile (and keep updated) a mapping like:
+
+.. code-block:: python
+
+	intersphinx_mapping = {
+		"attrs": ('https://www.attrs.org/en/stable/', None),
+		"Flask": ('https://flask.palletsprojects.com/en/1.1.x/', None),
+		"matplotlib": ('https://matplotlib.org/stable/', None),
+		"numpy": ('https://numpy.org/doc/stable/', None),
+		"pandas": ('https://pandas.pydata.org/docs/', None),
+		"Pyramid": ('https://docs.pylonsproject.org/projects/pyramid/en/latest/', None),
+		"scikit-learn": ('https://scikit-learn.org/stable/', None),
+		"scipy": ('https://docs.scipy.org/doc/scipy/reference/', None),
+		"Sphinx": ('https://www.sphinx-doc.org/en/stable/', None),
+	}
+	# Source: https://gist.github.com/bskinn/0e164963428d4b51017cebdb6cda5209
+
+.. note::
+
+	Not all projects include a link to their documentation in the Project-URL_ field of Python's `core metadata`_. Why not submit a `pull request`_ to them to include it?
+
+	For `setuptools' <https://setuptools.readthedocs.io/en/latest/>`_ ``setup.cfg``, this would look like:
+
+	.. code-block:: ini
+
+		project_urls =
+		    Documentation = <documentation_url, e.g. https://domdf-python-tools.readthedocs.io/en/latest>
+
+	In the meantime you will still need to manually include an entry for that project in your ``intersphinx_mapping``.
+
+.. seealso:: The Sphinx documentation for :mod:`sphinx.ext.intersphinx`.
+
+.. _Project-URL: https://packaging.python.org/specifications/core-metadata/#project-url-multiple-use
+.. _core metadata: https://packaging.python.org/specifications/core-metadata
+.. _pull request: https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests
+
 Installation
 ---------------
 
@@ -198,7 +234,7 @@ The cache can be cleared as follows:
 
 	python3 -m seed_intersphinx_mapping
 
-.. TODO:: automatic cache clearing
+.. TODO:: automatic cache clearing, perhaps using ``intersphinx_cache_limit``
 
 
 Contents
