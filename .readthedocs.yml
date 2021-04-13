@@ -13,4 +13,4 @@ python:
   install:
    - requirements: requirements.txt
    - requirements: doc-source/requirements.txt
-   - requirements: doc-source/rtd-requirements.txt
+   - requirements: doc-source/rtd-extra-deps.txt

@@ -42,6 +42,3 @@ classifiers:
  - 'Topic :: Documentation'
  - 'Topic :: Documentation :: Sphinx'
  - 'Topic :: Software Development :: Documentation'
-
-exclude_files:
- - rtfd
