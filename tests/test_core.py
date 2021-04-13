@@ -23,7 +23,7 @@ def test_get_sphinx_doc_url():
 	with pytest.raises(ValueError, match="Documentation URL not found in data from PyPI."):
 		get_sphinx_doc_url("slumber")
 
-	with pytest.raises(ValueError, match="objects.inv not found at url."):
+	with pytest.raises(ValueError, match="objects.inv not found at url .*: HTTP Status 404"):
 		get_sphinx_doc_url("isort")
 
 	assert cache.clear(get_sphinx_doc_url)

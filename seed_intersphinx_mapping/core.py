@@ -93,7 +93,7 @@ def get_sphinx_doc_url(pypi_name: str) -> str:
 
 		r = requests.head(objects_inv_url)
 		if r.status_code != 200:
-			raise ValueError(f"objects.inv not found at url: HTTP Status {r.status_code}.")
+			raise ValueError(f"objects.inv not found at url {objects_inv_url}: HTTP Status {r.status_code}.")
 
 		return docs_url
 
