@@ -44,3 +44,12 @@ classifiers:
  - 'Topic :: Documentation'
  - 'Topic :: Documentation :: Sphinx'
  - 'Topic :: Software Development :: Documentation'
+
+exclude_files:
+ - contributing
+
+preserve_custom_theme: true
+
+extra_sphinx_extensions:
+ - html_section
+ - latex_zwsp

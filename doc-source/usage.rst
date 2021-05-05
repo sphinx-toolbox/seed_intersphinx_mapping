@@ -15,6 +15,11 @@ Installation
 
 .. end installation
 
+.. raw:: latex
+
+
+	\bigskip\bigskip\hrule\bigskip
+
 
 .. extensions:: seed_intersphinx_mapping
 

@@ -162,6 +162,8 @@ This avoids having to manually compile (and keep updated) a mapping like:
 Contents
 --------
 
+.. html-section::
+
 .. toctree::
 	:hidden:
 
@@ -169,12 +171,9 @@ Contents
 
 .. toctree::
 	:maxdepth: 3
-	:caption: Documentation
-	:glob:
 
 	usage
 	api/index
-	contributing
 	Source
 
 .. start links

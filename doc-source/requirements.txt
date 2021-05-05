@@ -1,8 +1,8 @@
+git+https://github.com/sphinx-toolbox/html-section.git
 autodocsumm>=0.2.0
 default-values>=0.4.2
 extras-require>=0.2.0
 furo>=2020.11.19b18
-repo-helper-sphinx-theme>=0.0.2
 seed-intersphinx-mapping>=0.3.1
 sphinx-copybutton>=0.2.12
 sphinx-debuginfo>=0.1.0
