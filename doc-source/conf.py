@@ -67,3 +67,9 @@ autodoc_default_options = {
 latex_elements = {
 		"fncychap": "\\usepackage[Bjarne]{fncychap}\n\\ChNameAsIs\n\\ChTitleAsIs\n",
 		}
+
+
+def setup(app):
+	# 3rd party
+	from sphinx_toolbox.latex import replace_unknown_unicode
+	app.connect("build-finished", replace_unknown_unicode)

@@ -1,3 +1,5 @@
+# pylint: disable=cyclic-import
+
 # 3rd party
 from sphinx.events import EventListener
 from sphinx_toolbox.testing import run_setup

@@ -52,4 +52,8 @@ preserve_custom_theme: true
 
 extra_sphinx_extensions:
  - html_section
- - latex_zwsp
+
+sphinx_conf_epilogue:
+ - "def setup(app):"
+ - "    from sphinx_toolbox.latex import replace_unknown_unicode"
+ - '    app.connect("build-finished", replace_unknown_unicode)'

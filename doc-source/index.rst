@@ -176,6 +176,13 @@ Contents
 	api/index
 	Source
 
+.. sidebar-links::
+	:caption: Links
+	:github:
+	:pypi: seed_intersphinx_mapping
+
+	Contributing Guide <https://contributing-to-sphinx-toolbox.readthedocs.io/en/latest/>
+
 .. start links
 
 .. only:: html
