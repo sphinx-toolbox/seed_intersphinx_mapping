@@ -5,6 +5,7 @@ from typing import get_type_hints
 # 3rd party
 import packaging.requirements
 import pytest
+from coincidence import PEP_563
 
 # this package
 from seed_intersphinx_mapping import cache, get_sphinx_doc_url
@@ -35,7 +36,7 @@ def test_get_sphinx_doc_url():
 def test_get_sphinx_doc_url_wrapping():
 	assert get_sphinx_doc_url.__name__ == "get_sphinx_doc_url"
 
-	if sys.version_info >= (3, 10):
+	if PEP_563:
 		assert get_sphinx_doc_url.__annotations__ == {"pypi_name": "str", "return": "str"}
 	else:
 		assert get_sphinx_doc_url.__annotations__ == {"pypi_name": str, "return": str}
