@@ -76,8 +76,6 @@ def setup(app):
 
 	app.connect("config-inited", lambda app, config: better_header_layout(config))
 
-
-def setup(app):
 	# 3rd party
 	from sphinx_toolbox.latex import replace_unknown_unicode
 	app.connect("build-finished", replace_unknown_unicode)

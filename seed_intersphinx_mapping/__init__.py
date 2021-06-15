@@ -71,17 +71,20 @@ def get_sphinx_doc_url(pypi_name: str) -> str:
 		python3 -m seed_intersphinx_mapping
 
 	.. TODO:: automatic cache clearing, perhaps using ``intersphinx_cache_limit``
+	.. latex:vspace:: -10px
 
 	:param pypi_name: The name of the project on PyPI
 
 	:returns: The URL of the project's Sphinx documentation.
 
-	:raises: | :exc:`ValueError` if the url could not be determined.
-		| :exc:`packaging.requirements.InvalidRequirement` if the project could not be found on PyPI.
+	:raises:
+
+		* :exc:`ValueError` if the url could not be determined.
+		* :exc:`packaging.requirements.InvalidRequirement` if the project could not be found on PyPI.
 
 	.. versionchanged:: 0.4.0
 
-		Now raises a :exc:`packaging.requirements.InvalidRequirement` rather than a
+		Now raises :exc:`~packaging.requirements.InvalidRequirement` rather than
 		:exc:`apeye.slumber_url.exceptions.HttpNotFoundError` if the project could not be found on PyPI.
 	"""
 

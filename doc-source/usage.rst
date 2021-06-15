@@ -71,7 +71,7 @@ Configuration
 		├── tests
 		└── tox.ini
 
-	the value would be ``..``, which is the default.
+	the value would be ``'..'``, which is the default.
 
 
 Caching

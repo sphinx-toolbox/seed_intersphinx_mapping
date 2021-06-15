@@ -150,7 +150,14 @@ This avoids having to manually compile (and keep updated) a mapping like:
 	.. code-block:: ini
 
 		project_urls =
-		    Documentation = <documentation_url, e.g. https://domdf-python-tools.readthedocs.io/en/latest>
+			Documentation = <documentation_url, e.g. https://domdf-python-tools.readthedocs.io/en/latest>
+
+	Or, in :pep:`pyproject.toml <621>`:
+
+	.. code-block:: toml
+
+		[project.urls]
+		Documentation = "<documentation_url, e.g. https://domdf-python-tools.readthedocs.io/en/latest>"
 
 	In the meantime you will still need to manually include an entry for that project in your ``intersphinx_mapping``.
 

@@ -51,9 +51,11 @@ exclude_files:
 preserve_custom_theme: true
 
 extra_sphinx_extensions:
- - html_section
+ - sphinx_toolbox_experimental.html_section
+ - sphinx_toolbox_experimental.autosummary_widths
+ - sphinx_toolbox_experimental.needspace
+ - sphinx_toolbox_experimental.peps
 
 sphinx_conf_epilogue:
- - "def setup(app):"
- - "    from sphinx_toolbox.latex import replace_unknown_unicode"
- - '    app.connect("build-finished", replace_unknown_unicode)'
+ - "	from sphinx_toolbox.latex import replace_unknown_unicode"
+ - '	app.connect("build-finished", replace_unknown_unicode)'

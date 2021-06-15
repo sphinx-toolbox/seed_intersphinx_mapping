@@ -1,4 +1,4 @@
-git+https://github.com/sphinx-toolbox/html-section.git
+git+https://github.com/sphinx-toolbox/sphinx-toolbox-experimental.git
 autodocsumm>=0.2.0
 default-values>=0.4.2
 extras-require>=0.2.0
