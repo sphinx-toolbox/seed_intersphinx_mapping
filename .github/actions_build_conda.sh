@@ -5,8 +5,6 @@ set -e -x
 
 python -m mkrecipe --type wheel || exit 1
 
-hash -r
-$CONDA/bin/conda activate base
 $CONDA/bin/conda config --set always_yes yes --set changeps1 no
 $CONDA/bin/conda install conda-build
 $CONDA/bin/conda install anaconda-client

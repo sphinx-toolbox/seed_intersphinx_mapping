@@ -3,8 +3,6 @@
 
 set -e -x
 
-hash -r
-$CONDA/bin/conda activate base
 $CONDA/bin/conda config --set always_yes yes --set changeps1 no
 $CONDA/bin/conda update -q conda
 $CONDA/bin/conda install anaconda-client
