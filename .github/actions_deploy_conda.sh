@@ -3,21 +3,19 @@
 
 set -e -x
 
-# Switch to miniconda
-source "/home/runner/miniconda/etc/profile.d/conda.sh"
 hash -r
-conda activate base
-conda config --set always_yes yes --set changeps1 no
-conda update -q conda
-conda install anaconda-client
-conda info -a
+$CONDA/bin/conda activate base
+$CONDA/bin/conda config --set always_yes yes --set changeps1 no
+$CONDA/bin/conda update -q conda
+$CONDA/bin/conda install anaconda-client
+$CONDA/bin/conda info -a
 
 for f in conda/dist/noarch/seed_intersphinx_mapping-*.tar.bz2; do
   [ -e "$f" ] || continue
   echo "$f"
-  conda install "$f" || exit 1
+  $CONDA/bin/conda install "$f" || exit 1
   echo "Deploying to Anaconda.org..."
-  anaconda -t "$ANACONDA_TOKEN" upload "$f" || exit 1
+  $CONDA/bin/anaconda -t "$ANACONDA_TOKEN" upload "$f" || exit 1
   echo "Successfully deployed to Anaconda.org."
 done
 
