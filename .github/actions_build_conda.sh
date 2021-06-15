@@ -5,14 +5,19 @@ set -e -x
 
 python -m mkrecipe --type wheel || exit 1
 
-$CONDA/bin/conda config --set always_yes yes --set changeps1 no
-$CONDA/bin/conda install conda-build
-$CONDA/bin/conda install anaconda-client
-$CONDA/bin/conda info -a
+# Switch to miniconda
+source "/home/runner/miniconda/etc/profile.d/conda.sh"
+hash -r
+conda activate base
+conda config --set always_yes yes --set changeps1 no
+conda update -q conda
+conda install conda-build
+conda install anaconda-client
+conda info -a
 
-$CONDA/bin/conda config --add channels conda-forge || exit 1
-$CONDA/bin/conda config --add channels domdfcoding || exit 1
+conda config --add channels conda-forge || exit 1
+conda config --add channels domdfcoding || exit 1
 
-$CONDA/bin/conda build conda -c conda-forge -c domdfcoding --output-folder conda/dist --skip-existing
+conda build conda -c conda-forge -c domdfcoding --output-folder conda/dist --skip-existing
 
 exit 0
