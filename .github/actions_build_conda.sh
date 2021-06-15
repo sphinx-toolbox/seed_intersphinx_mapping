@@ -10,7 +10,6 @@ source "/home/runner/miniconda/etc/profile.d/conda.sh"
 hash -r
 conda activate base
 conda config --set always_yes yes --set changeps1 no
-conda update -q conda
 conda install conda-build
 conda install anaconda-client
 conda info -a
