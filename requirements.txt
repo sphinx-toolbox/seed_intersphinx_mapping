@@ -1,4 +1,4 @@
-apeye>=0.7.0
+apeye>=1.0.0
 cawdrey>=0.4.2
 domdf-python-tools>=2.8.0
 packaging>=20.9
