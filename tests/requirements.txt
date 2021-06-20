@@ -11,4 +11,4 @@ pytest-datafiles>=2.0
 pytest-randomly>=3.7.0
 pytest-rerunfailures>=9.0
 pytest-timeout>=1.4.2
-sphinx-toolbox[testing]>=2.0.2
+sphinx-toolbox[testing]>=2.13.0b2

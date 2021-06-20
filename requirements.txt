@@ -3,5 +3,5 @@ cawdrey>=0.4.2
 domdf-python-tools>=2.8.0
 packaging>=20.9
 requests>=2.24.0
-shippinglabel>=0.12.0
+shippinglabel>=0.15.0
 sphinx>=3.0.3
