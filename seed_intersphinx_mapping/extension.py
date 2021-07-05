@@ -101,7 +101,8 @@ def sphinx_seed_intersphinx_mapping(app: Sphinx, config: Config) -> None:
 		raise NotImplementedError(f"Unsupported requirements source '{config.pkg_requirements_source}'")
 
 	for name, (uri, inv) in seed_intersphinx_mapping(*requirements).items():
-		config.intersphinx_mapping[name] = (name, (uri, (inv, )))
+		if name not in config.intersphinx_mapping:
+			config.intersphinx_mapping[name] = (name, (uri, (inv, )))
 
 	# from pprint import pprint
 	# pprint(config.intersphinx_mapping)
