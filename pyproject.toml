@@ -4,7 +4,7 @@ build-backend = "whey"
 
 [project]
 name = "seed_intersphinx_mapping"
-version = "0.5.0"
+version = "0.5.1"
 description = "Populate the Sphinx 'intersphinx_mapping' dictionary from the project's requirements."
 readme = "README.rst"
 keywords = [ "documentation", "intersphinx", "sphinx",]
