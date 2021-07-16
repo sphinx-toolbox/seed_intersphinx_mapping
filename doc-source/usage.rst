@@ -24,6 +24,8 @@ Installation
 .. extensions:: seed_intersphinx_mapping
 
 
+.. latex:clearpage::
+
 Configuration
 -----------------
 

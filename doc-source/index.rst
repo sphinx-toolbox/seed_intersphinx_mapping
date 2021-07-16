@@ -123,6 +123,12 @@ seed_intersphinx_mapping
 
 .. end shields
 
+Overview
+-----------
+
+.. latex-section::
+
+
 This avoids having to manually compile (and keep updated) a mapping like:
 
 .. code-block:: python
