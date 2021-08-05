@@ -33,11 +33,12 @@ Populate the Sphinx 'intersphinx_mapping' dictionary from the project's requirem
 # stdlib
 import functools
 import json
+import re
 from typing import Dict, Optional, Tuple, Union
 
 # 3rd party
 import requests
-from cawdrey.utils import search_dict
+from apeye.requests_url import RequestsURL
 from domdf_python_tools.compat import importlib_resources
 from domdf_python_tools.utils import stderr_writer
 from packaging.requirements import Requirement
@@ -54,6 +55,8 @@ __version__: str = "0.5.1"
 __email__: str = "dominic@davis-foster.co.uk"
 
 __all__ = ["get_sphinx_doc_url", "fallback_mapping", "seed_intersphinx_mapping"]
+
+_DOCUMENTATION_RE = re.compile(r"^[dD]oc(s|umentation)")
 
 
 @cache
@@ -88,12 +91,12 @@ def get_sphinx_doc_url(pypi_name: str) -> str:
 		:exc:`apeye.slumber_url.exceptions.HttpNotFoundError` if the project could not be found on PyPI.
 	"""
 
-	docs_dict = search_dict(get_project_links(pypi_name), r"^[dD]oc(s|umentation)")
-
-	if docs_dict:
+	for key, value in get_project_links(pypi_name).items():
+		if not _DOCUMENTATION_RE.match(key):
+			continue
 
 		# Follow redirects to get actual URL
-		r = requests.head(list(docs_dict.values())[0], allow_redirects=True, timeout=10)
+		r = RequestsURL(value).head(allow_redirects=True, timeout=10)
 		if r.status_code != 200:  # pragma: no cover
 			raise ValueError(f"Documentation URL not found: HTTP Status {r.status_code}.")
 
