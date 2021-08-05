@@ -173,6 +173,7 @@ This avoids having to manually compile (and keep updated) a mapping like:
 .. _core metadata: https://packaging.python.org/specifications/core-metadata
 .. _pull request: https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests
 
+
 Contents
 --------
 
@@ -189,6 +190,7 @@ Contents
 	usage
 	api/index
 	Source
+	license
 
 .. sidebar-links::
 	:caption: Links
