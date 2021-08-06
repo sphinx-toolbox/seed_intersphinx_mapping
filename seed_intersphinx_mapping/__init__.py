@@ -64,7 +64,8 @@ def get_sphinx_doc_url(pypi_name: str) -> str:
 	"""
 	Returns the URL to the given project's Sphinx documentation.
 
-	Not all projects include this URL in their distributions and therefore it may not be possible to determine it from PyPI.
+	Not all projects include this URL in their distributions
+	and therefore it may not be possible to determine it from PyPI.
 
 	Responses are cached to prevent overloading the PyPI server.
 	The cache can be cleared as follows:
@@ -73,7 +74,6 @@ def get_sphinx_doc_url(pypi_name: str) -> str:
 
 		python3 -m seed_intersphinx_mapping
 
-	.. TODO:: automatic cache clearing, perhaps using ``intersphinx_cache_limit``
 	.. latex:vspace:: -10px
 
 	:param pypi_name: The name of the project on PyPI
