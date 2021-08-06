@@ -85,5 +85,3 @@ The cache can be cleared as follows:
 .. prompt:: bash
 
 	python3 -m seed_intersphinx_mapping
-
-.. TODO:: automatic cache clearing, perhaps using ``intersphinx_cache_limit``
