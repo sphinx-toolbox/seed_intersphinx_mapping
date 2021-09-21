@@ -60,7 +60,8 @@ seed_intersphinx_mapping
 		:workflow: mypy
 		:alt: mypy status
 
-	.. |requires| requires-io-shield::
+	.. |requires| image:: https://dependency-dash.herokuapp.com/github/sphinx-toolbox/seed_intersphinx_mapping/badge.svg
+		:target: https://dependency-dash.herokuapp.com/github/sphinx-toolbox/seed_intersphinx_mapping/
 		:alt: Requirements Status
 
 	.. |coveralls| coveralls-shield::
@@ -134,16 +135,16 @@ This avoids having to manually compile (and keep updated) a mapping like:
 .. code-block:: python
 
 	intersphinx_mapping = {
-		"attrs": ('https://www.attrs.org/en/stable/', None),
-		"Flask": ('https://flask.palletsprojects.com/en/1.1.x/', None),
-		"matplotlib": ('https://matplotlib.org/stable/', None),
-		"numpy": ('https://numpy.org/doc/stable/', None),
-		"pandas": ('https://pandas.pydata.org/docs/', None),
-		"Pyramid": ('https://docs.pylonsproject.org/projects/pyramid/en/latest/', None),
-		"scikit-learn": ('https://scikit-learn.org/stable/', None),
-		"scipy": ('https://docs.scipy.org/doc/scipy/reference/', None),
-		"Sphinx": ('https://www.sphinx-doc.org/en/stable/', None),
-	}
+			"attrs": ("https://www.attrs.org/en/stable/", None),
+			"Flask": ("https://flask.palletsprojects.com/en/1.1.x/", None),
+			"matplotlib": ("https://matplotlib.org/stable/", None),
+			"numpy": ("https://numpy.org/doc/stable/", None),
+			"pandas": ("https://pandas.pydata.org/docs/", None),
+			"Pyramid": ("https://docs.pylonsproject.org/projects/pyramid/en/latest/", None),
+			"scikit-learn": ("https://scikit-learn.org/stable/", None),
+			"scipy": ("https://docs.scipy.org/doc/scipy/reference/", None),
+			"Sphinx": ("https://www.sphinx-doc.org/en/stable/", None),
+			}
 	# Source: https://gist.github.com/bskinn/0e164963428d4b51017cebdb6cda5209
 
 .. note::
