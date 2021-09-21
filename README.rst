@@ -58,8 +58,8 @@ seed_intersphinx_mapping
 	:target: https://github.com/sphinx-toolbox/seed_intersphinx_mapping/actions?query=workflow%3A%22mypy%22
 	:alt: mypy status
 
-.. |requires| image:: https://requires.io/github/sphinx-toolbox/seed_intersphinx_mapping/requirements.svg?branch=master
-	:target: https://requires.io/github/sphinx-toolbox/seed_intersphinx_mapping/requirements/?branch=master
+.. |requires| image:: https://dependency-dash.herokuapp.com/github/sphinx-toolbox/seed_intersphinx_mapping/badge.svg
+	:target: https://dependency-dash.herokuapp.com/github/sphinx-toolbox/seed_intersphinx_mapping/
 	:alt: Requirements Status
 
 .. |coveralls| image:: https://img.shields.io/coveralls/github/sphinx-toolbox/seed_intersphinx_mapping/master?logo=coveralls
