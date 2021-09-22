@@ -37,12 +37,14 @@ import re
 from typing import Dict, Optional, Tuple, Union
 
 # 3rd party
+import dist_meta
 import requests
 from apeye.requests_url import RequestsURL
+from dist_meta.metadata_mapping import MetadataMapping
 from domdf_python_tools.compat import importlib_resources
 from domdf_python_tools.utils import stderr_writer
 from packaging.requirements import Requirement
-from shippinglabel import get_project_links
+from pypi_json import PyPIJSON
 
 # this package
 from seed_intersphinx_mapping.cache import cache
@@ -57,6 +59,41 @@ __email__: str = "dominic@davis-foster.co.uk"
 __all__ = ["get_sphinx_doc_url", "fallback_mapping", "seed_intersphinx_mapping"]
 
 _DOCUMENTATION_RE = re.compile(r"^[dD]oc(s|umentation)")
+
+
+def _get_project_links(project_name: str) -> MetadataMapping:
+	"""
+	Returns the web links for the given project.
+
+	The exact keys vary, but common keys include "Documentation" and "Issue Tracker".
+
+	:param project_name:
+	"""
+
+	urls = MetadataMapping()
+
+	# Try a local package first
+	try:
+		dist = dist_meta.distributions.get_distribution(project_name)
+		raw_urls = dist.get_metadata().get_all("Project-URL", default=())
+
+		for url in raw_urls:
+			label, url, *_ = map(str.strip, url.split(','))
+			if _DOCUMENTATION_RE.match(label):
+				urls[label] = url
+
+	except dist_meta.distributions.DistributionNotFoundError:
+		# Fall back to PyPI
+
+		with PyPIJSON() as client:
+			metadata = client.get_metadata(project_name).info
+
+		if "project_urls" in metadata and metadata["project_urls"]:
+			for label, url in metadata["project_urls"].items():
+				if _DOCUMENTATION_RE.match(label):
+					urls[label] = url
+
+	return urls
 
 
 @cache
@@ -91,9 +128,7 @@ def get_sphinx_doc_url(pypi_name: str) -> str:
 		:exc:`apeye.slumber_url.exceptions.HttpNotFoundError` if the project could not be found on PyPI.
 	"""
 
-	for key, value in get_project_links(pypi_name).items():
-		if not _DOCUMENTATION_RE.match(key):
-			continue
+	for key, value in _get_project_links(pypi_name).items():
 
 		# Follow redirects to get actual URL
 		r = RequestsURL(value).head(allow_redirects=True, timeout=10)
