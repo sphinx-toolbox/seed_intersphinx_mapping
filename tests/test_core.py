@@ -1,5 +1,4 @@
 # stdlib
-import sys
 from typing import get_type_hints
 
 # 3rd party
