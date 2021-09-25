@@ -7,7 +7,7 @@ email: 'dominic@davis-foster.co.uk'
 username: 'sphinx-toolbox'
 assignee: 'domdfcoding'
 primary_conda_channel: 'domdfcoding'
-version: '0.5.1'
+version: '1.0.0'
 license: 'MIT'
 short_desc: "Populate the Sphinx 'intersphinx_mapping' dictionary from the project's requirements."
 
