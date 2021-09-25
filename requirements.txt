@@ -1,8 +1,8 @@
-apeye>=1.0.0
+apeye>=1.0.1
 dist-meta>=0.1.2
-domdf-python-tools>=2.8.0
-packaging>=20.9
+domdf-python-tools>=3.1.0
+packaging>=21.0
 pypi-json>=0.1.1
-requests>=2.24.0
+requests>=2.26.0
 shippinglabel>=0.15.0
-sphinx>=3.0.3
+sphinx>=3.0.4
