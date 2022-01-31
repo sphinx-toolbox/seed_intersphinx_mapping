@@ -35,11 +35,10 @@ import functools
 import json
 import os.path
 import re
-from urllib.parse import urlparse
 from typing import Dict, Optional, Tuple, Union
+from urllib.parse import urlparse
 
 # 3rd party
-
 import dist_meta
 import requests
 from domdf_python_tools.compat import importlib_resources
@@ -79,7 +78,7 @@ def _get_project_links(project_name: str) -> list:
 		raw_urls = dist.get_metadata().get_all("Project-URL", default=())
 
 		for url in raw_urls:
-			label, url = url.split(",", 1)
+			label, url = url.split(',', 1)
 			if _DOCUMENTATION_RE.match(label):
 				urls.append(url)
 
