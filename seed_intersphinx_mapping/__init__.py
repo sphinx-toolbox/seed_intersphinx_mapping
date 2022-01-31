@@ -33,13 +33,15 @@ Populate the Sphinx 'intersphinx_mapping' dictionary from the project's requirem
 # stdlib
 import functools
 import json
+import os.path
 import re
+from urllib.parse import urlparse
 from typing import Dict, Optional, Tuple, Union
 
 # 3rd party
+
 import dist_meta
 import requests
-from dist_meta.metadata_mapping import MetadataMapping
 from domdf_python_tools.compat import importlib_resources
 from domdf_python_tools.utils import stderr_writer
 from packaging.requirements import Requirement
@@ -60,7 +62,7 @@ __all__ = ["get_sphinx_doc_url", "fallback_mapping", "seed_intersphinx_mapping"]
 _DOCUMENTATION_RE = re.compile(r"^[dD]oc(s|umentation)")
 
 
-def _get_project_links(project_name: str) -> MetadataMapping:
+def _get_project_links(project_name: str) -> list:
 	"""
 	Returns the web links for the given project.
 
@@ -69,7 +71,7 @@ def _get_project_links(project_name: str) -> MetadataMapping:
 	:param project_name:
 	"""
 
-	urls = MetadataMapping()
+	urls = []
 
 	# Try a local package first
 	try:
@@ -77,9 +79,11 @@ def _get_project_links(project_name: str) -> MetadataMapping:
 		raw_urls = dist.get_metadata().get_all("Project-URL", default=())
 
 		for url in raw_urls:
-			label, url, *_ = map(str.strip, url.split(','))
+			label, url = url.split(",", 1)
 			if _DOCUMENTATION_RE.match(label):
-				urls[label] = url
+				urls.append(url)
+
+		urls.append(dist.get_metadata().get("Home-Page"))
 
 	except dist_meta.distributions.DistributionNotFoundError:
 		# Fall back to PyPI
@@ -90,8 +94,11 @@ def _get_project_links(project_name: str) -> MetadataMapping:
 		if "project_urls" in metadata and metadata["project_urls"]:
 			for label, url in metadata["project_urls"].items():
 				if _DOCUMENTATION_RE.match(label):
-					urls[label] = url
+					urls.append(url)
 
+		urls.append(metadata["home_page"])
+
+	urls = [url.strip() for url in filter(None, urls)]
 	return urls
 
 
@@ -126,26 +133,24 @@ def get_sphinx_doc_url(pypi_name: str) -> str:
 		Now raises :exc:`~packaging.requirements.InvalidRequirement` rather than
 		:exc:`apeye.slumber_url.exceptions.HttpNotFoundError` if the project could not be found on PyPI.
 	"""
-
-	for key, value in _get_project_links(pypi_name).items():
-
+	docs_urls = []
+	for value in _get_project_links(pypi_name):
 		# Follow redirects to get actual URL
 		r = requests.head(value, allow_redirects=True, timeout=10)
-		if r.status_code != 200:  # pragma: no cover
-			raise ValueError(f"Documentation URL not found: HTTP Status {r.status_code}.")
 
-		docs_url = r.url
+		if r.status_code == 200:
+			has_extension = os.path.splitext(urlparse(r.url).path)[-1]
+			url = os.path.dirname(r.url) if has_extension else r.url
+			docs_urls.append(url)
 
-		if docs_url.endswith('/'):
-			objects_inv_url = f"{docs_url}objects.inv"
-		else:  # pragma: no cover
-			objects_inv_url = f"{docs_url}/objects.inv"
+	for docs_url in docs_urls:
+		objects_inv_url = f"{docs_url.rstrip('/')}/objects.inv"
 
 		r = requests.head(objects_inv_url, allow_redirects=True, timeout=10)
 		if r.status_code != 200:
-			raise ValueError(f"objects.inv not found at url {objects_inv_url}: HTTP Status {r.status_code}.")
-
-		return docs_url
+			stderr_writer(f"WARNING: objects.inv not found at url {objects_inv_url}: HTTP Status {r.status_code}.")
+		else:
+			return docs_url
 
 	raise ValueError("Documentation URL not found in data from PyPI.")
 
