@@ -133,6 +133,7 @@ def get_sphinx_doc_url(pypi_name: str) -> str:
 		Now raises :exc:`~packaging.requirements.InvalidRequirement` rather than
 		:exc:`apeye.slumber_url.exceptions.HttpNotFoundError` if the project could not be found on PyPI.
 	"""
+
 	docs_urls = []
 	for value in _get_project_links(pypi_name):
 		# Follow redirects to get actual URL
