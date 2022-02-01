@@ -35,7 +35,7 @@ import functools
 import json
 import os.path
 import re
-from typing import Dict, Optional, Tuple, Union, List
+from typing import Dict, List, Optional, Tuple, Union
 from urllib.parse import urlparse
 
 # 3rd party
