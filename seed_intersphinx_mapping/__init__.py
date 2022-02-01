@@ -35,7 +35,7 @@ import functools
 import json
 import os.path
 import re
-from typing import Dict, Optional, Tuple, Union
+from typing import Dict, Optional, Tuple, Union, List
 from urllib.parse import urlparse
 
 # 3rd party
@@ -61,7 +61,7 @@ __all__ = ["get_sphinx_doc_url", "fallback_mapping", "seed_intersphinx_mapping"]
 _DOCUMENTATION_RE = re.compile(r"^[dD]oc(s|umentation)")
 
 
-def _get_project_links(project_name: str) -> list:
+def _get_project_links(project_name: str) -> List[str]:
 	"""
 	Returns the web links for the given project.
 
