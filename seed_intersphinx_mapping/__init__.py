@@ -75,14 +75,15 @@ def _get_project_links(project_name: str) -> List[str]:
 	# Try a local package first
 	try:
 		dist = dist_meta.distributions.get_distribution(project_name)
-		raw_urls = dist.get_metadata().get_all("Project-URL", default=())
+		metadata = dist.get_metadata()
+		raw_urls = metadata.get_all("Project-URL", default=())
 
 		for url in raw_urls:
 			label, url = url.split(',', 1)
 			if _DOCUMENTATION_RE.match(label):
 				urls.append(url)
 
-		urls.append(dist.get_metadata().get("Home-Page"))
+		urls.append(metadata.get("Home-Page"))
 
 	except dist_meta.distributions.DistributionNotFoundError:
 		# Fall back to PyPI
