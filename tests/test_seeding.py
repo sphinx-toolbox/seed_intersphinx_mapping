@@ -1,10 +1,12 @@
 # stdlib
 from types import SimpleNamespace
+from typing import List
 
 # 3rd party
 import pytest
 import toml
 from coincidence import AdvancedDataRegressionFixture
+from domdf_python_tools.paths import PathPlus
 from shippinglabel.requirements import read_requirements
 
 # this package
@@ -38,7 +40,12 @@ bad_expected_mapping = {
 				(bad_example_requirements, bad_expected_mapping),
 				]
 		)
-def test_seed_intersphinx_mapping(tmp_pathplus, contents, expects, capsys):
+def test_seed_intersphinx_mapping(
+		tmp_pathplus: PathPlus,
+		contents: str,
+		expects: List[str],
+		capsys,
+		):
 	(tmp_pathplus / "requirements.txt").write_text(contents)
 
 	assert seed_intersphinx_mapping(*parse_requirements_txt(tmp_pathplus)) == expects
@@ -57,7 +64,7 @@ def test_seed_intersphinx_mapping(tmp_pathplus, contents, expects, capsys):
 				(bad_example_requirements, bad_expected_mapping),
 				]
 		)
-def test_seed_intersphinx_mapping_pyproject(tmp_pathplus, contents, expects, capsys):
+def test_seed_intersphinx_mapping_pyproject(tmp_pathplus: PathPlus, contents: str, expects: List[str], capsys):
 	data = {"project": {"dependencies": contents.splitlines()}}
 	(tmp_pathplus / "pyproject.toml").write_clean(toml.dumps(data))
 
@@ -72,7 +79,7 @@ def test_seed_intersphinx_mapping_pyproject(tmp_pathplus, contents, expects, cap
 				(bad_example_requirements, bad_expected_mapping),
 				]
 		)
-def test_seed_intersphinx_mapping_flit(tmp_pathplus, contents, expects, capsys):
+def test_seed_intersphinx_mapping_flit(tmp_pathplus: PathPlus, contents: str, expects: List[str], capsys):
 	data = {"tool": {"flit": {"metadata": {"requires": contents.splitlines()}}}}
 	(tmp_pathplus / "pyproject.toml").write_clean(toml.dumps(data))
 
@@ -90,9 +97,9 @@ def test_seed_intersphinx_mapping_flit(tmp_pathplus, contents, expects, capsys):
 				]
 		)
 def test_sphinx_seed_intersphinx_mapping_mocked(
-		tmp_pathplus,
+		tmp_pathplus: PathPlus,
 		capsys,
-		contents,
+		contents: str,
 		advanced_data_regression: AdvancedDataRegressionFixture,
 		pkg_requirements_source: str
 		):
@@ -122,7 +129,7 @@ def test_sphinx_seed_intersphinx_mapping_mocked(
 
 
 def test_sphinx_seed_intersphinx_mapping_list_mocked(
-		tmp_pathplus,
+		tmp_pathplus: PathPlus,
 		advanced_data_regression: AdvancedDataRegressionFixture,
 		):
 
