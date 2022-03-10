@@ -45,6 +45,7 @@ known_third_party = [
     "html5lib",
     "importlib_metadata",
     "importlib_resources",
+    "numpy",
     "packaging",
     "pypi_json",
     "pytest",

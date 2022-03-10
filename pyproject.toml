@@ -34,7 +34,7 @@ base-classifiers = [
     "Topic :: Software Development :: Documentation",
     "Typing :: Typed",
 ]
-python-versions = [ "3.6", "3.7", "3.8", "3.9",]
+python-versions = [ "3.6", "3.7", "3.8", "3.9", "3.10",]
 python-implementations = [ "CPython", "PyPy",]
 platforms = [ "Windows", "macOS", "Linux",]
 license-key = "MIT"
@@ -72,7 +72,7 @@ extensions = [
     "sphinx_debuginfo",
     "sphinx_licenseinfo",
     "seed_intersphinx_mapping",
-    "sphinx_toolbox_experimental.html_section",
+    "html_section",
     "sphinx_toolbox_experimental.autosummary_widths",
     "sphinx_toolbox_experimental.needspace",
     "sphinx_toolbox_experimental.peps",

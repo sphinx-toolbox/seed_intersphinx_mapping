@@ -1,6 +1,10 @@
+# stdlib
+from typing import List
+
 # 3rd party
 import pytest
 import toml
+from domdf_python_tools.paths import PathPlus
 
 # this package
 from seed_intersphinx_mapping.requirements_parsers import (
@@ -15,11 +19,13 @@ packaging>=20.4
 requests>=2.24.0
 slumber>=0.7.1
 sphinx>=3.0.3
+numpy>=1.22.0
 sphinxcontrib-domaintools==0.3
 """
 
 expected_requirements_a = [
 		"domdf-python-tools",
+		"numpy",
 		"packaging",
 		"requests",
 		"slumber",
@@ -50,7 +56,11 @@ bad_expected_requirements = [
 				(bad_example_requirements, bad_expected_requirements),
 				]
 		)
-def test_parse_requirements_txt(tmp_pathplus, contents, expects):
+def test_parse_requirements_txt(
+		tmp_pathplus: PathPlus,
+		contents: str,
+		expects: List[str],
+		):
 	(tmp_pathplus / "requirements.txt").write_text(contents)
 
 	assert parse_requirements_txt(tmp_pathplus) == expects
@@ -62,7 +72,11 @@ def test_parse_requirements_txt(tmp_pathplus, contents, expects):
 				(bad_example_requirements, bad_expected_requirements),
 				]
 		)
-def test_seed_intersphinx_mapping_pyproject(tmp_pathplus, contents, expects):
+def test_seed_intersphinx_mapping_pyproject(
+		tmp_pathplus: PathPlus,
+		contents: str,
+		expects: List[str],
+		):
 	data = {"project": {"dependencies": contents.splitlines()}}
 	(tmp_pathplus / "pyproject.toml").write_clean(toml.dumps(data))
 
@@ -75,7 +89,11 @@ def test_seed_intersphinx_mapping_pyproject(tmp_pathplus, contents, expects):
 				(bad_example_requirements, bad_expected_requirements),
 				]
 		)
-def test_seed_intersphinx_mapping_flit(tmp_pathplus, contents, expects):
+def test_seed_intersphinx_mapping_flit(
+		tmp_pathplus: PathPlus,
+		contents: str,
+		expects: List[str],
+		):
 	data = {"tool": {"flit": {"metadata": {"requires": contents.splitlines()}}}}
 	(tmp_pathplus / "pyproject.toml").write_clean(toml.dumps(data))
 

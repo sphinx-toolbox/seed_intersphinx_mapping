@@ -4,7 +4,7 @@ from domdf_python_tools.paths import PathPlus
 
 
 @pytest.fixture()
-def requirements(tmp_pathplus):
+def requirements(tmp_pathplus: PathPlus) -> None:
 	fake_repo_root = tmp_pathplus.parent
 
 	(fake_repo_root / "requirements.txt").write_text("""\
@@ -16,7 +16,8 @@ appdirs
 """)
 
 
-def test_integration(requirements, the_app):
+@pytest.mark.usefixtures("requirements")
+def test_integration(the_app):
 	# app is a Sphinx application object for default sphinx project (`tests/doc-test/test-root`).
 	the_app.build()
 

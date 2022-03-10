@@ -25,9 +25,11 @@ python_versions:
  - '3.7'
  - '3.8'
  - '3.9'
- - 3.10-dev
+ - "3.10"
+ - 3.11-dev
  - pypy36
  - pypy37
+ - pypy38
 
 manifest_additional:
  - "include seed_intersphinx_mapping/fallback_mapping.json"
@@ -51,7 +53,6 @@ exclude_files:
 preserve_custom_theme: true
 
 extra_sphinx_extensions:
- - sphinx_toolbox_experimental.html_section
  - sphinx_toolbox_experimental.autosummary_widths
  - sphinx_toolbox_experimental.needspace
  - sphinx_toolbox_experimental.peps
@@ -59,3 +60,6 @@ extra_sphinx_extensions:
 sphinx_conf_epilogue:
  - "	from sphinx_toolbox.latex import replace_unknown_unicode"
  - '	app.connect("build-finished", replace_unknown_unicode)'
+
+tox_unmanaged:
+ - testenv
