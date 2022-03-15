@@ -83,20 +83,21 @@ def _get_project_links(project_name: str) -> List[str]:
 			if _DOCUMENTATION_RE.match(label):
 				urls.append(url)
 
-		urls.append(metadata.get("Home-Page"))
+		urls.append(metadata.get("Home-Page", ""))
 
 	except dist_meta.distributions.DistributionNotFoundError:
 		# Fall back to PyPI
 
 		with PyPIJSON() as client:
-			metadata = client.get_metadata(project_name).info
+			pypi_metadata = client.get_metadata(project_name).info
 
-		if "project_urls" in metadata and metadata["project_urls"]:
-			for label, url in metadata["project_urls"].items():
-				if _DOCUMENTATION_RE.match(label):
-					urls.append(url)
+			if "project_urls" in pypi_metadata and pypi_metadata["project_urls"]:
 
-		urls.append(metadata["home_page"])
+				for label, url in pypi_metadata["project_urls"].items():
+					if _DOCUMENTATION_RE.match(label):
+						urls.append(url)
+
+			urls.append(pypi_metadata["home_page"])
 
 	urls = [url.strip() for url in filter(None, urls)]
 	return urls
