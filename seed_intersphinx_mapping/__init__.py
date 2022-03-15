@@ -83,7 +83,7 @@ def _get_project_links(project_name: str) -> List[str]:
 			if _DOCUMENTATION_RE.match(label):
 				urls.append(url)
 
-		urls.append(metadata.get("Home-Page", ""))
+		urls.append(metadata.get("Home-Page", ''))
 
 	except dist_meta.distributions.DistributionNotFoundError:
 		# Fall back to PyPI
