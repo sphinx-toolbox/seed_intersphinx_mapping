@@ -25,12 +25,12 @@ expected_mapping_a = {
 		"packaging": ("https://packaging.pypa.io/en/stable/", None),
 		"requests": ("https://requests.readthedocs.io/en/latest/", None),
 		"slumber": ("https://slumber.readthedocs.io/en/v0.6.0/", None),
-		"sphinx": ("https://www.sphinx-doc.org/en/3.x/", None),
+		"sphinx": ("https://www.sphinx-doc.org/en/master/", None),
 		}
 bad_expected_mapping = {
 		"domdf-python-tools": ("https://domdf-python-tools.readthedocs.io/en/latest/", None),
-		"packaging": ("https://packaging.pypa.io/en/stable/", None),
-		"sphinx": ("https://www.sphinx-doc.org/en/3.x/", None),
+		"packaging": ("https://packaging.pypa.io/en/latest/", None),
+		"sphinx": ("https://www.sphinx-doc.org/en/master/", None),
 		}
 
 
@@ -50,12 +50,12 @@ def test_seed_intersphinx_mapping(
 
 	assert seed_intersphinx_mapping(*parse_requirements_txt(tmp_pathplus)) == expects
 	err = capsys.readouterr().err
-	assert err == "WARNING: Unable to determine documentation url for project sphinxcontrib-domaintools\n"
+	assert "WARNING: Unable to determine documentation url for project sphinxcontrib-domaintools\n" in err
 
 	requirements, comments, invalid = read_requirements(tmp_pathplus / "requirements.txt", include_invalid=True)
 	assert seed_intersphinx_mapping(*requirements) == expects
 	err = capsys.readouterr().err
-	assert err == "WARNING: Unable to determine documentation url for project sphinxcontrib-domaintools\n"
+	assert "WARNING: Unable to determine documentation url for project sphinxcontrib-domaintools\n" in err
 
 
 @pytest.mark.parametrize(
@@ -70,7 +70,7 @@ def test_seed_intersphinx_mapping_pyproject(tmp_pathplus: PathPlus, contents: st
 
 	assert seed_intersphinx_mapping(*parse_pyproject_toml(tmp_pathplus)) == expects
 	err = capsys.readouterr().err
-	assert err == "WARNING: Unable to determine documentation url for project sphinxcontrib-domaintools\n"
+	assert err.endswith("WARNING: Unable to determine documentation url for project sphinxcontrib-domaintools\n")
 
 
 @pytest.mark.parametrize(
@@ -85,7 +85,7 @@ def test_seed_intersphinx_mapping_flit(tmp_pathplus: PathPlus, contents: str, ex
 
 	assert seed_intersphinx_mapping(*parse_flit_requirements(tmp_pathplus)) == expects
 	err = capsys.readouterr().err
-	assert err == "WARNING: Unable to determine documentation url for project sphinxcontrib-domaintools\n"
+	assert err.endswith("WARNING: Unable to determine documentation url for project sphinxcontrib-domaintools\n")
 
 
 @pytest.mark.parametrize("pkg_requirements_source", ["requirements", "flit", "pyproject", "pyproject.toml"])
@@ -125,7 +125,8 @@ def test_sphinx_seed_intersphinx_mapping_mocked(
 	advanced_data_regression.check(config.intersphinx_mapping)
 
 	err = capsys.readouterr().err
-	assert err == "WARNING: Unable to determine documentation url for project sphinxcontrib-domaintools\n"
+
+	assert err.endswith("WARNING: Unable to determine documentation url for project sphinxcontrib-domaintools\n")
 
 
 def test_sphinx_seed_intersphinx_mapping_list_mocked(
