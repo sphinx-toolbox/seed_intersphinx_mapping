@@ -101,7 +101,7 @@ seed_intersphinx_mapping
 .. |language| image:: https://img.shields.io/github/languages/top/sphinx-toolbox/seed_intersphinx_mapping
 	:alt: GitHub top language
 
-.. |commits-since| image:: https://img.shields.io/github/commits-since/sphinx-toolbox/seed_intersphinx_mapping/v1.0.0
+.. |commits-since| image:: https://img.shields.io/github/commits-since/sphinx-toolbox/seed_intersphinx_mapping/v1.0.1
 	:target: https://github.com/sphinx-toolbox/seed_intersphinx_mapping/pulse
 	:alt: GitHub commits since tagged version
 
