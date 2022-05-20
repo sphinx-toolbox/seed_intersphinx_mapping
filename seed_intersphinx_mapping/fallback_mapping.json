@@ -28,7 +28,7 @@
   "scikit-learn": "https://scikit-learn.org/stable/",
   "six": "https://six.readthedocs.io/",
   "slumber": "https://slumber.readthedocs.io/en/v0.6.0/",
-  "sphinx": "https://www.sphinx-doc.org/en/3.x/",
+  "sphinx": "https://www.sphinx-doc.org/en/master/",
   "typing": "https://docs.python.org/3/",
   "typing-extensions": "https://docs.python.org/3/",
   "typing_extensions": "https://docs.python.org/3/",

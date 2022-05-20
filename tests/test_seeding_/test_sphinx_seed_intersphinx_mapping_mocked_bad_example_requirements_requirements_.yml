@@ -8,5 +8,5 @@ packaging:
   - - null
 sphinx:
 - sphinx
-- - https://www.sphinx-doc.org/en/3.x/
+- - https://www.sphinx-doc.org/en/master/
   - - null
