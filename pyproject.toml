@@ -26,7 +26,7 @@ Documentation = "https://seed_intersphinx_mapping.readthedocs.io/en/latest"
 
 [tool.whey]
 base-classifiers = [
-    "Development Status :: 4 - Beta",
+    "Development Status :: 5 - Production/Stable",
     "Framework :: Sphinx :: Extension",
     "Intended Audience :: Developers",
     "Topic :: Documentation",
