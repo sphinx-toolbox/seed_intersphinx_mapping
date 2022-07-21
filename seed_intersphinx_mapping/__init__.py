@@ -9,7 +9,7 @@ Populate the Sphinx 'intersphinx_mapping' dictionary from the project's requirem
 	The functions formerly in ``seed_intersphinx_mapping.core`` can now be found here.
 """
 #
-#  Copyright © 2020-2021 Dominic Davis-Foster <dominic@davis-foster.co.uk>
+#  Copyright © 2020-2022 Dominic Davis-Foster <dominic@davis-foster.co.uk>
 #
 #  Permission is hereby granted, free of charge, to any person obtaining a copy
 #  of this software and associated documentation files (the "Software"), to deal
@@ -39,7 +39,6 @@ from typing import Dict, Optional, Tuple, Union
 # 3rd party
 import dist_meta
 import requests
-from apeye.requests_url import RequestsURL
 from dist_meta.metadata_mapping import MetadataMapping
 from domdf_python_tools.compat import importlib_resources
 from domdf_python_tools.utils import stderr_writer
@@ -101,7 +100,7 @@ def get_sphinx_doc_url(pypi_name: str) -> str:
 	"""
 	Returns the URL to the given project's Sphinx documentation.
 
-	Not all projects include this URL in their distributions
+	Not all projects include this URL in their distributions,
 	and therefore it may not be possible to determine it from PyPI.
 
 	Responses are cached to prevent overloading the PyPI server.
@@ -131,7 +130,7 @@ def get_sphinx_doc_url(pypi_name: str) -> str:
 	for key, value in _get_project_links(pypi_name).items():
 
 		# Follow redirects to get actual URL
-		r = RequestsURL(value).head(allow_redirects=True, timeout=10)
+		r = requests.head(value, allow_redirects=True, timeout=10)
 		if r.status_code != 200:  # pragma: no cover
 			raise ValueError(f"Documentation URL not found: HTTP Status {r.status_code}.")
 
@@ -142,7 +141,7 @@ def get_sphinx_doc_url(pypi_name: str) -> str:
 		else:  # pragma: no cover
 			objects_inv_url = f"{docs_url}/objects.inv"
 
-		r = requests.head(objects_inv_url)
+		r = requests.head(objects_inv_url, allow_redirects=True, timeout=10)
 		if r.status_code != 200:
 			raise ValueError(f"objects.inv not found at url {objects_inv_url}: HTTP Status {r.status_code}.")
 
@@ -184,6 +183,12 @@ def seed_intersphinx_mapping(*requirements: Union[Requirement, str]) -> Dict[str
 
 		try:
 			doc_url = get_sphinx_doc_url(project_name)
+
+			if doc_url == "https://docs.python-requests.org/en/latest/":
+				# Stale cached response from before the domain change
+				cache.clear()
+				doc_url = get_sphinx_doc_url(project_name)
+
 			intersphinx_mapping[project_name] = (doc_url, None)
 		except (ValueError, requests.exceptions.ConnectionError, requests.exceptions.Timeout):
 			# Couldn't get it from PyPI, trying fallback mapping

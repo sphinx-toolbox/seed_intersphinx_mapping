@@ -23,7 +23,7 @@ expected_mapping_a = {
 		"domdf-python-tools": ("https://domdf-python-tools.readthedocs.io/en/latest/", None),
 		"numpy": ("https://numpy.org/doc/1.23/", None),
 		"packaging": ("https://packaging.pypa.io/en/latest/", None),
-		"requests": ("https://docs.python-requests.org/en/latest/", None),
+		"requests": ("https://requests.readthedocs.io/en/latest/", None),
 		"slumber": ("https://slumber.readthedocs.io/en/v0.6.0/", None),
 		"sphinx": ("https://www.sphinx-doc.org/en/3.x/", None),
 		}
