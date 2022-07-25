@@ -6,6 +6,7 @@
   "chardet": "https://chardet.readthedocs.io/en/latest",
   "cryptography": "https://cryptography.io/en/latest/",
   "dnspython": "https://dnspython.readthedocs.io/en/latest/",
+  "dulwich": "https://www.dulwich.io/docs/",
   "importlib-metadata": "https://importlib-metadata.readthedocs.io/en/latest/",
   "importlib-resources": "https://importlib-resources.readthedocs.io/en/latest/",
   "importlib_metadata": "https://importlib-metadata.readthedocs.io/en/latest/",
