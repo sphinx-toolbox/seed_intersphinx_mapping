@@ -60,8 +60,8 @@ seed_intersphinx_mapping
 		:workflow: mypy
 		:alt: mypy status
 
-	.. |requires| image:: https://dependency-dash.herokuapp.com/github/sphinx-toolbox/seed_intersphinx_mapping/badge.svg
-		:target: https://dependency-dash.herokuapp.com/github/sphinx-toolbox/seed_intersphinx_mapping/
+	.. |requires| image:: https://dependency-dash.repo-helper.uk/github/sphinx-toolbox/seed_intersphinx_mapping/badge.svg
+		:target: https://dependency-dash.repo-helper.uk/github/sphinx-toolbox/seed_intersphinx_mapping/
 		:alt: Requirements Status
 
 	.. |coveralls| coveralls-shield::
