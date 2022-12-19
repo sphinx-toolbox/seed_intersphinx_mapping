@@ -3,7 +3,7 @@ coverage>=5.1
 coverage-pyver-pragma>=0.2.1
 html5lib>=1.1
 importlib-metadata>=3.6.0
-numpy~=1.23.0; python_version >= "3.8"
+numpy~=1.24.0; python_version >= "3.8"
 pytest>=6.0.0
 pytest-cov>=2.8.1
 pytest-datafiles>=2.0
