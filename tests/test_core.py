@@ -32,6 +32,7 @@ def test_get_sphinx_doc_url():
 		get_sphinx_doc_url("sphinx-prompt")
 
 	assert get_sphinx_doc_url("numpy") in {
+			"https://numpy.org/doc/1.24/",
 			"https://numpy.org/doc/1.23/",
 			"https://numpy.org/doc/1.22/",
 			"https://numpy.org/doc/1.21/",
