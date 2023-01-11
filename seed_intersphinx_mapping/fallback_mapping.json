@@ -14,7 +14,7 @@
   "natsort": "https://natsort.readthedocs.io/en/master/",
   "numpy": "https://numpy.org/doc/stable/",
   "oauthlib": "https://oauthlib.readthedocs.io/en/latest/",
-  "packaging": "https://packaging.pypa.io/en/latest/",
+  "packaging": "https://packaging.pypa.io/en/stable/",
   "pandas": "https://pandas.pydata.org/docs/",
   "psutil": "https://psutil.readthedocs.io/en/latest/",
   "pydash": "https://pydash.readthedocs.io/en/latest/",

@@ -8,7 +8,7 @@ numpy:
   - - null
 packaging:
 - packaging
-- - https://packaging.pypa.io/en/latest/
+- - https://packaging.pypa.io/en/stable/
   - - null
 requests:
 - requests
