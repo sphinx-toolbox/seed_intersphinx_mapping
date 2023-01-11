@@ -60,6 +60,3 @@ extra_sphinx_extensions:
 sphinx_conf_epilogue:
  - "	from sphinx_toolbox.latex import replace_unknown_unicode"
  - '	app.connect("build-finished", replace_unknown_unicode)'
-
-tox_unmanaged:
- - testenv
