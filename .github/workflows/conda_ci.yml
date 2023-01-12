@@ -55,7 +55,7 @@ jobs:
 
       - name: "Install package"
         run: |
-          $CONDA/bin/conda install -c file://$(pwd)/conda-bld seed_intersphinx_mapping=1.1.0=py_1 -y || exit 1
+          $CONDA/bin/conda install -c file://$(pwd)/conda-bld seed_intersphinx_mapping=1.2.0=py_1 -y || exit 1
 
       - name: "Run Tests"
         run: |
