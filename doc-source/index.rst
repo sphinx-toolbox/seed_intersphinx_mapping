@@ -33,7 +33,7 @@ seed_intersphinx_mapping
 		  - |license| |language| |requires|
 
 	.. |docs| rtfd-shield::
-		:project: seed_intersphinx_mapping
+		:project: seed-intersphinx-mapping
 		:alt: Documentation Build Status
 
 	.. |docs_check| actions-shield::
