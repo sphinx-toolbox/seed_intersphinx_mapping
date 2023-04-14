@@ -22,7 +22,7 @@ file = "LICENSE"
 Homepage = "https://github.com/sphinx-toolbox/seed_intersphinx_mapping"
 "Issue Tracker" = "https://github.com/sphinx-toolbox/seed_intersphinx_mapping/issues"
 "Source Code" = "https://github.com/sphinx-toolbox/seed_intersphinx_mapping"
-Documentation = "https://seed_intersphinx_mapping.readthedocs.io/en/latest"
+Documentation = "https://seed-intersphinx-mapping.readthedocs.io/en/latest"
 
 [tool.whey]
 base-classifiers = [
