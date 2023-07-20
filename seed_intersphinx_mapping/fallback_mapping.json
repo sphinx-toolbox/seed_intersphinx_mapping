@@ -31,8 +31,8 @@
   "slumber": "https://slumber.readthedocs.io/en/v0.6.0/",
   "sphinx": "https://www.sphinx-doc.org/en/3.x/",
   "typing": "https://docs.python.org/3/",
-  "typing-extensions": "https://docs.python.org/3/",
-  "typing_extensions": "https://docs.python.org/3/",
+  "typing-extensions": "https://typing-extensions.readthedocs.io/en/latest/",
+  "typing_extensions": "https://typing-extensions.readthedocs.io/en/latest/",
   "yarl": "https://yarl.readthedocs.io/en/latest/",
   "zipp": "https://zipp.readthedocs.io/en/latest/"
 }
