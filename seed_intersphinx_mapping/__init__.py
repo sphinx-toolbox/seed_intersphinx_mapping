@@ -52,7 +52,7 @@ from seed_intersphinx_mapping.extension import setup
 __author__: str = "Dominic Davis-Foster"
 __copyright__: str = "2020 Dominic Davis-Foster"
 __license__: str = "MIT License"
-__version__: str = "1.2.1"
+__version__: str = "1.2.2"
 __email__: str = "dominic@davis-foster.co.uk"
 
 __all__ = ["get_sphinx_doc_url", "fallback_mapping", "seed_intersphinx_mapping"]
