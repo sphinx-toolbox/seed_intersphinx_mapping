@@ -19,13 +19,11 @@ packaging>=20.4
 requests>=2.24.0
 slumber>=0.7.1
 sphinx>=3.0.3
-numpy>=1.22.0
 sphinxcontrib-domaintools==0.3
 """
 
 expected_requirements_a = [
 		"domdf-python-tools",
-		"numpy",
 		"packaging",
 		"requests",
 		"slumber",

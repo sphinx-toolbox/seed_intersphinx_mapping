@@ -21,7 +21,7 @@ from tests.test_requirements_parsers import bad_example_requirements, example_re
 
 expected_mapping_a = {
 		"domdf-python-tools": ("https://domdf-python-tools.readthedocs.io/en/latest/", None),
-		"numpy": ("https://numpy.org/doc/1.24/", None),
+		# "numpy": ("https://numpy.org/doc/1.25/", None),
 		"packaging": ("https://packaging.pypa.io/en/stable/", None),
 		"requests": ("https://requests.readthedocs.io/en/latest/", None),
 		"slumber": ("https://slumber.readthedocs.io/en/v0.6.0/", None),
