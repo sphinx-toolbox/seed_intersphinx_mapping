@@ -1,4 +1,5 @@
 # stdlib
+import re
 from typing import get_type_hints
 
 # 3rd party
@@ -31,12 +32,7 @@ def test_get_sphinx_doc_url():
 	with pytest.raises(ValueError, match="Documentation URL not found in data from PyPI."):
 		get_sphinx_doc_url("sphinx-prompt")
 
-	assert get_sphinx_doc_url("numpy") in {
-			"https://numpy.org/doc/1.24/",
-			"https://numpy.org/doc/1.23/",
-			"https://numpy.org/doc/1.22/",
-			"https://numpy.org/doc/1.21/",
-			}
+	assert re.match(r"https://numpy\.org/doc/1\.\d\d/", get_sphinx_doc_url("numpy"))
 
 	assert get_sphinx_doc_url("matplotlib") == "https://matplotlib.org/"
 

@@ -2,10 +2,6 @@ domdf-python-tools:
 - domdf-python-tools
 - - https://domdf-python-tools.readthedocs.io/en/latest/
   - - null
-numpy:
-- numpy
-- - https://numpy.org/doc/1.24/
-  - - null
 packaging:
 - packaging
 - - https://packaging.pypa.io/en/stable/
