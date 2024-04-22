@@ -2,8 +2,8 @@
 from typing import List
 
 # 3rd party
+import dom_toml
 import pytest
-import toml
 from domdf_python_tools.paths import PathPlus
 
 # this package
@@ -76,7 +76,7 @@ def test_seed_intersphinx_mapping_pyproject(
 		expects: List[str],
 		):
 	data = {"project": {"dependencies": contents.splitlines()}}
-	(tmp_pathplus / "pyproject.toml").write_clean(toml.dumps(data))
+	(tmp_pathplus / "pyproject.toml").write_clean(dom_toml.dumps(data))
 
 	assert parse_pyproject_toml(tmp_pathplus) == expects
 
@@ -93,6 +93,6 @@ def test_seed_intersphinx_mapping_flit(
 		expects: List[str],
 		):
 	data = {"tool": {"flit": {"metadata": {"requires": contents.splitlines()}}}}
-	(tmp_pathplus / "pyproject.toml").write_clean(toml.dumps(data))
+	(tmp_pathplus / "pyproject.toml").write_clean(dom_toml.dumps(data))
 
 	assert parse_flit_requirements(tmp_pathplus) == expects

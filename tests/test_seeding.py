@@ -3,8 +3,8 @@ from types import SimpleNamespace
 from typing import List
 
 # 3rd party
+import dom_toml
 import pytest
-import toml
 from coincidence import AdvancedDataRegressionFixture
 from domdf_python_tools.paths import PathPlus
 from shippinglabel.requirements import read_requirements
@@ -66,7 +66,7 @@ def test_seed_intersphinx_mapping(
 		)
 def test_seed_intersphinx_mapping_pyproject(tmp_pathplus: PathPlus, contents: str, expects: List[str], capsys):
 	data = {"project": {"dependencies": contents.splitlines()}}
-	(tmp_pathplus / "pyproject.toml").write_clean(toml.dumps(data))
+	(tmp_pathplus / "pyproject.toml").write_clean(dom_toml.dumps(data))
 
 	assert seed_intersphinx_mapping(*parse_pyproject_toml(tmp_pathplus)) == expects
 	err = capsys.readouterr().err
@@ -81,7 +81,7 @@ def test_seed_intersphinx_mapping_pyproject(tmp_pathplus: PathPlus, contents: st
 		)
 def test_seed_intersphinx_mapping_flit(tmp_pathplus: PathPlus, contents: str, expects: List[str], capsys):
 	data = {"tool": {"flit": {"metadata": {"requires": contents.splitlines()}}}}
-	(tmp_pathplus / "pyproject.toml").write_clean(toml.dumps(data))
+	(tmp_pathplus / "pyproject.toml").write_clean(dom_toml.dumps(data))
 
 	assert seed_intersphinx_mapping(*parse_flit_requirements(tmp_pathplus)) == expects
 	err = capsys.readouterr().err
@@ -109,7 +109,7 @@ def test_sphinx_seed_intersphinx_mapping_mocked(
 			"tool": {"flit": {"metadata": {"requires": contents.splitlines()}}}
 			}
 
-	(tmp_pathplus / "pyproject.toml").write_clean(toml.dumps(data))
+	(tmp_pathplus / "pyproject.toml").write_clean(dom_toml.dumps(data))
 	(tmp_pathplus / "requirements.txt").write_text(contents)
 
 	app = SimpleNamespace()
