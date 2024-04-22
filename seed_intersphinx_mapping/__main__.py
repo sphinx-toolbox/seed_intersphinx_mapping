@@ -35,7 +35,7 @@ from seed_intersphinx_mapping import cache, get_sphinx_doc_url
 __all__ = ["clear_cache"]
 
 
-def clear_cache():
+def clear_cache() -> int:
 	"""
 	Clear any cached URLs.
 	"""

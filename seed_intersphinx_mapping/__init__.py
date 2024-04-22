@@ -47,7 +47,7 @@ from pypi_json import PyPIJSON
 
 # this package
 from seed_intersphinx_mapping.cache import cache
-from seed_intersphinx_mapping.extension import setup
+from seed_intersphinx_mapping.extension import setup  # noqa: F401
 
 __author__: str = "Dominic Davis-Foster"
 __copyright__: str = "2020 Dominic Davis-Foster"

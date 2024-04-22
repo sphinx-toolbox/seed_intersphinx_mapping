@@ -1,6 +1,7 @@
 # 3rd party
 import pytest
 from domdf_python_tools.paths import PathPlus
+from sphinx.application import Sphinx
 
 
 @pytest.fixture()
@@ -17,7 +18,7 @@ appdirs
 
 
 @pytest.mark.usefixtures("requirements")
-def test_integration(the_app):
+def test_integration(the_app: Sphinx):
 	# app is a Sphinx application object for default sphinx project (`tests/doc-test/test-root`).
 	the_app.build()
 

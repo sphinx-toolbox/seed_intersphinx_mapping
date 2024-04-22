@@ -16,13 +16,13 @@ class MockApp:
 		self.directives = []
 		self.connections = []
 
-	def add_config_value(self, *args, **kwargs):
+	def add_config_value(self, *args, **kwargs) -> None:
 		self.config_values.append(args)
 
-	def add_directive(self, *args, **kwargs):
+	def add_directive(self, *args, **kwargs) -> None:
 		self.directives.append(args)
 
-	def connect(self, *args, **kwargs):
+	def connect(self, *args, **kwargs) -> None:
 		self.connections.append(args)
 
 
