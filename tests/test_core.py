@@ -35,10 +35,7 @@ def test_get_sphinx_doc_url():
 
 	if sys.version_info[:2] != (3, 8):
 		# Latest numpy's "Documentation" url doesn't point to Sphinx docs.
-		with pytest.raises(
-				ValueError,
-				match="Documentation URL not found in data from PyPI."
-				):
+		with pytest.raises(ValueError, match="Documentation URL not found in data from PyPI."):
 			get_sphinx_doc_url("numpy")
 	else:
 		assert re.match(r"https://numpy\.org/doc/1\.\d\d/", get_sphinx_doc_url("numpy"))
