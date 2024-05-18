@@ -29,7 +29,7 @@ expected_mapping_a = {
 		}
 bad_expected_mapping = {
 		"domdf-python-tools": ("https://domdf-python-tools.readthedocs.io/en/latest/", None),
-		"packaging": ("https://packaging.pypa.io/en/latest/", None),
+		"packaging": ("https://packaging.pypa.io/en/stable/", None),
 		"sphinx": ("https://www.sphinx-doc.org/en/master/", None),
 		}
 
