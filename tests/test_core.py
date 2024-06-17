@@ -57,5 +57,11 @@ def test_get_sphinx_doc_url_wrapping():
 	assert get_type_hints(get_sphinx_doc_url) == {"pypi_name": str, "return": str}
 
 	assert get_sphinx_doc_url.__defaults__ is None
-	assert get_sphinx_doc_url.__doc__.startswith("\n	Returns the URL to the given project's Sphinx documentation.")
+	if sys.version_info >= (3, 13):
+		start_string = "\nReturns the URL to the given project's Sphinx documentation."
+	else:
+		start_string = "\n	Returns the URL to the given project's Sphinx documentation."
+
+	assert get_sphinx_doc_url.__doc__.startswith(start_string)
+
 	assert get_sphinx_doc_url.__wrapped__
