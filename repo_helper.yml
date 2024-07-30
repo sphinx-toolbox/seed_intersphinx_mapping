@@ -63,3 +63,8 @@ extra_sphinx_extensions:
 sphinx_conf_epilogue:
  - "	from sphinx_toolbox.latex import replace_unknown_unicode"
  - '	app.connect("build-finished", replace_unknown_unicode)'
+
+github_ci_requirements:
+ Windows:
+  post:
+   - choco install mingw -y
