@@ -10,7 +10,7 @@ import requests
 # this package
 from seed_intersphinx_mapping import get_sphinx_doc_url
 
-url = "https://hugovk.github.io/top-pypi-packages/top-pypi-packages-30-days.json"
+url = "https://hugovk.github.io/top-pypi-packages/top-pypi-packages.json"
 top_packages = [p["project"] for p in requests.get(url).json()["rows"]]
 
 print(top_packages)
