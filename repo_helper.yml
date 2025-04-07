@@ -21,7 +21,6 @@ conda_channels:
  - conda-forge
 
 python_versions:
- - '3.6'
  - '3.7'
  - '3.8'
  - '3.9'
@@ -29,7 +28,6 @@ python_versions:
  - "3.11"
  - "3.12"
  - 3.13-dev
- - pypy36
  - pypy37
  - pypy38
  - pypy39
