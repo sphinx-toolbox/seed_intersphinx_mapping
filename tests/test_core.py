@@ -24,7 +24,7 @@ def test_get_sphinx_doc_url():
 	with pytest.raises(ValueError, match="Documentation URL not found in data from PyPI."):
 		get_sphinx_doc_url("slumber")
 
-	with pytest.raises(ValueError, match="objects.inv not found at url .*: HTTP Status 404"):
+	with pytest.raises(ValueError, match="Documentation URL not found in data from PyPI."):
 		get_sphinx_doc_url("autodoc_pydantic")
 
 	assert cache.clear(get_sphinx_doc_url)
@@ -35,10 +35,7 @@ def test_get_sphinx_doc_url():
 
 	if sys.version_info[:2] != (3, 8):
 		# Latest numpy's "Documentation" url doesn't point to Sphinx docs.
-		with pytest.raises(
-				ValueError,
-				match="objects.inv not found at url https://numpy.org/doc/objects.inv: HTTP Status 404."
-				):
+		with pytest.raises(ValueError, match="Documentation URL not found in data from PyPI."):
 			get_sphinx_doc_url("numpy")
 	else:
 		assert re.match(r"https://numpy\.org/doc/1\.\d\d/", get_sphinx_doc_url("numpy"))
