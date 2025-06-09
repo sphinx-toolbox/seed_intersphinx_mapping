@@ -120,7 +120,7 @@ def test_sphinx_seed_intersphinx_mapping_mocked(
 	config.pkg_requirements_source = pkg_requirements_source
 	config.repository_root = '.'
 
-	sphinx_seed_intersphinx_mapping(app, config)  # type: ignore
+	sphinx_seed_intersphinx_mapping(app, config)  # type: ignore[arg-type]
 
 	advanced_data_regression.check(config.intersphinx_mapping)
 
@@ -154,6 +154,6 @@ def test_sphinx_seed_intersphinx_mapping_list_mocked(
 			]
 	config.repository_root = '.'
 
-	sphinx_seed_intersphinx_mapping(app, config)  # type: ignore
+	sphinx_seed_intersphinx_mapping(app, config)  # type: ignore[arg-type]
 
 	advanced_data_regression.check(config.intersphinx_mapping)

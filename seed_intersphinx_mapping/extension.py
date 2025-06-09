@@ -78,7 +78,7 @@ def sphinx_seed_intersphinx_mapping(app: Sphinx, config: Config) -> None:
 	from seed_intersphinx_mapping import seed_intersphinx_mapping
 
 	repo_root = os.path.abspath(pathlib.Path(app.srcdir) / config.repository_root)
-	config.repository_root = repo_root  # type: ignore
+	config.repository_root = repo_root  # type: ignore[attr-defined]
 
 	if isinstance(config.pkg_requirements_source, list):
 		requirements = []
