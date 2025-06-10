@@ -35,7 +35,7 @@ jobs:
           - {python-version: "3.10", testenvs: "py310,build", experimental: False}
           - {python-version: "3.11", testenvs: "py311,build", experimental: False}
           - {python-version: "3.12", testenvs: "py312,build", experimental: False}
-          - {python-version: "3.13", testenvs: "py313-dev,build", experimental: True}
+          - {python-version: "3.13", testenvs: "py313,build", experimental: False}
           - {python-version: "pypy-3.7", testenvs: "pypy37,build", experimental: False}
           - {python-version: "pypy-3.8", testenvs: "pypy38,build", experimental: False}
           - {python-version: "pypy-3.9", testenvs: "pypy39,build", experimental: True}
