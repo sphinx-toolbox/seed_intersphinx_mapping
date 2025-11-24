@@ -11,6 +11,7 @@
   "importlib-resources": "https://importlib-resources.readthedocs.io/en/latest/",
   "importlib_metadata": "https://importlib-metadata.readthedocs.io/en/latest/",
   "importlib_resources": "https://importlib-resources.readthedocs.io/en/latest/",
+  "mutagen": "https://mutagen.readthedocs.io/en/latest/",
   "natsort": "https://natsort.readthedocs.io/en/master/",
   "numpy": "https://numpy.org/doc/stable/",
   "oauthlib": "https://oauthlib.readthedocs.io/en/latest/",
