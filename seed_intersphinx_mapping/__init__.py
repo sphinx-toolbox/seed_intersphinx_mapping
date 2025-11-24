@@ -33,8 +33,10 @@ Populate the Sphinx 'intersphinx_mapping' dictionary from the project's requirem
 # stdlib
 import functools
 import json
+import os.path
 import re
 from typing import Dict, Optional, Tuple, Union
+from urllib.parse import urlparse
 
 # 3rd party
 import dist_meta
@@ -74,23 +76,28 @@ def _get_project_links(project_name: str) -> MetadataMapping:
 	# Try a local package first
 	try:
 		dist = dist_meta.distributions.get_distribution(project_name)
-		raw_urls = dist.get_metadata().get_all("Project-URL", default=())
+		metadata = dist.get_metadata()
+		raw_urls = metadata.get_all("Project-URL", default=())
 
 		for url in raw_urls:
-			label, url, *_ = map(str.strip, url.split(','))
+			label, url = map(str.strip, url.split(',', 1))
 			if _DOCUMENTATION_RE.match(label):
 				urls[label] = url
+
+		urls["Home-Page"] = metadata.get("Home-Page", '')
 
 	except dist_meta.distributions.DistributionNotFoundError:
 		# Fall back to PyPI
 
 		with PyPIJSON() as client:
-			metadata = client.get_metadata(project_name).info
+			pypi_metadata = client.get_metadata(project_name).info
 
-		if "project_urls" in metadata and metadata["project_urls"]:
-			for label, url in metadata["project_urls"].items():
+		if "project_urls" in pypi_metadata and pypi_metadata["project_urls"]:
+			for label, url in pypi_metadata["project_urls"].items():
 				if _DOCUMENTATION_RE.match(label):
 					urls[label] = url
+
+		urls["Homepage"] = pypi_metadata.get("home_page", '')
 
 	return urls
 
@@ -127,25 +134,27 @@ def get_sphinx_doc_url(pypi_name: str) -> str:
 		:exc:`apeye.slumber_url.exceptions.HttpNotFoundError` if the project could not be found on PyPI.
 	"""
 
-	for key, value in _get_project_links(pypi_name).items():
+	docs_urls = []
+	for value in _get_project_links(pypi_name).values():
+		if not value:
+			continue
 
 		# Follow redirects to get actual URL
 		r = requests.head(value, allow_redirects=True, timeout=10)
-		if r.status_code != 200:  # pragma: no cover
-			raise ValueError(f"Documentation URL not found: HTTP Status {r.status_code}.")
 
-		docs_url = r.url
+		if r.status_code == 200:
+			has_extension = os.path.splitext(urlparse(r.url).path)[-1]
+			url = os.path.dirname(r.url) if has_extension else r.url
+			docs_urls.append(url)
 
-		if docs_url.endswith('/'):
-			objects_inv_url = f"{docs_url}objects.inv"
-		else:  # pragma: no cover
-			objects_inv_url = f"{docs_url}/objects.inv"
+	for docs_url in docs_urls:
+		objects_inv_url = f"{docs_url.rstrip('/')}/objects.inv"
 
 		r = requests.head(objects_inv_url, allow_redirects=True, timeout=10)
 		if r.status_code != 200:
-			raise ValueError(f"objects.inv not found at url {objects_inv_url}: HTTP Status {r.status_code}.")
-
-		return docs_url
+			stderr_writer(f"WARNING: objects.inv not found at url {objects_inv_url}: HTTP Status {r.status_code}.")
+		else:
+			return docs_url
 
 	raise ValueError("Documentation URL not found in data from PyPI.")
 
