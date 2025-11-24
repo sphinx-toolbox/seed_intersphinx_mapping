@@ -107,7 +107,7 @@ seed_intersphinx_mapping
 		:alt: GitHub top language
 
 	.. |commits-since| github-shield::
-		:commits-since: v1.2.2
+		:commits-since: v1.3.0
 		:alt: GitHub commits since tagged version
 
 	.. |commits-latest| github-shield::
