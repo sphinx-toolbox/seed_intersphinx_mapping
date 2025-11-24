@@ -35,12 +35,13 @@ import functools
 import json
 import os.path
 import re
-from typing import Dict, List, Optional, Tuple, Union
+from typing import Dict, Optional, Tuple, Union
 from urllib.parse import urlparse
 
 # 3rd party
 import dist_meta
 import requests
+from dist_meta.metadata_mapping import MetadataMapping
 from domdf_python_tools.compat import importlib_resources
 from domdf_python_tools.utils import stderr_writer
 from packaging.requirements import Requirement
@@ -61,7 +62,7 @@ __all__ = ["get_sphinx_doc_url", "fallback_mapping", "seed_intersphinx_mapping"]
 _DOCUMENTATION_RE = re.compile(r"^[dD]oc(s|umentation)")
 
 
-def _get_project_links(project_name: str) -> List[str]:
+def _get_project_links(project_name: str) -> MetadataMapping:
 	"""
 	Returns the web links for the given project.
 
@@ -70,7 +71,7 @@ def _get_project_links(project_name: str) -> List[str]:
 	:param project_name:
 	"""
 
-	urls = []
+	urls = MetadataMapping()
 
 	# Try a local package first
 	try:
@@ -79,11 +80,11 @@ def _get_project_links(project_name: str) -> List[str]:
 		raw_urls = metadata.get_all("Project-URL", default=())
 
 		for url in raw_urls:
-			label, url = url.split(',', 1)
+			label, url = map(str.strip, url.split(',', 1))
 			if _DOCUMENTATION_RE.match(label):
-				urls.append(url)
+				urls[label] = url
 
-		urls.append(metadata.get("Home-Page", ''))
+		urls["Home-Page"] = metadata.get("Home-Page", '')
 
 	except dist_meta.distributions.DistributionNotFoundError:
 		# Fall back to PyPI
@@ -91,15 +92,13 @@ def _get_project_links(project_name: str) -> List[str]:
 		with PyPIJSON() as client:
 			pypi_metadata = client.get_metadata(project_name).info
 
-			if "project_urls" in pypi_metadata and pypi_metadata["project_urls"]:
+		if "project_urls" in pypi_metadata and pypi_metadata["project_urls"]:
+			for label, url in pypi_metadata["project_urls"].items():
+				if _DOCUMENTATION_RE.match(label):
+					urls[label] = url
 
-				for label, url in pypi_metadata["project_urls"].items():
-					if _DOCUMENTATION_RE.match(label):
-						urls.append(url)
+		urls["Homepage"] = pypi_metadata.get("home_page", '')
 
-			urls.append(pypi_metadata["home_page"])
-
-	urls = [url.strip() for url in filter(None, urls)]
 	return urls
 
 
@@ -136,7 +135,10 @@ def get_sphinx_doc_url(pypi_name: str) -> str:
 	"""
 
 	docs_urls = []
-	for value in _get_project_links(pypi_name):
+	for value in _get_project_links(pypi_name).values():
+		if not value:
+			continue
+
 		# Follow redirects to get actual URL
 		r = requests.head(value, allow_redirects=True, timeout=10)
 

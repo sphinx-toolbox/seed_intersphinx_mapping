@@ -125,7 +125,6 @@ def test_sphinx_seed_intersphinx_mapping_mocked(
 	advanced_data_regression.check(config.intersphinx_mapping)
 
 	err = capsys.readouterr().err
-
 	assert err.endswith("WARNING: Unable to determine documentation url for project sphinxcontrib-domaintools\n")
 
 
