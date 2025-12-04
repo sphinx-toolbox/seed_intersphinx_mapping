@@ -23,16 +23,22 @@ conda_channels:
  - conda-forge
 
 python_versions:
- - '3.7'
- - '3.8'
- - '3.9'
- - "3.10"
- - "3.11"
- - "3.12"
- - 3.13-dev
- - pypy37
- - pypy38
- - pypy39
+ '3.7':
+ '3.8':
+ '3.9':
+ "3.10":
+ "3.11":
+ "3.12":
+ "3.13":
+ pypy37:
+ pypy38:
+  platforms:
+    - Linux
+    - macOS
+ pypy39:
+  platforms:
+    - Linux
+    - macOS
 
 manifest_additional:
  - "include seed_intersphinx_mapping/fallback_mapping.json"
