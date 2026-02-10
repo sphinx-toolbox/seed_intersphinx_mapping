@@ -70,20 +70,20 @@ seed_intersphinx_mapping
 	:target: https://www.codefactor.io/repository/github/sphinx-toolbox/seed_intersphinx_mapping
 	:alt: CodeFactor Grade
 
-.. |pypi-version| image:: https://img.shields.io/pypi/v/seed_intersphinx_mapping
-	:target: https://pypi.org/project/seed_intersphinx_mapping/
+.. |pypi-version| image:: https://img.shields.io/pypi/v/seed-intersphinx-mapping
+	:target: https://pypi.org/project/seed-intersphinx-mapping/
 	:alt: PyPI - Package Version
 
-.. |supported-versions| image:: https://img.shields.io/pypi/pyversions/seed_intersphinx_mapping?logo=python&logoColor=white
-	:target: https://pypi.org/project/seed_intersphinx_mapping/
+.. |supported-versions| image:: https://img.shields.io/pypi/pyversions/seed-intersphinx-mapping?logo=python&logoColor=white
+	:target: https://pypi.org/project/seed-intersphinx-mapping/
 	:alt: PyPI - Supported Python Versions
 
-.. |supported-implementations| image:: https://img.shields.io/pypi/implementation/seed_intersphinx_mapping
-	:target: https://pypi.org/project/seed_intersphinx_mapping/
+.. |supported-implementations| image:: https://img.shields.io/pypi/implementation/seed-intersphinx-mapping
+	:target: https://pypi.org/project/seed-intersphinx-mapping/
 	:alt: PyPI - Supported Implementations
 
-.. |wheel| image:: https://img.shields.io/pypi/wheel/seed_intersphinx_mapping
-	:target: https://pypi.org/project/seed_intersphinx_mapping/
+.. |wheel| image:: https://img.shields.io/pypi/wheel/seed-intersphinx-mapping
+	:target: https://pypi.org/project/seed-intersphinx-mapping/
 	:alt: PyPI - Wheel
 
 .. |conda-version| image:: https://img.shields.io/conda/v/domdfcoding/seed_intersphinx_mapping?logo=anaconda
@@ -109,11 +109,11 @@ seed_intersphinx_mapping
 	:target: https://github.com/sphinx-toolbox/seed_intersphinx_mapping/commit/master
 	:alt: GitHub last commit
 
-.. |maintained| image:: https://img.shields.io/maintenance/yes/2025
+.. |maintained| image:: https://img.shields.io/maintenance/yes/2026
 	:alt: Maintenance
 
-.. |pypi-downloads| image:: https://img.shields.io/pypi/dm/seed_intersphinx_mapping
-	:target: https://pypi.org/project/seed_intersphinx_mapping/
+.. |pypi-downloads| image:: https://img.shields.io/pypi/dm/seed-intersphinx-mapping
+	:target: https://pypistats.org/packages/seed-intersphinx-mapping
 	:alt: PyPI - Downloads
 
 .. end shields
@@ -158,7 +158,7 @@ To install with ``pip``:
 
 .. code-block:: bash
 
-	$ python -m pip install seed_intersphinx_mapping
+	$ python -m pip install seed-intersphinx-mapping
 
 To install with ``conda``:
 

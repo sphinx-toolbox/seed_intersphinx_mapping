@@ -71,22 +71,22 @@ seed_intersphinx_mapping
 		:alt: CodeFactor Grade
 
 	.. |pypi-version| pypi-shield::
-		:project: seed_intersphinx_mapping
+		:project: seed-intersphinx-mapping
 		:version:
 		:alt: PyPI - Package Version
 
 	.. |supported-versions| pypi-shield::
-		:project: seed_intersphinx_mapping
+		:project: seed-intersphinx-mapping
 		:py-versions:
 		:alt: PyPI - Supported Python Versions
 
 	.. |supported-implementations| pypi-shield::
-		:project: seed_intersphinx_mapping
+		:project: seed-intersphinx-mapping
 		:implementations:
 		:alt: PyPI - Supported Implementations
 
 	.. |wheel| pypi-shield::
-		:project: seed_intersphinx_mapping
+		:project: seed-intersphinx-mapping
 		:wheel:
 		:alt: PyPI - Wheel
 
@@ -114,11 +114,11 @@ seed_intersphinx_mapping
 		:last-commit:
 		:alt: GitHub last commit
 
-	.. |maintained| maintained-shield:: 2025
+	.. |maintained| maintained-shield:: 2026
 		:alt: Maintenance
 
 	.. |pypi-downloads| pypi-shield::
-		:project: seed_intersphinx_mapping
+		:project: seed-intersphinx-mapping
 		:downloads: month
 		:alt: PyPI - Downloads
 

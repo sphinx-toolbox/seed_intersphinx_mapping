@@ -3,7 +3,7 @@ requires = [ "whey",]
 build-backend = "whey"
 
 [project]
-name = "seed_intersphinx_mapping"
+name = "seed-intersphinx-mapping"
 version = "1.3.0"
 description = "Populate the Sphinx 'intersphinx_mapping' dictionary from the project's requirements."
 readme = "README.rst"
@@ -38,6 +38,7 @@ python-implementations = [ "CPython", "PyPy",]
 platforms = [ "Windows", "macOS", "Linux",]
 license-key = "MIT"
 additional-files = [ "include seed_intersphinx_mapping/fallback_mapping.json",]
+package = "seed_intersphinx_mapping"
 
 [tool.mkrecipe]
 conda-channels = [ "conda-forge", "domdfcoding",]
