@@ -35,10 +35,11 @@ bad_expected_mapping = {
 
 
 @pytest.mark.parametrize(
-		"contents, expects", [
+		"contents, expects",
+		[
 				(example_requirements_a, expected_mapping_a),
 				(bad_example_requirements, bad_expected_mapping),
-				]
+				],
 		)
 def test_seed_intersphinx_mapping(
 		tmp_pathplus: PathPlus,
@@ -59,10 +60,11 @@ def test_seed_intersphinx_mapping(
 
 
 @pytest.mark.parametrize(
-		"contents, expects", [
+		"contents, expects",
+		[
 				(example_requirements_a, expected_mapping_a),
 				(bad_example_requirements, bad_expected_mapping),
-				]
+				],
 		)
 def test_seed_intersphinx_mapping_pyproject(tmp_pathplus: PathPlus, contents: str, expects: List[str], capsys):
 	data = {"project": {"dependencies": contents.splitlines()}}
@@ -74,10 +76,11 @@ def test_seed_intersphinx_mapping_pyproject(tmp_pathplus: PathPlus, contents: st
 
 
 @pytest.mark.parametrize(
-		"contents, expects", [
+		"contents, expects",
+		[
 				(example_requirements_a, expected_mapping_a),
 				(bad_example_requirements, bad_expected_mapping),
-				]
+				],
 		)
 def test_seed_intersphinx_mapping_flit(tmp_pathplus: PathPlus, contents: str, expects: List[str], capsys):
 	data = {"tool": {"flit": {"metadata": {"requires": contents.splitlines()}}}}
@@ -94,19 +97,19 @@ def test_seed_intersphinx_mapping_flit(tmp_pathplus: PathPlus, contents: str, ex
 		[
 				pytest.param(example_requirements_a, id="example_requirements_a"),
 				pytest.param(bad_example_requirements, id="bad_example_requirements"),
-				]
+				],
 		)
 def test_sphinx_seed_intersphinx_mapping_mocked(
 		tmp_pathplus: PathPlus,
 		capsys,
 		contents: str,
 		advanced_data_regression: AdvancedDataRegressionFixture,
-		pkg_requirements_source: str
+		pkg_requirements_source: str,
 		):
 
 	data = {
 			"project": {"dependencies": contents.splitlines()},
-			"tool": {"flit": {"metadata": {"requires": contents.splitlines()}}}
+			"tool": {"flit": {"metadata": {"requires": contents.splitlines()}}},
 			}
 
 	(tmp_pathplus / "pyproject.toml").write_clean(dom_toml.dumps(data))

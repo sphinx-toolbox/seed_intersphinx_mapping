@@ -48,7 +48,7 @@ def parse_requirements_txt(base_dir: PathLike) -> List[str]:
 	requirements, comments, invalid = read_requirements(
 		req_file=PathPlus(base_dir) / "requirements.txt",
 		include_invalid=True,
-		)
+	)
 
 	return sorted(map(attrgetter("name"), requirements))
 
