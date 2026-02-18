@@ -49,10 +49,11 @@ bad_expected_requirements = [
 
 
 @pytest.mark.parametrize(
-		"contents, expects", [
+		"contents, expects",
+		[
 				(example_requirements_a, expected_requirements_a),
 				(bad_example_requirements, bad_expected_requirements),
-				]
+				],
 		)
 def test_parse_requirements_txt(
 		tmp_pathplus: PathPlus,
@@ -65,10 +66,11 @@ def test_parse_requirements_txt(
 
 
 @pytest.mark.parametrize(
-		"contents, expects", [
+		"contents, expects",
+		[
 				(example_requirements_a, expected_requirements_a),
 				(bad_example_requirements, bad_expected_requirements),
-				]
+				],
 		)
 def test_seed_intersphinx_mapping_pyproject(
 		tmp_pathplus: PathPlus,
@@ -82,10 +84,11 @@ def test_seed_intersphinx_mapping_pyproject(
 
 
 @pytest.mark.parametrize(
-		"contents, expects", [
+		"contents, expects",
+		[
 				(example_requirements_a, expected_requirements_a),
 				(bad_example_requirements, bad_expected_requirements),
-				]
+				],
 		)
 def test_seed_intersphinx_mapping_flit(
 		tmp_pathplus: PathPlus,

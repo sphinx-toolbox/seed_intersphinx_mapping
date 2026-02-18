@@ -7,4 +7,4 @@ License
 .. license-info:: MIT
 
 .. license::
-	:py: seed_intersphinx_mapping
+	:py: seed-intersphinx-mapping
